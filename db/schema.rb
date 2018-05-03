@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501183933) do
+ActiveRecord::Schema.define(version: 20180503124642) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20180501183933) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "linked_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "article_id"
+    t.integer "article_a_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_a_id"], name: "index_linked_articles_on_article_a_id"
+    t.index ["article_id"], name: "index_linked_articles_on_article_id"
   end
 
   add_foreign_key "articles", "categories"

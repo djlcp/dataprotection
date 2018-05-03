@@ -16,9 +16,14 @@
     <%= form.text_field :title, id: :category_title %>
   </div>
 
+
   <div class="field">
     <%= form.label :group_id %>
-    <%= form.text_field :group_id, id: :category_group_id %>
+    <%= form.select :group_id,
+    options_for_select(Group.all.map { |group| [group.title, group.id] }),
+    { prompt: true }
+    %>
+
   </div>
 
   <div class="actions">
