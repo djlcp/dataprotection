@@ -12,6 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :article_number %>
+  </div>
+
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :article_title %>
   </div>
@@ -21,20 +27,25 @@
     <%= form.text_area :content, id: :article_content %>
   </div>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number, id: :article_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views, id: :article_views %>
-  </div>
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id, id: :article_category_id %>
+    <%= form.select :category_id,
+    options_for_select(Category.all.map { |category| [category.title, category.id] }),
+    { prompt: true }
+    %>
   </div>
+
+  <div class="field">
+    <p>Link it to another article</p>
+    <%= form.label :article_a_ids %>
+    <%= form.select :article_a_ids,
+    options_for_select(Article.all.map { |article| [article.title, article.id] }),
+    { prompt: true },
+    { multiple: true }
+    %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

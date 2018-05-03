@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @categories = Category.all
+    @groups = Group.all
   end
 
   # GET /articles/1
@@ -69,6 +71,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :number, :views, :category_id)
+      params.require(:article).permit(:title, :content, :number, :views, :category_id, article_a_ids: [])
     end
 end
