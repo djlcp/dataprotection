@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @all_articles =  LinkedArticle.joins(:article, :article)
   end
 
   # GET /articles/1/edit
@@ -27,29 +28,22 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      create_associated_articles
+      redirect_to @article, notice: 'Article was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update(article_params)
+      create_associated_articles
+      redirect_to @article, notice: 'Article was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -64,13 +58,31 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :content, :number, :views, :category_id, article_a_ids: [])
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    #params.require(:article).permit(:title, :content, :number, :views, :category_id, article_a_ids: [])
+    params.require(:article).permit(:title, :content, :number, :views, :category_id)
+  end
+
+  def create_associated_articles
+    associated_article_ids.each do |num|
+      @article.linked_articles.create(
+        article_id: num,
+        article_a_id: @article.id
+      )
     end
+  end
+
+  def associated_article_ids
+    if params.to_unsafe_h[:article][:associated_article_ids].present?
+      params.to_unsafe_h[:article][:associated_article_ids].reject!(&:empty?)
+    else
+      []
+    end
+  end
 end

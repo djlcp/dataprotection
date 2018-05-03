@@ -38,8 +38,8 @@
 
   <div class="field">
     <p>Link it to another article</p>
-    <%= form.label :article_a_ids %>
-    <%= form.select :article_a_ids,
+    <%= form.label :associated_article_ids %>
+    <%= form.select :associated_article_ids,
     options_for_select(Article.all.map { |article| [article.title, article.id] }),
     { prompt: true },
     { multiple: true }
