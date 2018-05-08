@@ -31,7 +31,7 @@
                 <td><%= article.category.title %></td>
                 <td><%= article.category.group.title %></td>
 
-                <td><%= link_to 'Show', article %></td>
+                <td><%= link_to 'Show', admin_article_path(article) %></td>
                 <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
                 <td><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
@@ -67,7 +67,7 @@
             <tr>
               <td><%= category.title %></td>
               <td><%= category.group.title %></td>
-              <td><%= link_to 'Show', category %></td>
+              <td><%= link_to 'Show', admin_category_path(category) %></td>
               <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
               <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
@@ -102,7 +102,7 @@
 
             <tr>
               <td><%= group.title %></td>
-              <td><%= link_to 'Show', group %></td>
+              <td><%= link_to 'Show', admin_group_path(group) %></td>
               <td><%= link_to 'Edit', edit_admin_group_path(group) %></td>
               <td><%= link_to 'Destroy', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>

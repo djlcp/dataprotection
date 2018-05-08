@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show]
+  load_and_authorize_resource
 
   # GET /categories
   # GET /categories.json
@@ -11,7 +12,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
   end
+
+  private
+    def set_category
+      @category = Category.find(params[:id])
+    end
 
 end

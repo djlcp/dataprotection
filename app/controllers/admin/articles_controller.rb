@@ -1,7 +1,8 @@
 class Admin::ArticlesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show]
+  load_and_authorize_resource
 
   # GET /articles
   # GET /articles.json
@@ -32,7 +33,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       create_associated_articles
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to admin_articles_path(@article), notice: 'Article was successfully created.'
     else
       render :new
     end
@@ -43,7 +44,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       create_associated_articles
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to admin_articles_path, notice: 'Article was successfully updated.'
     else
       render :edit
     end
@@ -54,7 +55,7 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

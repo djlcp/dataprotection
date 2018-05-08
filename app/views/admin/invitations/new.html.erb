@@ -14,6 +14,11 @@
 	</div>
 
 	<div>
+		<%= f.label :"Job Title" %>
+		<%= f.text_field :job_title %>
+	</div>
+
+	<div>
 		<% if current_user.manager? %>
 			<%= f.label :Manager? %>
 			<%= f.check_box :manager %>

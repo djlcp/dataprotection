@@ -5,7 +5,7 @@ class Admin::InvitationsController < DeviseController
   prepend_before_action :require_no_authentication, :only => [:edit, :update, :destroy]
   prepend_before_action :resource_from_invitation_token, :only => [:edit, :destroy]
   before_action :is_manager?, :only => [:new, :create]
-
+  load_and_authorize_resource
 
   if respond_to? :helper_method
     helper_method :after_sign_in_path_for
@@ -81,7 +81,6 @@ class Admin::InvitationsController < DeviseController
 
   def is_manager?
       # check if user is a admin
-      # if not admin then redirect to where ever you want 
       redirect_to root_path unless current_user.manager? 
   end
 

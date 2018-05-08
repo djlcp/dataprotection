@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @users = User.all.order('last_sign_in_at DESC')
