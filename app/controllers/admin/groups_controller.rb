@@ -12,6 +12,7 @@ class Admin::GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group = Group.find(params[:id])
   end
 
   # GET /groups/new
@@ -21,6 +22,7 @@ class Admin::GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = Group.find(params[:id])
   end
 
   # POST /groups
@@ -30,7 +32,7 @@ class Admin::GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to admin_groups_path, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class Admin::GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to admin_groups_path, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class Admin::GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to admin_groups_path, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

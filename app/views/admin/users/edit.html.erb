@@ -7,6 +7,23 @@
 		<%= f.text_field :email %>
 	</div>
 
+	<div>
+		<%= f.label :Forename %>
+		<%= f.text_field :first_name %>
+	</div>
+
+	<div>
+		<%= f.label :Surname %>
+		<%= f.text_field :last_name %>
+	</div>
+
+	<div>
+		<% if current_user.manager? %>
+			<%= f.label :Manager? %>
+			<%= f.check_box :manager %>
+		<% end %>
+	</div>
+
 		<%= f.submit "Submit" %>
 		<%= link_to "Cancel", admin_user_path(params[:id]) %>
 <% end %>

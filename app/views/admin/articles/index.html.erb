@@ -33,7 +33,7 @@
 
                 <td><%= link_to 'Show', article %></td>
                 <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-                <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -69,7 +69,7 @@
               <td><%= category.group.title %></td>
               <td><%= link_to 'Show', category %></td>
               <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
 
           <% end %>
@@ -104,7 +104,7 @@
               <td><%= group.title %></td>
               <td><%= link_to 'Show', group %></td>
               <td><%= link_to 'Edit', edit_admin_group_path(group) %></td>
-              <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
 
           <% end %>
