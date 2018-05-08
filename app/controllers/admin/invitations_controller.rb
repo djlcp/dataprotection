@@ -123,4 +123,9 @@ class Admin::InvitationsController < DeviseController
   def translation_scope
     'devise.invitations'
   end
+
+  # def update_sanitized_params
+  #   devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name])
+  # end
+
 end
