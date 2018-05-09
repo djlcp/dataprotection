@@ -1,0 +1,61 @@
+<!---- this is the CMS application ----->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dataprotection Admin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="removeMargin">
+    
+    <div class="wrapper">
+
+  <header class="topBar">
+
+    <ul class="flex-container space-between removeMargin ">
+
+      <li class="websiteName removeMargin">Website Name</li>
+
+      <li class="websiteUser removeMargin">User Name</li>
+
+    </ul>
+    
+  </header>
+
+  <div class="stretch">
+
+    <nav class="leftNav">
+
+      <h1>Logo</h1>
+
+      <ul>
+        <li><%= link_to 'Law Groups', groups_path %></li>
+        <li><%= link_to 'Categories', categories_path %></li>
+        <li><%= link_to 'Articles', articles_path %></li>
+        <li>GDPR Articles</li>
+        <li>GDPR Recitals</li>
+        <li>Guidance Notes</li>
+        <li>Users</li>
+      </ul>
+      
+    </nav>
+
+    <main>
+
+      <%= yield %>
+      <%= link_to 'Back to index', articles_path %>
+      
+    </main>
+
+    <footer>
+      
+    </footer>
+  </div>
+</div>
+    
+  </body>
+</html>

@@ -5,16 +5,16 @@
   <div>
         <h1>Articles</h1>
 
-        <table>
+        <table  class="articlesTable">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Content</th>
+              <th class="IDColumn">ID</th>
+              <th class="titleColumn">Title</th>
+              <th class="contentColumn">Content</th>
               <th>Number</th>
               <th>Views</th>
-              <th>Category</th>
-              <th>Group</th>
+              <th class="categoryColumn">Category</th>
+              <th class="groupColumn">Group</th>
 
               <th colspan="3"></th>
             </tr>
@@ -45,74 +45,4 @@
 
     </div>
 
-
-
-
-    <div>
-
-      <h1>Categories</h1>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Group</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <% @categories.each do |category| %>
-            <tr>
-              <td><%= category.title %></td>
-              <td><%= category.group.title %></td>
-              <td><%= link_to 'Show', category %></td>
-              <td><%= link_to 'Edit', edit_category_path(category) %></td>
-              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      </table>
-
-      <br>
-      <%= link_to 'New Category', new_category_path %>
-    </div>
-
-
-
-
-    <div>
-      <h1>Groups</h1>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Group</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <% @groups.each do |group| %>
-
-            <tr>
-              <td><%= group.title %></td>
-              <td><%= link_to 'Show', group %></td>
-              <td><%= link_to 'Edit', edit_group_path(group) %></td>
-              <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      </table>
-
-      <br>
-      <%= link_to 'New Group', new_group_path %>
-    </div>
 </div>
