@@ -14,24 +14,18 @@
   <div class="mainLeft">
 
     <div class="field">
+      <%= form.label :published %>
+      <%= form.check_box :published %>
+    </div>
+
+    <div class="field">
       <%= form.label :number, class: 'articleHeading' %><br>
       <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
     </div>
 
     <div class="field">
-      <%= form.label :published %>
-      <%= form.check_box :published %>
-    </div>
-
-
-    <div class="field">
-      <%= form.label :number %>
-      <%= form.text_field :number, id: :article_number %>
-    </div>
-
-    <div class="field">
-      <%= form.label :letter %>
-      <%= form.text_field :letter, id: :article_letter %>
+      <%= form.label :letter, class: 'articleHeading' %><br>
+      <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
     </div>
 
     <div class="field">
