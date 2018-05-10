@@ -26,6 +26,11 @@
             <% @articles.each do |article| %>
               <tr>
                 <td><%= article.id %></td>
+                <% if article.published %>
+                  <td> published </td>
+                <% else %>
+                  <td> Unpublished </td>
+                <% end %>
                 <td><%= article.title %></td>
                 <td><%= article.content.truncate(17) %></td>
                 <td><%= article.number %></td>
