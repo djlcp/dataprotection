@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body class="removeMargin">
@@ -20,7 +22,12 @@
 
       <li class="websiteName removeMargin">Website Name</li>
 
-      <li class="websiteUser removeMargin">User Name</li>
+      <li class="websiteUser removeMargin">
+        <% if user_signed_in? %>
+        Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+      <% else %>
+        You are not signed in
+      <% end %></li>
 
     </ul>
     
@@ -45,6 +52,9 @@
     </nav>
 
     <main>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
       <%= yield %>
       <%= link_to 'Back to index', articles_path %>
