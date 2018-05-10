@@ -119,6 +119,11 @@ main {
 .mainLeft {
 	width: calc(100% - 300px);
 	margin-right: 20px;
+
+	.articleHeading {
+		line-height: 32px;
+    	font-size: 22px;
+	}
 }
 
 .mainRight {
