@@ -15,7 +15,7 @@
   <% if @article.published %>
     published
   <% else %>
-    Unpublished  
+    Unpublished
   <% end %>
 </p>
 
@@ -36,7 +36,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @article.content %>
+  <%= sanitize @article.content %>
 </p>
 
 <p>
