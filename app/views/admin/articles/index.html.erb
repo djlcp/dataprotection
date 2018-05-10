@@ -9,9 +9,11 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>Published</th>
               <th>Title</th>
               <th>Content</th>
               <th>Number</th>
+              <th>Letter</th>
               <th>Views</th>
               <th>Category</th>
               <th>Group</th>
@@ -27,6 +29,7 @@
                 <td><%= article.title %></td>
                 <td><%= article.content.truncate(17) %></td>
                 <td><%= article.number %></td>
+                <td><%= article.letter %></td>
                 <td><%= article.views %></td>
                 <td><%= article.category.title %></td>
                 <td><%= article.category.group.title %></td>
