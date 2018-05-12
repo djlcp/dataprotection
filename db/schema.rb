@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
-ActiveRecord::Schema.define(version: 20180510171354) do
->>>>>>> f2c975834de7e5bf9b104a0e4270c105a02bfa95
-
-ActiveRecord::Schema.define(version: 20180508153559) do
+ActiveRecord::Schema.define(version: 20180510191000) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -25,13 +20,8 @@ ActiveRecord::Schema.define(version: 20180508153559) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "suffix"
-    t.index ["category_id", "number", "suffix"], name: "index_articles_on_category_id_and_number_and_suffix", unique: true
-=======
     t.string "letter"
     t.boolean "published", default: false
->>>>>>> f2c975834de7e5bf9b104a0e4270c105a02bfa95
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
@@ -44,7 +34,20 @@ ActiveRecord::Schema.define(version: 20180508153559) do
     t.index ["title", "group_id"], name: "index_categories_on_title_and_group_id", unique: true
   end
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
@@ -88,10 +91,7 @@ ActiveRecord::Schema.define(version: 20180508153559) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
-<<<<<<< HEAD
-=======
     t.string "job_title"
->>>>>>> f2c975834de7e5bf9b104a0e4270c105a02bfa95
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
