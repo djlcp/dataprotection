@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510191000) do
+ActiveRecord::Schema.define(version: 20180512104259) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180510191000) do
     t.datetime "updated_at", null: false
     t.string "letter"
     t.boolean "published", default: false
+    t.index ["category_id", "number", "letter"], name: "index_articles_on_category_id_and_number_and_letter", unique: true
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180510191000) do
     t.index ["title", "group_id"], name: "index_categories_on_title_and_group_id", unique: true
   end
 
-  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -47,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180510191000) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180510191000) do
     t.index ["article_id"], name: "index_linked_articles_on_article_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: ""
     t.string "reset_password_token"
