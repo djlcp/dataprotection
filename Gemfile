@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Adding ckeditor
+gem 'ckeditor'
+gem "paperclip", "~> 6.0.0"
+
 gem 'devise',           '~> 4.2'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'cancancan', '~> 2.0'

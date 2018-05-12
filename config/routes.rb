@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :users, :controllers => { :invitations => 'admin/invitations' }
 
   root to: 'articles#index'
