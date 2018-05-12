@@ -46,7 +46,7 @@
         <li>GDPR Articles</li>
         <li>GDPR Recitals</li>
         <li>Guidance Notes</li>
-        <li>Users</li>
+        <li><%= link_to 'Users', admin_users_path %></li>
       </ul>
       
     </nav>
@@ -57,7 +57,6 @@
       <p class="alert"><%= alert %></p>
 
       <%= yield %>
-      <%= link_to 'Back to index', articles_path %>
       
     </main>
 

@@ -14,11 +14,6 @@
   <div class="mainLeft">
 
     <div class="field">
-      <%= form.label :published %>
-      <%= form.check_box :published %>
-    </div>
-
-    <div class="field">
       <%= form.label :number, class: 'articleHeading' %><br>
       <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
     </div>
@@ -68,7 +63,12 @@
       %>
     </div>
 
-    <div class="actions">
+    <div class="field articleAssignmentsHeader">
+      <%= form.label :published %>
+      <%= form.check_box :published %>
+    </div>
+
+    <div class="actions articleAssignmentsHeader">
       <%= form.submit %>
     </div>
 

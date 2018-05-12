@@ -88,7 +88,7 @@ $gdpr_red: #b22328;
 }
 
 
-/****** Main Content Area ******/
+/****** Main Edit Content Area ******/
 
 main {
 	width: calc(100% - 300px);
@@ -196,6 +196,53 @@ main {
 	}
 
 }
+
+
+/****** Main Index Area ******/
+
+.indexTable {
+
+	tr td {
+		padding: 10px;
+	}
+	
+	.thContent {
+		width: 300px;
+	}
+
+	.thTitle,
+	.thGroup,
+	.thCategory {
+	    width: 150px;
+	}
+
+	.rowAlternateColor:nth-child(even) {
+		background: #CCC
+	}
+
+	.rowAlternateColor:nth-child(odd) {
+		background: #FFF
+	}
+
+	.showEditDestroyColumns {
+	    max-width: 60px;
+	    width: 60px;
+	}
+}
+
+
+
+/****** Show Area ******/
+
+.showArea p {
+	background: white;
+    padding: 5px 10px;
+}
+
+.showHeading {
+		line-height: 32px;
+    	font-size: 22px;
+	}
 
 
 
