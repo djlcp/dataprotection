@@ -1,5 +1,38 @@
 <h1>New Article</h1>
 
+<button class="btn1">Jersey Law</button>
+<button class="btn2">GDPR</button>
+<button class="btn3">Auth</button>
+
+
+<p class="1">Jersey Law.</p>
+<p class="2">GDPR.</p>
+<p class="3">Auth.</p>
+
+<script>
+  $('p').css('background', 'red')
+  $(".1").hide();
+  $(".2").hide();
+  $(".3").hide();
+
+    $(".btn1").click(function(){
+        $(".1").slideDown();
+        $(".2").slideUp();
+        $(".3").slideUp();
+    });
+
+    $(".btn2").click(function(){
+        $(".2").slideDown();
+        $(".1").slideUp();
+        $(".3").slideUp();
+    });
+
+    $(".btn3").click(function(){
+        $(".3").slideDown();
+        $(".1").slideUp();
+        $(".2").slideUp();
+    });
+</script>
 
 
 

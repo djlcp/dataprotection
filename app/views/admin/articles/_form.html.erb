@@ -23,6 +23,16 @@
   </div>
 
   <div class="field">
+    <%= form.radio_button :article_type, 'article' %>
+    <%= form.label :article_type, 'Article' %>
+    <%= form.radio_button :article_type, 'recital' %>
+    <%= form.label :article_type, 'Recital' %>
+    <%= form.radio_button :article_type, 'guidance' %>
+    <%= form.label :article_type, 'Guidance Note' %>
+
+  </div>
+
+  <div class="field">
     <%= form.label :letter %>
     <%= form.text_field :letter, id: :article_letter %>
   </div>
@@ -56,6 +66,9 @@
     { multiple: true }
     %>
   </div>
+
+
+
 
 
   <div class="actions">
