@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20180510171354) do
     t.index ["article_id"], name: "index_linked_articles_on_article_id"
   end
 
+  
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: ""
     t.string "reset_password_token"
