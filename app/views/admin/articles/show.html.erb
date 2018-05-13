@@ -1,17 +1,21 @@
+<div class="showArea">
+
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
 <p>
-  <strong>Group:</strong>
+  <strong class="showHeading">Group:</strong>
   <%= @article.category.group.title %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong class="showHeading">Category:</strong>
   <%= @article.category.title %>
 </p>
 
 <p>
-  <strong>Published:</strong>
+  <strong class="showHeading">Published:</strong>
   <% if @article.published %>
     published
   <% else %>
@@ -20,32 +24,32 @@
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong class="showHeading">Number:</strong>
   <%= @article.number %>
 </p>
 
 <p>
-  <strong>Letter:</strong>
+  <strong class="showHeading">Letter:</strong>
   <%= @article.letter %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong class="showHeading">Title:</strong>
   <%= @article.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @article.content %>
+  <strong class="showHeading">Content:</strong><br>
+  <%= sanitize @article.content %>
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong class="showHeading">Number:</strong>
   <%= @article.number %>
 </p>
 
 <p>
-  <strong>Views:</strong>
+  <strong class="showHeading">Views:</strong>
   <%= @article.views %>
 </p>
 
@@ -70,6 +74,7 @@
 </p>
 
 
-
 <%= link_to 'Edit', edit_admin_article_path(@article) %> |
 <%= link_to 'Back', admin_articles_path %>
+
+</div>

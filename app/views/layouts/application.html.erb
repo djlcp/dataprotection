@@ -1,7 +1,9 @@
+<!---- this is the CMS application ----->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dataprotection</title>
+    <title>Dataprotection Admin</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,18 +13,59 @@
 
   </head>
 
-  <body>
+  <body class="removeMargin">
+    
+    <div class="wrapper">
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <header class="topBar">
 
-    <% if user_signed_in? %>
-      <p>Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></p>
-    <% else %>
-      <p>You are not signed in</p>
-    <% end %>
+    <ul class="flex-container space-between removeMargin ">
 
-    <%= yield %>
+      <li class="websiteName removeMargin">Website Name</li>
 
+      <li class="websiteUser removeMargin">
+        <% if user_signed_in? %>
+        Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+      <% else %>
+        You are not signed in
+      <% end %></li>
+
+    </ul>
+    
+  </header>
+
+  <div class="stretch">
+
+    <nav class="leftNav">
+
+      <h1>Logo</h1>
+
+      <ul>
+        <li><%= link_to 'Law Groups', admin_groups_path %></li>
+        <li><%= link_to 'Categories', admin_categories_path %></li>
+        <li><%= link_to 'Articles', admin_articles_path %></li>
+        <li>GDPR Articles</li>
+        <li>GDPR Recitals</li>
+        <li>Guidance Notes</li>
+        <li><%= link_to 'Users', admin_users_path %></li>
+      </ul>
+      
+    </nav>
+
+    <main>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+      
+    </main>
+
+    <footer>
+      
+    </footer>
+  </div>
+</div>
+    
   </body>
 </html>

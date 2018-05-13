@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
+  scope module: 'frontend' do
+    resources :home, only: :index
+    root to: 'home#index'
+  end
+
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :users, :controllers => { :invitations => 'admin/invitations' }
 
   root to: 'articles#index'
@@ -12,20 +21,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :articles
-  end
-
-  namespace :admin do
     resources :categories 
-  end
-
-  namespace :admin do
-    resources :groups 
-  end
-
-  namespace :admin do
+    resources :groups
     resources :users 
   end
 
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  
+
 end
