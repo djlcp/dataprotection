@@ -1,8 +1,32 @@
-<h1>New Article</h1>
+<h1>Create New</h1>
+
+<button class="btn1">Jersey Law</button>
+<button class="btn2">Authority Law</button>
+<button class="btn3">Regulation Law</button>
+<button class="btn4">GDPR</button>
 
 
+<div class="1">Jersey Law.
+
+  <%= render 'form', article: @article %>
+</div>
 
 
-<%= render 'form', article: @article %>
+<div class="2">
+  <p>Authority Law.</p>
+  <p>What do you want to create??</p>
+
+</div>
+
+
+<div class="3">Regulation Law.</div>
+
+
+<div class="4">GDPR Law.
+  <p>What do you want to create??</p>
+  <button class="btn1">GDPR Article</button>
+  <button class="btn2">GDPR Recital</button>
+  <button class="btn3">GDPR Guidance</button>
+</div>
 
 <%= link_to 'Back', admin_articles_path %>

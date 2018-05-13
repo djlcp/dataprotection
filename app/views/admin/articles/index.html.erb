@@ -5,18 +5,19 @@
   <div>
         <h1>Articles</h1>
 
-        <table>
+        <table class="indexTable">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Published</th>
-              <th>Title</th>
-              <th>Content</th>
-              <th>Number</th>
+              <th>No</th>
               <th>Letter</th>
-              <th>Views</th>
-              <th>Category</th>
-              <th>Group</th>
+              <!-- <th>ID</th> -->
+              <th class="thPublished">Published</th>
+              <th class="thTitle">Title</th>
+              <th class="thContent">Content</th>
+              
+              <!-- <th>Views</th> -->
+              <th class="thCategory">Category</th>
+              <th class="thGroup">Group</th>
 
               <th colspan="3"></th>
             </tr>
@@ -24,8 +25,10 @@
 
           <tbody>
             <% @articles.each do |article| %>
-              <tr>
-                <td><%= article.id %></td>
+              <tr class="rowAlternateColor">
+                <td><%= article.number %></td>
+                <td><%= article.letter %></td>
+                <!-- <td><%= article.id %></td> -->
                 <% if article.published %>
                   <td> published </td>
                 <% else %>
@@ -33,15 +36,14 @@
                 <% end %>
                 <td><%= article.title %></td>
                 <td><%= article.content.truncate(17) %></td>
-                <td><%= article.number %></td>
-                <td><%= article.letter %></td>
-                <td><%= article.views %></td>
+                
+                <!-- <td><%= article.views %></td> -->
                 <td><%= article.category.title %></td>
                 <td><%= article.category.group.title %></td>
 
-                <td><%= link_to 'Show', admin_article_path(article) %></td>
-                <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-                <td><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="showEditDestroyColumns"><%= link_to 'Show', admin_article_path(article) %></td>
+                <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+                <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -51,76 +53,5 @@
 
         <%= link_to 'New Article', new_admin_article_path %>
 
-    </div>
-
-
-
-
-    <div>
-
-      <h1>Categories</h1>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Group</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <% @categories.each do |category| %>
-            <tr>
-              <td><%= category.title %></td>
-              <td><%= category.group.title %></td>
-              <td><%= link_to 'Show', admin_category_path(category) %></td>
-              <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-              <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      </table>
-
-      <br>
-      <%= link_to 'New Category', new_admin_category_path %>
-    </div>
-
-
-
-
-    <div>
-      <h1>Groups</h1>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Group</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <% @groups.each do |group| %>
-
-            <tr>
-              <td><%= group.title %></td>
-              <td><%= link_to 'Show', admin_group_path(group) %></td>
-              <td><%= link_to 'Edit', edit_admin_group_path(group) %></td>
-              <td><%= link_to 'Destroy', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      </table>
-
-      <br>
-      <%= link_to 'New Group', new_admin_group_path %>
     </div>
 </div>
