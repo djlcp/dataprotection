@@ -15,7 +15,7 @@
   <% if @article.published %>
     published
   <% else %>
-    Unpublished  
+    Unpublished
   <% end %>
 </p>
 
@@ -47,6 +47,26 @@
 <p>
   <strong>Views:</strong>
   <%= @article.views %>
+</p>
+
+<p>
+  <strong>GDPR Equivalent </strong><br>
+  <% @article.articles.each do |gdpr| %>
+      <% if gdpr.article_type == 'article' %>
+          <%= gdpr.title %> <br>
+          <%= gdpr.content %> <br>
+      <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Recital </strong><br>
+  <% @article.articles.each do |recital| %>
+      <% if recital.article_type == 'recital' %>
+          <%= recital.title %> <br>
+          <%= recital.content %> <br>
+      <% end %>
+  <% end %>
 </p>
 
 
