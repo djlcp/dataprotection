@@ -26,6 +26,16 @@
     </div>
 
     <div class="field">
+      <%= form.radio_button :article_type, 'article' %>
+      <%= form.label :article_type, 'Article' %>
+      <%= form.radio_button :article_type, 'recital' %>
+      <%= form.label :article_type, 'Recital' %>
+      <%= form.radio_button :article_type, 'guidance' %>
+      <%= form.label :article_type, 'Guidance Note' %>
+    </div>
+
+
+    <div class="field">
       <%= form.label :title, class: 'articleHeading' %><br>
       <%= form.text_field :title, id: :article_title, class: 'articleHeader' %>
     </div>
