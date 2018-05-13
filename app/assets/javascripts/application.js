@@ -13,4 +13,48 @@
 //= require rails-ujs
 //= require turbolinks
 //= require ckeditor/init
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+
+
+
+$( document ).ready(function() {
+
+  $(".1").hide();
+  $(".2").hide();
+  $(".3").hide();
+  $(".4").hide();
+
+    $(".btn1").click(function(){
+        $(".1").slideDown();
+        $(".2").slideUp();
+        $(".3").slideUp();
+        $(".4").slideUp();
+    });
+    $(".btn2").click(function(){
+        $(".2").slideDown();
+        $(".1").slideUp();
+        $(".3").slideUp();
+        $(".4").slideUp();
+
+    });
+    $(".btn3").click(function(){
+        $(".3").slideDown();
+        $(".1").slideUp();
+        $(".2").slideUp();
+        $(".4").slideUp();
+
+    });
+    $(".btn4").click(function(){
+        $(".4").slideDown();
+        $(".1").slideUp();
+        $(".2").slideUp();
+        $(".3").slideUp();
+
+      
+
+    });
+
+
+  });
