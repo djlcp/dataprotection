@@ -1,4 +1,6 @@
-<%= form_with(model: article, class: 'flex-container flex-start', local: true) do |form| %>
+<%= form_for [:admin, @article] do |form| %>
+
+<div class="flex-container flex-start">
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -38,14 +40,6 @@
   <div class="mainRight">
 
     <div class="field articleAssignmentsHeader">
-      <%= form.label :group_id %><br>
-      <%= form.select :group_id,
-      options_for_select(Group.all.map { |group| [group.title, group.id] }),
-      { prompt: true }
-      %>
-    </div>
-
-    <div class="field articleAssignmentsHeader">
       <%= form.label :category_id %><br>
       <%= form.select :category_id,
       options_for_select(Category.all.map { |category| [category.title, category.id] }),
@@ -74,6 +68,6 @@
 
   </div>
 
-
+</div>
 
 <% end %>
