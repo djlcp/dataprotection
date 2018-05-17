@@ -1,0 +1,95 @@
+<%= form_for [:admin, @article] do |form| %>
+
+<%= @form_belongs_to %> <br>
+<%= @form_type %>
+
+
+
+
+<div class="flex-container flex-start">
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mainLeft">
+
+  <% if @form_type != "guidance"  %>
+    <div class="field">
+      <%= form.label :number, class: 'articleHeading' %><br>
+      <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
+    </div>
+
+
+
+    <div class="field">
+      <%= form.label :letter, class: 'articleHeading' %><br>
+      <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
+    </div>
+
+    <% end %>
+
+    <div class="field">
+      <%= form.radio_button :article_type, 'article' %>
+      <%= form.label :article_type, 'Article' %>
+      <%= form.radio_button :article_type, 'recital' %>
+      <%= form.label :article_type, 'Recital' %>
+      <%= form.radio_button :article_type, 'guidance' %>
+      <%= form.label :article_type, 'Guidance Note' %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :title, class: 'articleHeading' %><br>
+      <%= form.text_field :title, id: :article_title, class: 'articleHeader' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content, class: 'articleHeading' %><br>
+      <%= form.cktext_area :content, id: :article_content, class: 'articleText' %>
+    </div>
+
+  </div>
+
+
+  <div class="mainRight">
+
+    <div class="field articleAssignmentsHeader">
+      <%= form.label :category_id %><br>
+      <%= form.select :category_id,
+      options_for_select(Category.all.map { |category| [category.title, category.id] }),
+      { prompt: true }
+      %>
+    </div>
+
+    <div class="field articleAssignmentsHeader">
+      <p>Link it to another article</p>
+      <%= form.label :associated_article_ids %>
+      <%= form.select :associated_article_ids,
+      options_for_select(Article.all.map { |article| [article.title, article.id] }),
+      { prompt: true },
+      { multiple: true, class: 'associatedArticleBox'}
+      %>
+    </div>
+
+    <div class="field articleAssignmentsHeader">
+      <%= form.label :published %>
+      <%= form.check_box :published %>
+    </div>
+
+    <div class="actions articleAssignmentsHeader">
+      <%= form.submit %>
+    </div>
+
+  </div>
+
+</div>
+
+<% end %>
