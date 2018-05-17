@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require_tree .
+<<<<<<< HEAD
 
 
 
@@ -58,3 +59,5 @@ $( document ).ready(function() {
 
 
   });
+=======
+>>>>>>> cd4db956bae148c02102d7ecaec72b4698a18791
