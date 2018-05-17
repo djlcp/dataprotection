@@ -21,7 +21,7 @@
 
   <div class="mainLeft">
 
-  <% if @form_type != "guidance"  %>
+  <% if @form_type == "article"  %>
     <div class="field">
       <%= form.label :number, class: 'articleHeading' %><br>
       <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>

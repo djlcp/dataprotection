@@ -53,10 +53,24 @@
 
         <%= link_to 'New Article', new_admin_article_path %> <br>
 
-        <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+        <%= link_to "New Jersey Article", new_admin_article_path(:form_law => "jersey", :form_type => "article") %> <br>
+
+        <%= link_to "New Authority Article", new_admin_article_path(:form_law => "authority", :form_type => "article") %> <br>
+
+        <%= link_to "New Regulation Article", new_admin_article_path(:form_law => "regulation", :form_type => "article") %> <br>
+
+        <%= link_to "New GDPR Article", new_admin_article_path(:form_law => "gdpr", :form_type => "article") %> <br>
+
+
+
+
+        <%= link_to "New Guidance Note", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+
+        <%= link_to "New Recital", new_admin_article_path(:form_law => "jersey", :form_type => "recital") %> <br>
 
         <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
-        
+
+
 
     </div>
 </div>
