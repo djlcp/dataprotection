@@ -14,7 +14,7 @@
               <th class="thPublished">Published</th>
               <th class="thTitle">Title</th>
               <th class="thContent">Content</th>
-              
+
               <!-- <th>Views</th> -->
               <th class="thCategory">Category</th>
               <th class="thGroup">Group</th>
@@ -36,7 +36,7 @@
                 <% end %>
                 <td><%= article.title %></td>
                 <td><%= article.content.truncate(17) %></td>
-                
+
                 <!-- <td><%= article.views %></td> -->
                 <td><%= article.category.title %></td>
                 <td><%= article.category.group.title %></td>
@@ -51,7 +51,12 @@
 
         <br>
 
-        <%= link_to 'New Article', new_admin_article_path %>
+        <%= link_to 'New Article', new_admin_article_path %> <br>
+
+        <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+
+        <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+        
 
     </div>
 </div>
