@@ -12,9 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require ckeditor/init
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require_tree .
 
 
@@ -52,7 +52,7 @@ $( document ).ready(function() {
         $(".2").slideUp();
         $(".3").slideUp();
 
-      
+
 
     });
 
