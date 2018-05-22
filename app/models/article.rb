@@ -12,14 +12,28 @@ class Article < ApplicationRecord
   #has_many :linked_articles
   #has_many :articles, through: :linked_articles
 
-  validates_uniqueness_of [:number], scope: [:category_id, :letter], :message => '%{value} already exists for this Category.'
+  validate :validate_uniqueness_of_article_numbering
 
-  # before_validation :combined_params
-  #
-  # validates_uniqueness_of [:number_letter], scope: [:category_id], :message => '%{value} already exists for this Category.'
-  #
-  # def combined_params
-  #   number_letter = :number.to_s + :letter.to_s;
-  # end
+  def validate_uniqueness_of_article_numbering
+    category.group.categories.each do |cat|
+  # category.group.categories.where(type: 'schedule').each do |category|
+
+      if matching_articles?(cat)
+        errors.add(
+          :base,
+          "You can't have two articles with the same number and letter"
+        )
+      end
+    end
+  end
+
+  def matching_articles?(cat)
+    cat.articles.any? do |art|
+      art.number == self.number && art.letter == self.letter
+    end
+  end
+
+  private
+
 
 end

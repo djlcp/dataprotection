@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512104259) do
+ActiveRecord::Schema.define(version: 20180519201152) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -31,8 +31,16 @@ ActiveRecord::Schema.define(version: 20180512104259) do
     t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_type_id"
+    t.index ["category_type_id"], name: "index_categories_on_category_type_id"
     t.index ["group_id"], name: "index_categories_on_group_id"
     t.index ["title", "group_id"], name: "index_categories_on_title_and_group_id", unique: true
+  end
+
+  create_table "category_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "category_type_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,5 +111,6 @@ ActiveRecord::Schema.define(version: 20180512104259) do
   end
 
   add_foreign_key "articles", "categories"
+  add_foreign_key "categories", "category_types"
   add_foreign_key "categories", "groups"
 end
