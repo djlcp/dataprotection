@@ -1,10 +1,10 @@
+
+
 <%= form_for [:admin, @article] do |form| %>
 
-<%= @form_belongs_to %> <br>
-<%= @form_type %>
+<%= hidden_field_tag :law, value: @form_params.law %>
 
-
-
+<%= hidden_field_tag :type, value: @form_params.type %>
 
 <div class="flex-container flex-start">
   <% if article.errors.any? %>
@@ -21,29 +21,34 @@
 
   <div class="mainLeft">
 
-  <% if @form_type == "article"  %>
+  <% if @form_params.type == "article"  %>
+
     <div class="field">
       <%= form.label :number, class: 'articleHeading' %><br>
       <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
     </div>
-
-
 
     <div class="field">
       <%= form.label :letter, class: 'articleHeading' %><br>
       <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
     </div>
 
-    <% end %>
+  <% end %>
 
-    <div class="field">
-      <%= form.radio_button :article_type, 'article' %>
-      <%= form.label :article_type, 'Article' %>
-      <%= form.radio_button :article_type, 'recital' %>
-      <%= form.label :article_type, 'Recital' %>
-      <%= form.radio_button :article_type, 'guidance' %>
-      <%= form.label :article_type, 'Guidance Note' %>
-    </div>
+
+  <% case @form_params.type %>
+    <%  when "article" %>
+        article
+        <%= form.hidden_field :article_type, value: 'article' %>
+    <%  when "recital" %>
+        Recital
+        <%= form.hidden_field :article_type, value: 'recital' %>
+    <%  when "guidance" %>
+        guidance
+        <%= form.hidden_field :article_type, value: 'guidance' %>
+  <%  end %>
+
+
 
 
     <div class="field">
