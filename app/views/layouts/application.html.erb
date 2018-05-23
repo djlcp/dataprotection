@@ -44,16 +44,17 @@
         <li><%= link_to 'Categories', admin_categories_path %></li>
         <li><%= link_to 'Jersey Laws', admin_articles_path %></li>
           <ul class="subCategoryCreate">
-            <li><%= link_to 'Create Jersey Law Article', new_admin_article_path(:law => "jersey", :type => "article") %></li>
-            <li><%= link_to 'Create Authority Law Article', new_admin_article_path(:law => "authority", :type => "article") %></li>
-            <li><%= link_to 'Create Regulations Law Article', new_admin_article_path(:law => "regulation", :type => "article") %></li>
+            <li><%= link_to 'Data Protection Article', new_admin_article_path(:law => "jersey-data-protection", :type => "article") %></li>
+            <li><%= link_to 'Authority Article', new_admin_article_path(:law => "jersey-authority", :type => "article") %></li>
+            <li><%= link_to 'Registration Article', new_admin_article_path(:law => "jersey-registration", :type => "article") %></li>
           </ul>
 
         <li>GDPR</li>
           <ul class="subCategoryCreate">
-            <li><%= link_to 'Create GDPR Article', new_admin_article_path(:law => "gdpr", :type => "article") %></li>
-            <li><%= link_to 'Create GDPR Recital', new_admin_article_path(:law => "gdpr", :type => "recital") %></li>
+            <li><%= link_to 'Create GDPR Article', new_admin_article_path(:law => "gdpr-article", :type => "article") %></li>
+            <li><%= link_to 'Create GDPR Recital', new_admin_article_path(:law => "gdpr-recital", :type => "recital") %></li>
           </ul>
+
         <li>Guidance Notes</li>
           <ul class="subCategoryCreate">
             <li><%= link_to 'Create Guidance Note', new_admin_article_path(:law => "guidance", :type => "guidance") %></li>

@@ -22,6 +22,7 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.new
     @all_articles =  LinkedArticle.joins(:article, :article)
+    @articles = Article.all
 
     @form_belongs_to = @form_params.law
     @form_type = @form_params.type
@@ -93,11 +94,19 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
+  # def associated_article_ids
+  #   if params.to_unsafe_h[:article][:associated_article_ids].present?
+  #     params.to_unsafe_h[:article][:associated_article_ids].reject!(&:empty?)
+  #   else
+  #     []
+  #   end
+  # end
+
   def associated_article_ids
-    if params.to_unsafe_h[:article][:associated_article_ids].present?
-      params.to_unsafe_h[:article][:associated_article_ids].reject!(&:empty?)
-    else
-      []
-    end
+     params[:article][:associated_article_ids]
+
+
   end
+
+
 end

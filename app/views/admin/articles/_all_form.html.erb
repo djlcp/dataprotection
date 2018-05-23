@@ -38,13 +38,13 @@
 
   <% case @form_params.type %>
     <%  when "article" %>
-        article
+        article (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'article' %>
     <%  when "recital" %>
-        Recital
+        Recital (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'recital' %>
     <%  when "guidance" %>
-        guidance
+        guidance (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'guidance' %>
   <%  end %>
 
@@ -68,21 +68,55 @@
 
     <div class="field articleAssignmentsHeader">
       <%= form.label :category_id %><br>
-      <%= form.select :category_id,
-      options_for_select(Category.all.map { |category| [category.title, category.id] }),
-      { prompt: true }
-      %>
+
+      <% case @form_params.law.downcase %>
+        <%  when "jersey-data-protection" %>
+          list all jersey categories
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey data protection').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "jersey-authority" %>
+          list all authority categories
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey authority').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "jersey-registration" %>
+          list all restistration categories
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey registration').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "gdpr-article" %>
+          Just list gdpr Artilce categories
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'gdpr').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "gdpr-recital" %>
+          Just list all gdpr reciatal categories (only 1)
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'gdpr').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "guidance" %>
+          list all guidance categories (only 2)
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'guidance').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+      <%  end %>
+
     </div>
 
-    <div class="field articleAssignmentsHeader">
-      <p>Link it to another article</p>
-      <%= form.label :associated_article_ids %>
-      <%= form.select :associated_article_ids,
-      options_for_select(Article.all.map { |article| [article.title, article.id] }),
-      { prompt: true },
-      { multiple: true, class: 'associatedArticleBox'}
-      %>
-    </div>
+
 
     <div class="field articleAssignmentsHeader">
       <%= form.label :published %>
