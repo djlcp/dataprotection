@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 20180513103915) do
     t.index ["article_id"], name: "index_linked_articles_on_article_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> develop
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: ""
