@@ -116,18 +116,38 @@
 
     </div>
 
-
-
     <div class="field articleAssignmentsHeader">
       <%= form.label :published %>
       <%= form.check_box :published %>
     </div>
 
+    <% if @form_params.law.downcase == "gdpr-article" || @form_params.law.downcase == "gdpr-recital" %>
+
+        <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
+
+          <% group.categories.each do |category| %>
+
+            <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+
+              <div class="field">
+                <div class="pretty p-default p-smooth">
+                  <%= b.check_box %>
+                  <div class="state p-primary ">
+                    <%= b.label %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          <% end %>
+
+        <% end %>
+
+    <% end %>
+
     <div class="actions articleAssignmentsHeader">
       <%= form.submit %>
     </div>
-
-  </div>
 
 </div>
 
