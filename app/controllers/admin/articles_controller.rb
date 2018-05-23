@@ -94,19 +94,14 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
-  # def associated_article_ids
-  #   if params.to_unsafe_h[:article][:associated_article_ids].present?
-  #     params.to_unsafe_h[:article][:associated_article_ids].reject!(&:empty?)
-  #   else
-  #     []
-  #   end
-  # end
-
   def associated_article_ids
-     params[:article][:associated_article_ids]
-
-
+    if params.to_unsafe_h[:article][:associated_article_ids].present?
+      params.to_unsafe_h[:article][:associated_article_ids].reject!(&:empty?)
+    else
+      []
+    end
   end
+
 
 
 end
