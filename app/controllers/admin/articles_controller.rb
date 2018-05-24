@@ -2,6 +2,7 @@ class Admin::ArticlesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_article, only: [:show]
+  before_action :set_form, only: [:new]
   load_and_authorize_resource
 
   # GET /articles
@@ -26,6 +27,15 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.new
     @all_articles =  LinkedArticle.joins(:article, :article)
+    @form_belongs_to = set_form[:form_law]
+    @form_type = set_form[:form_type]
+
+  #  @form_type = params[:form_law, :form_type]
+    # @form_type = params[:form_law][:form_type]
+
+
+    # @form_type = set_form(:form_type)
+    # @form_type = set_form.find(params[:form_type])
   end
 
   # GET /articles/1/edit
@@ -67,6 +77,12 @@ class Admin::ArticlesController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
+  def set_form
+    # @form = Article.find(params[:form_type])
+    # params.permit(:form_type)
+     params.permit(:form_law, :form_type,)
+  end
+
   def set_article
     @article = Article.find(params[:id])
   end

@@ -55,7 +55,12 @@
 
         <br>
 
-        <%= link_to 'New Article', new_admin_article_path %>
+        <%= link_to 'New Article', new_admin_article_path %> <br>
+
+        <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+
+        <%= link_to "New Article with params", new_admin_article_path(:form_law => "jersey", :form_type => "guidance") %> <br>
+        
 
     </div>
 </div>
