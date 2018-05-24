@@ -143,9 +143,21 @@ body {
 
 	div {
 		width: 100%;
-		border-left: 1px solid #063a5e;
-    border-bottom: 1px solid #063a5e;
-    border-top: 1px solid #063a5e;
+
+	}
+}
+
+.articleSection {
+	h1 {
+		font-size: 18px;
+	}
+
+	h2 {
+		font-size: 16px;
+	}
+
+	p {
+		font-size: 14px;
 	}
 }
 
