@@ -1,12 +1,16 @@
 class ArticlesController < ApplicationController
-  
+
   before_action :set_article, only: [:show]
   load_and_authorize_resource
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if params[:search]
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.all
+    end
     @categories = Category.all
     @groups = Group.all
   end
@@ -22,4 +26,3 @@ class ArticlesController < ApplicationController
     end
 
 end
-
