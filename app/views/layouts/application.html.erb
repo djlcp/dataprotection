@@ -1,4 +1,4 @@
-<!---- this is the CMS application ----->
+<!--- this is the CMS application ----->
 
 <!DOCTYPE html>
 <html>
@@ -11,9 +11,9 @@
 
 
   </head>
-
+  <% if user_signed_in? %>
   <body class="removeMargin">
-    
+
     <div class="wrapper">
 
   <header class="topBar">
@@ -30,7 +30,7 @@
       <% end %></li>
 
     </ul>
-    
+
   </header>
 
   <div class="stretch">
@@ -48,23 +48,23 @@
         <li>Guidance Notes</li>
         <li><%= link_to 'Users', admin_users_path %></li>
       </ul>
-      
-    </nav>
 
+    </nav>
+   <%end%>
     <main>
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
       <%= yield %>
-      
+
     </main>
 
     <footer>
-      
+
     </footer>
   </div>
 </div>
-    
+
   </body>
 </html>
