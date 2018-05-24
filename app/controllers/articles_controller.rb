@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:search]
-      @articles = Article.search(params[:search])
+      @articles = Article.where(published: true).all.search(params[:search])
     else
-      @articles = Article.all
+      @articles = Article.where(published: true).all
     end
     @categories = Category.all
     @groups = Group.all
