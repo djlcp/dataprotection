@@ -1,0 +1,152 @@
+$dark_grey: #505050;
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: $dark_grey;
+	font-family: 'Space Mono', monospace;
+	margin: 0;
+	height: 100%;
+}
+
+
+/***** Nav ******/
+
+.container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo, .linksContainer, .searchField {
+	margin: 20px 0;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+
+  .logo {
+  	padding-left: 80px;
+  	width: 250px;
+  }
+
+  .linksContainer {
+
+  	display: inline-flex;
+  	width: 100%;
+
+  	li {
+  		width: 100px;
+  		list-style-type: none;
+  	}
+
+  }
+
+  .searchField {
+  	width: 100px;
+    padding-right: 80px;
+    margin-right: 80px;
+    padding-left: 15px;
+    background-color: $dark_grey;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-image: none;
+  }
+
+  .searchField::placeholder {
+  	color: #ffffff
+  }
+
+
+
+}
+
+
+/***** Law Pages ******/
+
+.lawPagesMain {
+	background-color: #ffffff;
+	height: 100%;
+
+	h1 {
+		margin: 0;
+	}
+
+
+
+}
+
+.lawBoxesSection {
+	padding: 80px 80px 30px;
+}
+
+.border-right {
+	border-right: 1px solid #063a5e;
+}
+
+.lawTitleBox {
+	flex-grow: 1;
+	flex-basis: 0;
+	text-align: center;
+	padding: 30px;
+
+	p {
+		font-size: 12px;
+	}
+}
+
+.lawsBox {
+	padding: 0;
+	width: 100%;
+    border-top: 1px solid #063a5e;
+    border-bottom: 1px solid #063a5e;
+
+    .lawTitle {
+    	font-size: 1em;
+    }
+}
+
+.mainLaw {
+}
+
+
+.lawsIndexSection {
+	padding-left: 80px;
+}
+
+.lawsIndexBox {
+	width: 200px;
+	border-left: 1px solid #063a5e;
+	border-right: 1px solid #063a5e;
+	border-top: 1px solid #063a5e;
+	padding: 0;
+    margin: 0;
+
+	.lawSelection {
+		height: 50px;
+		border-bottom: 1px solid #063a5e;
+		line-height: 50px;
+    	padding: 10px;
+
+		p {
+			margin: 0;
+			font-size: 12px;
+		}
+	}
+}
+
+.lawContentSection {
+	width: calc(100% - 440px);
+	padding-right: 80px;
+
+	div {
+		width: 100%;
+		border-left: 1px solid #063a5e;
+    border-bottom: 1px solid #063a5e;
+    border-top: 1px solid #063a5e;
+	}
+}
+
+

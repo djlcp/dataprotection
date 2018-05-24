@@ -4,12 +4,27 @@
     <title>Dataprotection</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
     <%= stylesheet_link_tag    'frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="container">
+
+    <h1 class="logo">GDPR LOGO</h1>
+    
+    <ul class="linksContainer">
+      <li>LAWS</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+    <input class="searchField" type="text" placeholder="SEARCH">
+
+  </nav>
+
   <body>
-    <h1>Frontend Layout</h1>
     <%= yield %>
   </body>
 </html>
