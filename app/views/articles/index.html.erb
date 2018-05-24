@@ -5,6 +5,10 @@
   <div>
         <h1>Articles</h1>
 
+        <% if @articles.blank? %>
+          <h4>There are no Articles containing the term <%= params[:search] %>.</h4>
+        <% end %>
+
         <table  class="articlesTable">
           <thead>
             <tr>
