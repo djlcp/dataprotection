@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     if params[:search]
       @articles = Article.search(params[:search])
     else
-      @articles = Article.all
+      @articles = Article.where(published: true).all
     end
     @categories = Category.all
     @groups = Group.all
