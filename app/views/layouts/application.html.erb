@@ -13,7 +13,7 @@
   </head>
 
   <body class="removeMargin">
-    
+
     <div class="wrapper">
 
   <header class="topBar">
@@ -30,7 +30,7 @@
       <% end %></li>
 
     </ul>
-    
+
   </header>
 
   <div class="stretch">
@@ -38,6 +38,16 @@
     <nav class="leftNav">
 
       <h1>Logo</h1>
+
+      <!-- <div class="search">
+        <textarea name="search-field" rows="1" cols="40" id="txt">Search</textarea>
+      </div> -->
+
+      <!-- http://www.rymcmahon.com/articles/2 -->
+      <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
 
       <ul>
         <li><%= link_to 'Law Groups', admin_groups_path %></li>
@@ -48,7 +58,7 @@
         <li>Guidance Notes</li>
         <li><%= link_to 'Users', admin_users_path %></li>
       </ul>
-      
+
     </nav>
 
     <main>
@@ -57,14 +67,14 @@
       <p class="alert"><%= alert %></p>
 
       <%= yield %>
-      
+
     </main>
 
     <footer>
-      
+
     </footer>
   </div>
 </div>
-    
+
   </body>
 </html>
