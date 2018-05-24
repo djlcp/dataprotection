@@ -8,77 +8,70 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
-  <% if user_signed_in? %>
+
   <body class="removeMargin">
 
     <div class="wrapper">
 
-  <header class="topBar">
+      <header class="topBar">
 
-    <ul class="flex-container space-between removeMargin ">
+        <ul class="flex-container space-between removeMargin ">
 
-      <li class="websiteName removeMargin">Website Name</li>
+          <li class="websiteName removeMargin">Website Name</li>
 
-      <li class="websiteUser removeMargin">
-        <% if user_signed_in? %>
-        Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-      <% else %>
-        You are not signed in
-      <% end %></li>
+          <li class="websiteUser removeMargin">
+            <% if user_signed_in? %>
+              Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+            <% else %>
+              You are not signed in
+            <% end %>
+          </li>
 
-    </ul>
+        </ul>
 
-  </header>
+      </header>
 
-  <div class="stretch">
+      <div class="stretch">
 
-    <nav class="leftNav">
+        <nav class="leftNav">
 
-      <h1>Logo</h1>
+          <h1>Logo</h1>
 
-      <% if user_signed_in? %>
-        <!-- http://www.rymcmahon.com/articles/2 -->
-        <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
-          <%= submit_tag "Search", :name => nil %>
-        <% end %>
-      <% else %>
-        <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
-          <%= submit_tag "Search", :name => nil %>
-      <% end %>
-    <% end %>
+          <% if user_signed_in? %>
+            <!-- http://www.rymcmahon.com/articles/2 -->
+            <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+              <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          <% else %>
+            <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+              <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          <% end %>
 
-      <ul>
-        <li><%= link_to 'Law Groups', admin_groups_path %></li>
-        <li><%= link_to 'Categories', admin_categories_path %></li>
-        <li><%= link_to 'Articles', admin_articles_path %></li>
-        <li>GDPR Articles</li>
-        <li>GDPR Recitals</li>
-        <li>Guidance Notes</li>
-        <li><%= link_to 'Users', admin_users_path %></li>
-      </ul>
+          <ul>
+            <li><%= link_to 'Law Groups', admin_groups_path %></li>
+            <li><%= link_to 'Categories', admin_categories_path %></li>
+            <li><%= link_to 'Articles', admin_articles_path %></li>
+            <li>GDPR Articles</li>
+            <li>GDPR Recitals</li>
+            <li>Guidance Notes</li>
+            <li><%= link_to 'Users', admin_users_path %></li>
+          </ul>
 
+        </nav>
+        <main>
 
-    </nav>
-   <%end%>
-    <main>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+          <%= yield %>
 
-      <%= yield %>
-
-    </main>
-
-    <footer>
-
-    </footer>
-  </div>
-</div>
+        </main>
+      </div>
+    </div>
 
   </body>
 </html>
