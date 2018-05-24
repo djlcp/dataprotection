@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:search]
-      @articles = Article.search(params[:search])
+      @articles = Article.where(published: true).all.search(params[:search])
     else
       @articles = Article.where(published: true).all
     end
