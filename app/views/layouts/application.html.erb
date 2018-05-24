@@ -1,4 +1,4 @@
-<!---- this is the CMS application ----->
+<!--- this is the CMS application ----->
 
 <!DOCTYPE html>
 <html>
@@ -8,63 +8,70 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
 
   <body class="removeMargin">
-    
+
     <div class="wrapper">
 
-  <header class="topBar">
+      <header class="topBar">
 
-    <ul class="flex-container space-between removeMargin ">
+        <ul class="flex-container space-between removeMargin ">
 
-      <li class="websiteName removeMargin">Website Name</li>
+          <li class="websiteName removeMargin">Website Name</li>
 
-      <li class="websiteUser removeMargin">
-        <% if user_signed_in? %>
-        Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-      <% else %>
-        You are not signed in
-      <% end %></li>
+          <li class="websiteUser removeMargin">
+            <% if user_signed_in? %>
+              Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+            <% else %>
+              You are not signed in
+            <% end %>
+          </li>
 
-    </ul>
-    
-  </header>
+        </ul>
 
-  <div class="stretch">
+      </header>
 
-    <nav class="leftNav">
+      <div class="stretch">
 
-      <h1>Logo</h1>
+        <nav class="leftNav">
 
-      <ul>
-        <li><%= link_to 'Law Groups', admin_groups_path %></li>
-        <li><%= link_to 'Categories', admin_categories_path %></li>
-        <li><%= link_to 'Articles', admin_articles_path %></li>
-        <li>GDPR Articles</li>
-        <li>GDPR Recitals</li>
-        <li>Guidance Notes</li>
-        <li><%= link_to 'Users', admin_users_path %></li>
-      </ul>
-      
-    </nav>
+          <h1>Logo</h1>
 
-    <main>
+          <% if user_signed_in? %>
+            <!-- http://www.rymcmahon.com/articles/2 -->
+            <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+              <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          <% else %>
+            <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+              <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          <% end %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+          <ul>
+            <li><%= link_to 'Law Groups', admin_groups_path %></li>
+            <li><%= link_to 'Categories', admin_categories_path %></li>
+            <li><%= link_to 'Articles', admin_articles_path %></li>
+            <li>GDPR Articles</li>
+            <li>GDPR Recitals</li>
+            <li>Guidance Notes</li>
+            <li><%= link_to 'Users', admin_users_path %></li>
+          </ul>
 
-      <%= yield %>
-      
-    </main>
+        </nav>
+        <main>
 
-    <footer>
-      
-    </footer>
-  </div>
-</div>
-    
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <%= yield %>
+
+        </main>
+      </div>
+    </div>
+
   </body>
 </html>
