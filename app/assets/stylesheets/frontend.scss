@@ -1,67 +1,5 @@
-$dark_grey: #505050;
-
-html {
-	height: 100%;
-}
-
-body {
-	background-color: $dark_grey;
-	font-family: 'Open Sans', sans-serif;
-	margin: 0;
-	height: 100%;
-}
-
-
-/***** Nav ******/
-
-.container {
-  display: inline-flex;
-  justify-content: space-between;
-  width: 100%;
-
-  .logo, .linksContainer, .searchField {
-	margin: 20px 0;
-    height: 30px;
-    line-height: 30px;
-    color: #ffffff;
-  }
-
-  .logo {
-  	padding-left: 80px;
-  	width: 250px;
-  }
-
-  .linksContainer {
-
-  	display: inline-flex;
-  	width: 100%;
-
-  	li {
-  		width: 100px;
-  		list-style-type: none;
-  	}
-
-  }
-
-  .searchField {
-  	width: 100px;
-    padding-right: 80px;
-    margin-right: 80px;
-    padding-left: 15px;
-    background-color: $dark_grey;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #ffffff;
-    border-image: none;
-  }
-
-  .searchField::placeholder {
-  	color: #ffffff
-  }
-
-
-
-}
+@import "frontend/helpers.scss";
+@import "frontend/frontend_nav.scss";
 
 
 /***** Law Pages ******/
@@ -74,12 +12,15 @@ body {
 		margin: 0;
 	}
 
-
-
 }
 
+.container {
+    display: inline-flex;
+}
+
+
 .lawBoxesSection {
-	padding: 80px 80px 30px;
+	padding: 80px;
 }
 
 .border-right {
@@ -91,6 +32,7 @@ body {
 	flex-basis: 0;
 	text-align: center;
 	padding: 30px;
+	cursor: pointer;
 
 	p {
 		font-size: 12px;
@@ -106,9 +48,6 @@ body {
     .lawTitle {
     	font-size: 1em;
     }
-}
-
-.mainLaw {
 }
 
 
@@ -129,6 +68,7 @@ body {
 		border-bottom: 1px solid #063a5e;
 		line-height: 50px;
     	padding: 10px;
+    	cursor: pointer;
 
 		p {
 			margin: 0;
@@ -140,6 +80,7 @@ body {
 .lawContentSection {
 	width: calc(100% - 440px);
 	padding-right: 80px;
+    margin-bottom: 100px;
 
 	div {
 		width: 100%;
@@ -150,6 +91,7 @@ body {
 .articleSection {
 	h1 {
 		font-size: 18px;
+		padding: 12px 0;
 	}
 
 	h2 {
@@ -159,6 +101,85 @@ body {
 	p {
 		font-size: 14px;
 	}
+
+	.articleContent {
+		padding-top: 5px;
+	    padding-left: 35px;
+	    margin-bottom: 80px;
+	}
 }
 
+.lawLinkedContent table {
+	width: 100%;
+	border-collapse: collapse;
+
+	tr th {
+		width: 33.33%;
+		padding: 14px 0;
+		border: 2px solid $gdpr_red;
+		color: $gdpr_red;
+		cursor: pointer;
+	}
+
+	tr td {
+		padding: 20px 15px;
+		border: 2px solid $gdpr_red;
+		font-size: 14px;
+
+	}
+}
+
+
+
+
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+  body {
+
+  	.lawContentSection {
+  		padding-left: 50px;
+  	}
+
+  }
+}
+
+@media screen  and (max-width: 979px) /* Tablet */ {
+  body {
+
+  }
+}
+
+@media screen and (max-width: 500px) /* Mobile */ {
+  body {
+
+
+    .lawBoxesSection {
+    	display: none;
+    }
+
+
+    .container {
+        display: flow-root;
+    }
+
+    .lawsIndexSection {
+       margin: 30px auto;
+    }
+
+    .lawContentSection {
+	    width: auto;
+	    padding: 0 15px;
+
+	    div {
+	    	width: auto;
+	    }
+    }
+
+    .articleSection .articleContent {
+    	padding: 0;
+    }
+
+  }
+}
 

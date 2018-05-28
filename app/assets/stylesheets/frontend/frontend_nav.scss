@@ -1,0 +1,150 @@
+$dark_grey: #505050;
+$gdpr_red: #b22328;
+
+/***** Nav ******/
+
+
+.mainNav {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo, .linksContainer, .searchField {
+    margin: 15px 0;
+    height: 45px;
+    line-height: 45px;
+    color: #ffffff;
+  }
+
+  .logo {
+    padding-left: 80px;
+  }
+
+  .linksContainer {
+
+    display: inline-flex;
+    width: 100%;
+
+    li {
+      width: 100px;
+      list-style-type: none;
+    }
+
+  }
+
+  .searchField {
+    background-color: $dark_grey;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-image: none;
+  }
+
+  .searchField::placeholder {
+    color: #ffffff
+  }
+
+}
+
+.mainNav {
+  background-color: $dark_grey;
+}
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+  body {
+
+    .mainNav {
+
+      .searchField {
+          width: 100px;
+          padding-right: 80px;
+          margin-right: 80px;
+          padding-left: 15px;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+    }
+
+    .mobileNav {
+      display: none;
+    }
+
+  }
+}
+
+@media screen  and (max-width: 979px) /* Tablet */ {
+  body {
+
+  }
+}
+
+
+@media screen and (max-width: 600px) /* Mobile */ {
+  body {
+
+    .mainNav {
+
+      & > a {
+          width: 100%;
+         display: block;
+      }
+
+      .logo {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .searchField {
+        padding-left: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: calc(100% - 50px);
+        margin-top: 0;
+        height: 25px;
+      }
+
+      .hamburger {
+          width: 20px;
+          z-index: 10;
+          right: 0;
+          padding: 20px;
+          position: absolute;
+          top: 0;
+          fill: #ffffff;
+      }
+
+
+      .linksContainer {
+            display: none;
+      }
+
+
+    }
+
+      .mobileNav {
+          display: none;
+          top: 60px;
+          position: absolute;
+
+          .linksContainerMobile {
+
+          padding: 15px;
+            li {
+                width: auto;
+                list-style-type: none;
+                color: #ffffff;
+                padding: 10px 0;
+            }
+          }
+      }
+
+  }
+}
