@@ -1,4 +1,10 @@
-
+<!-- Check if form is in edit mode  -->
+<% if @article.persisted? %>
+  <h1>Editing <%= @article.title %></h1>
+<% else %>
+  <% name = @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %>
+  <h1><%= name %></h1>
+<% end %>
 
 <%= form_for [:admin, @article] do |form| %>
 
@@ -38,13 +44,10 @@
 
   <% case @form_params.type %>
     <%  when "article" %>
-        article (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'article' %>
     <%  when "recital" %>
-        Recital (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'recital' %>
     <%  when "guidance" %>
-        guidance (hidden field, remove when finished)
         <%= form.hidden_field :article_type, value: 'guidance' %>
   <%  end %>
 
@@ -71,42 +74,36 @@
 
       <% case @form_params.law.downcase %>
         <%  when "jersey-data-protection" %>
-          list all jersey categories
           <%= form.select :category_id,
            options_for_select(Group.find_by(title: 'jersey data protection').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "jersey-authority" %>
-          list all authority categories
           <%= form.select :category_id,
            options_for_select(Group.find_by(title: 'jersey authority').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "jersey-registration" %>
-          list all restistration categories
           <%= form.select :category_id,
            options_for_select(Group.find_by(title: 'jersey registration').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "gdpr-article" %>
-          Just list gdpr Artilce categories
           <%= form.select :category_id,
            options_for_select(Group.find_by(title: 'gdpr').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "gdpr-recital" %>
-          Just list all gdpr reciatal categories (only 1)
           <%= form.select :category_id,
-           options_for_select(Group.find_by(title: 'gdpr').categories.map { |category| [category.title, category.id] }),
+           options_for_select(Group.find_by(title: 'gdpr').categories.where(title: 'Recitals').map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "guidance" %>
-          list all guidance categories (only 2)
           <%= form.select :category_id,
            options_for_select(Group.find_by(title: 'guidance').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
@@ -114,36 +111,49 @@
 
       <%  end %>
 
+
+    </div>
+
+    <div>
+
+      <%= link_to 'Create New Category', new_admin_category_path %>
+
+    </div>
+
+
+    <div class="">
+
+      <% if @form_params.law.downcase == "gdpr-article" || @form_params.law.downcase == "gdpr-recital" || @form_params.law.downcase == "guidance" %>
+
+          <h3>Link this to An Article</h3>
+
+          <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
+
+            <% group.categories.each do |category| %>
+
+              <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+
+                <div class="field">
+                  <div class="pretty p-default p-smooth">
+                    <%= b.check_box %>
+                    <div class="state p-primary ">
+                      <%= b.label %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+            <% end %>
+
+          <% end %>
+
+      <% end %>
     </div>
 
     <div class="field articleAssignmentsHeader">
       <%= form.label :published %>
       <%= form.check_box :published %>
     </div>
-
-    <% if @form_params.law.downcase == "gdpr-article" || @form_params.law.downcase == "gdpr-recital" %>
-
-        <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
-
-          <% group.categories.each do |category| %>
-
-            <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
-
-              <div class="field">
-                <div class="pretty p-default p-smooth">
-                  <%= b.check_box %>
-                  <div class="state p-primary ">
-                    <%= b.label %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-          <% end %>
-
-        <% end %>
-
-    <% end %>
 
     <div class="actions articleAssignmentsHeader">
       <%= form.submit %>

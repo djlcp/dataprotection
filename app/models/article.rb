@@ -17,4 +17,5 @@ class Article < ApplicationRecord
   def display_title
     "#{title} - #{category.group.title}"
   end
+
 end

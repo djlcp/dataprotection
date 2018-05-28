@@ -4,11 +4,7 @@
 
 <div class="flex-container">
   <div>
-        <% name = @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %>
-        <h1><%= name %></h1>
-        <p>DO a Search here that searches by title. Search will not display on any recital/guidance as they dont have titles.</p>
-
-        <%= link_to 'Create New', new_admin_article_path(:law => @form_params.law, :type => @form_params.type) %>
+        <h1>Articles</h1>
 
         <table class="indexTable">
           <thead>
@@ -63,6 +59,24 @@
           </tbody>
         </table>
 
+        <br>
+
+        <%#= link_to 'New Article', new_admin_article_path %> <br>
+
+        <%#= link_to "New Jersey Article", new_admin_article_path(law: "jersey", type: "article") %> <br>
+        <h1><%= @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %></h1>
+
+        <% Group.where(title: @form_params.law.downcase.gsub('-', ' ') ).each do |group| %>
+
+          <% group.categories.each do |category| %>
+
+            <% category.articles.each do |article| %>
+             <%= article.title  %> <br>
+            <% end %>
+
+          <% end %>
+
+        <% end %>
 
     </div>
 </div>
