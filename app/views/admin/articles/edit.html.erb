@@ -1,6 +1,1 @@
-
-<%= render 'all_form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-
-<li><%= link_to 'Back', admin_articles_path(:law => @form_params.law, :type => @form_params.type) %></li>
+<%= render 'form', article: @article, group: @group %>

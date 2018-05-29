@@ -1,68 +1,13 @@
-
-
-<p id="notice"><%= notice %></p>
-
 <div class="flex-container">
   <div>
-        <% name = @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %>
-        <h1><%= name %></h1>
-        <p>DO a Search here that searches by title. Search will not display on any recital/guidance as they dont have titles.</p>
 
-        <%= link_to 'Create New', new_admin_article_path(:law => @form_params.law, :type => @form_params.type) %>
+    <%# name = @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %>
+    <h1><%#= name %></h1>
+    <p>DO a Search here that searches by title. Search will not display on any recital/guidance as they dont have title.</p>
 
-        <table class="indexTable">
-          <thead>
-            <tr>
-              <% if @form_params.type == "article" %>
-                <th>No</th>
-                <th>Letter</th>
-              <% end %>
+    <%= link_to 'Create New', new_admin_article_path(:law => @form_params.law, :type => @form_params.type) %>
 
-              <th class="thPublished">Published</th>
-              <th class="thTitle">Title</th>
-              <th class="thContent">Content</th>
-              <th class="thCategory">Category</th>
-              <th class="thGroup">Group</th>
+    <%= render 'table', articles: @articles %>
 
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% Group.where(title: @form_params.law.downcase.gsub('-', ' ') ).each do |group| %>
-
-              <% group.categories.each do |category| %>
-
-                <% category.articles.each do |article| %>
-
-                  <tr class="rowAlternateColor">
-
-                   <% if @form_params.type == "article" %>
-                      <td><%= article.number %></td>
-                      <td><%= article.letter %></td>
-                    <% end %>
-
-                    <% if article.published %>
-                      <td> published </td>
-                    <% else %>
-                      <td> Unpublished </td>
-                    <% end %>
-                    <td><%= article.title %></td>
-                    <td><%= article.content.truncate(17) %></td>
-                    <td><%= article.category.title %></td>
-                    <td><%= article.category.group.title %></td>
-
-                    <td class="showEditDestroyColumns"><%= link_to 'Show', admin_article_path(article) %></td>
-                    <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article, law: @form_params.law, type: @form_params.type) %></td>
-                    <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  </tr>
-                <% end %>
-              <% end %>
-            <% end %>
-
-          </tbody>
-        </table>
-
-
-    </div>
+  </div>
 </div>
