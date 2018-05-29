@@ -57,8 +57,8 @@
       %>
     </div>
 
-<<<<<<< HEAD
-  <div class="field">
+
+  <div class="field articleAssignmentsHeader">
    <p>Link it to another article</p>
    <%= form.label :associated_article_ids %>
     <%#= form.select :associated_article_ids,
@@ -68,17 +68,7 @@
     %>
     <%= form.collection_check_boxes( :associated_article_ids, Article.all,:id, :title, {}, {:multiple => true})%>
   </div>
-=======
-    <div class="field articleAssignmentsHeader">
-      <p>Link it to another article</p>
-      <%= form.label :associated_article_ids %>
-      <%= form.select :associated_article_ids,
-      options_for_select(Article.all.map { |article| [article.title, article.id] }),
-      { prompt: true },
-      { multiple: true, class: 'associatedArticleBox'}
-      %>
-    </div>
->>>>>>> 84c09db2e088cbc4c79fb5c1fd89bc6372c94e3c
+
 
     <div class="field articleAssignmentsHeader">
       <%= form.label :published %>

@@ -27,34 +27,28 @@
 
 		<div class="lawsIndexBox">
 			
-			<div class="lawSelection">
-				<p>1. Interpretation</p>
-			</div>
+			<% @articles.each do |article|  %>
+			  	<div class="lawSelection" data-article-content="article-<%= article.id %>">
+					<p><%= article.number %>. <%= article.title %></p>
+				</div>
+			<% end %>
 
 		</div>
 		
 	</section>
 
 	<section class="lawContentSection">
-		
-		<div class="articleSection">
-			<h1>LAW GROUP</h1>
-			<h1>CATEGORY</h1>
-			<h2>ARTICLE NAME</h2>
+		<% @articles.each do |article|  %>
+		<div class="articleSection" data-article-content="article-<%= article.id %>">
+			<h1><%= article.category.group.title %></h1>
+			<h1><%= article.category.title %></h1>
+			<h2><%= article.number %>. <%= article.title %></h2>
 			<div class="articleContent">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
-
-				<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
-
-				<p>Vestibulum gravida lacinia purus, eget finibus arcu posuere eget. Duis tincidunt tristique metus, elementum egestas massa tincidunt eget. Phasellus euismod nunc est, a finibus sapien faucibus sed. Nullam nulla urna, porttitor in imperdiet ut, maximus sit amet diam. Suspendisse volutpat fermentum quam, at lobortis eros tempor eget. Donec mattis mi eu mauris facilisis congue ac porta odio. Duis dui metus, congue in diam venenatis, convallis vehicula leo. Integer elementum sem magna, non consectetur urna ornare quis. Pellentesque in finibus mauris. Praesent mattis enim mauris, non suscipit libero egestas a.</p>
-
-				<p>Sed rutrum tortor nec mauris facilisis tempus. Donec ultrices ipsum quis ex porta posuere. Donec sed cursus sem, in cursus quam. Proin efficitur tempor pharetra. Ut hendrerit, lorem eget hendrerit pretium, leo quam interdum metus, a volutpat augue velit id leo. Nunc euismod est diam, eget fermentum arcu dignissim in. Vivamus nec ante diam.</p>
-
-				<p>Nulla pulvinar dictum ligula vel tempus. Cras fermentum fringilla ultrices. Mauris sed dictum elit, at varius nibh. Pellentesque odio leo, ultrices et bibendum ut, placerat lobortis lorem. Aliquam nulla mauris, suscipit et turpis eu, lacinia fermentum nunc. Vivamus lobortis sodales efficitur. Nulla a bibendum mauris. Sed ornare nisi et diam tincidunt, sit amet laoreet velit ornare. Proin quam nisl, porttitor ac pulvinar a, ornare eu ante.</p>
+				<%= sanitize article.content %>
 			</div>
 		</div>
 
-		<div class="lawLinkedContent">
+		<div class="lawLinkedContent" data-article-content="article-<%= article.id %>">
 
 			<table cellspacing="0">
 			  <tr>
@@ -89,6 +83,7 @@
 			</table>
 					
 		</div>
+		<% end %>
 
 	</section>
 

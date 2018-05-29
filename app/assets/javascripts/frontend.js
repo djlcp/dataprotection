@@ -17,7 +17,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-$( document ).ready(function() {
+$(document).on('turbolinks:load', function() {
 
 	// show relevant note for article
 
@@ -43,6 +43,13 @@ $( document ).ready(function() {
 
 	$(".hamburger").click(function() {
 		$(".mobileNav").toggle();
+	})
+
+
+	// law article selection
+
+	$('.lawSelection[data-article-content]').click(function() {
+		$(this).data('article-content').css("background-color", "yellow");
 	})
 
 
