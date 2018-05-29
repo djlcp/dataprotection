@@ -60,7 +60,7 @@ class Admin::ArticlesController < ApplicationController
     if params.to_unsafe_h[:scope].present?
       @group = Group.find(params.to_unsafe_h[:scope].to_i)
     elsif @article
-      article.category.group
+      @article.category.group
     else
       @group = Group.first
     end

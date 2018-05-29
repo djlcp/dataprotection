@@ -16,104 +16,91 @@
   </div>
 <% end %>
 
-<%= form_for [:admin, @article] do |form| %>
+<%= form_for [:admin, @article], class: 'form' do |form| %>
 
-  <div class="flex-container flex-start">
+  <div class="form__row">
+    <%= form.collection_radio_buttons(
+      :article_type,
+      Article.article_types.map { |type| OpenStruct.new(name: type[0]) }, :name, :name) do |rb| %>
 
-    <div class="mainLeft">
+      <div class="pretty p-default p-curve">
+        <%= rb.radio_button(class: 'js-article-type-select', data: { value: rb.text }) %>
+        <div class="state p-primary-o">
+          <%= rb.label do %>
+            <%= "#{rb.text.titleize}" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-      <div style="margin-bottom: 20px">
-        <%= form.collection_radio_buttons(
-          :article_type,
-          Article.article_types.map { |type| OpenStruct.new(id: type[1], name: type[0]) }, :id, :name) do |rb| %>
+  <div class="js-article-fields form__row">
+    <div class="field">
+      <%= form.label :number, class: 'articleHeading' %><br>
+      <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
+    </div>
 
-          <div class="pretty p-default p-curve">
-            <%= rb.radio_button(class: 'js-article-type-select', data: { value: rb.text }) %>
-            <div class="state p-primary-o">
-              <%= rb.label do %>
-                <%= "#{rb.text.titleize}" %>
-              <% end %>
+    <div class="field">
+      <%= form.label :letter, class: 'articleHeading' %><br>
+      <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
+    </div>
+  </div>
+
+  <div class="field form__row">
+    <%= form.label :title, class: 'articleHeading' %><br>
+    <%= form.text_field :title, id: :article_title, class: 'articleHeader' %>
+  </div>
+
+  <div class="field form__row">
+    <%= form.label :content, class: 'articleHeading' %><br>
+    <%= form.cktext_area :content, id: :article_content, class: 'articleText' %>
+  </div>
+
+  <div class="field form__row articleAssignmentsHeader">
+    <%= form.label :category_id %>
+
+    <%= form.select :category_id,
+      options_for_select(group.categories.map { |category| [category.title, category.id] }),
+      { prompt: true }
+    %>
+
+  </div>
+
+  <div>
+    <%= link_to 'Create New Category', new_admin_category_path %>
+  </div>
+
+  <div class="form__row">
+    <h3>Link this to An Article</h3>
+
+    <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
+
+      <% group.categories.each do |category| %>
+
+        <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+
+          <div class="field">
+            <div class="pretty p-default p-smooth">
+              <%= b.check_box %>
+              <div class="state p-primary ">
+                <%= b.label %>
+              </div>
             </div>
           </div>
         <% end %>
-      </div>
 
-      <div class="js-article-fields">
-        <div class="field">
-          <%= form.label :number, class: 'articleHeading' %><br>
-          <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
-        </div>
+      <% end %>
 
-        <div class="field">
-          <%= form.label :letter, class: 'articleHeading' %><br>
-          <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
-        </div>
-      </div>
+    <% end %>
+  </div>
 
-      <div class="field">
-        <%= form.label :title, class: 'articleHeading' %><br>
-        <%= form.text_field :title, id: :article_title, class: 'articleHeader' %>
-      </div>
+  <div class="field form__row articleAssignmentsHeader">
+    <%= form.label :published %>
+    <%= form.check_box :published %>
+  </div>
 
-      <div class="field">
-        <%= form.label :content, class: 'articleHeading' %><br>
-        <%= form.cktext_area :content, id: :article_content, class: 'articleText' %>
-      </div>
-
-    </div>
-
-    <div class="mainRight">
-
-      <div class="field articleAssignmentsHeader">
-        <%= form.label :category_id %>
-
-        <%= form.select :category_id,
-          options_for_select(group.categories.map { |category| [category.title, category.id] }),
-          { prompt: true }
-        %>
-
-      </div>
-
-      <div>
-        <%= link_to 'Create New Category', new_admin_category_path %>
-      </div>
-
-      <div class="">
-
-        <h3>Link this to An Article</h3>
-
-        <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
-
-          <% group.categories.each do |category| %>
-
-            <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
-
-              <div class="field">
-                <div class="pretty p-default p-smooth">
-                  <%= b.check_box %>
-                  <div class="state p-primary ">
-                    <%= b.label %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-          <% end %>
-
-        <% end %>
-
-      </div>
-
-      <div class="field articleAssignmentsHeader">
-        <%= form.label :published %>
-        <%= form.check_box :published %>
-      </div>
-
-      <div class="actions articleAssignmentsHeader">
-        <%= form.submit %>
-      </div>
-
-    </div>
+  <div class="actions form__row articleAssignmentsHeader">
+    <%= form.submit %>
   </div>
 
 <% end %>

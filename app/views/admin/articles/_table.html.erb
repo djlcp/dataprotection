@@ -38,7 +38,7 @@
         <td><%= article.category.group.title %></td>
 
         <td class="showEditDestroyColumns"><%= link_to 'Show', admin_article_path(article) %></td>
-        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article, law: @form_params.law, type: @form_params.type) %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article, scope: article.category.group) %></td>
         <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

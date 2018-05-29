@@ -61,10 +61,14 @@
                 </li>
                 <% end %>
                 <li>
+                <% if group.categories.present? %>
                   <%= link_to new_admin_article_path(scope: group.id), class: 'flex flex--justify-between flex--items-align' do %>
                     New Article
                     <i class="fas fa-small fa-plus"></i>
                   <% end %>
+                <% end %>
+                </li>
+
                 </li>
               </ul>
             <% end %>
