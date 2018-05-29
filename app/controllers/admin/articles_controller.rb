@@ -51,15 +51,18 @@ class Admin::ArticlesController < ApplicationController
       #redirect_to admin_articles_path(@form_params)
       #redirect_to admin_articles_path(law: "#{@form_params.law}", type: "#{@form_params.type}")
       #redirect_to admin_articles_path(law: "#{@form_params.to_h[:law]}", type: "#{@form_params.to_h[:type]}")
-      redirect_to admin_articles_path(law: @form_params[:law], type: @form_params[:type])
-
+      #redirect_to admin_articles_path(law: @form_params[:law], type: @form_params[:type])
       # law = @form_params.law
       # type = @form_params.type
       # redirect_to admin_articles_path(law: law, type: type)
-
       #redirect_to admin_articles_path(@form_params.to_h)
-
       #redirect_to action: "index", @form_params
+
+      #redirect_to action admin_article_path(@article)
+      #redirect_back fallback_location: { action: "show", id: @article.id }
+      redirect_to action: "show", id: @article.id 
+
+
     else
       render :new
     end
