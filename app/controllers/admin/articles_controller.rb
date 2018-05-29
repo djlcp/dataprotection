@@ -2,7 +2,7 @@ class Admin::ArticlesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_article, only: [:show]
-  before_action :set_form, only: [:new]
+  before_action :set_form, only: [:new, :create, :edit, :index]
   load_and_authorize_resource
 
   # GET /articles
@@ -11,6 +11,8 @@ class Admin::ArticlesController < ApplicationController
     @articles = Article.all
     @categories = Category.all
     @groups = Group.all
+
+
   end
 
   # GET /articles/1
@@ -22,15 +24,13 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.new
     @all_articles =  LinkedArticle.joins(:article, :article)
-    @form_belongs_to = set_form[:form_law]
-    @form_type = set_form[:form_type]
+    @articles = Article.all
 
-  #  @form_type = params[:form_law, :form_type]
-    # @form_type = params[:form_law][:form_type]
+    # @form_belongs_to = @form_params.law
+    # @form_type = @form_params.type
+    @category = Category.new
 
 
-    # @form_type = set_form(:form_type)
-    # @form_type = set_form.find(params[:form_type])
   end
 
   # GET /articles/1/edit
@@ -40,10 +40,29 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    @category = Category.new
+    #@form_params = @form_params.all
+
     @article = Article.new(article_params)
     if @article.save
       create_associated_articles
-      redirect_to admin_articles_path(@article), notice: 'Article was successfully created.'
+      #redirect_to admin_articles_path(@article), notice: 'Article was successfully created.'
+      #redirect_to admin_articles_path(:law => @form_params.law, :type => @form_params.type)
+      #redirect_to admin_articles_path(@form_params)
+      #redirect_to admin_articles_path(law: "#{@form_params.law}", type: "#{@form_params.type}")
+      #redirect_to admin_articles_path(law: "#{@form_params.to_h[:law]}", type: "#{@form_params.to_h[:type]}")
+      #redirect_to admin_articles_path(law: @form_params[:law], type: @form_params[:type])
+      # law = @form_params.law
+      # type = @form_params.type
+      # redirect_to admin_articles_path(law: law, type: type)
+      #redirect_to admin_articles_path(@form_params.to_h)
+      #redirect_to action: "index", @form_params
+
+      #redirect_to action admin_article_path(@article)
+      #redirect_back fallback_location: { action: "show", id: @article.id }
+      redirect_to action: "show", id: @article.id 
+
+
     else
       render :new
     end
@@ -73,10 +92,11 @@ class Admin::ArticlesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_form
-    # @form = Article.find(params[:form_type])
-    # params.permit(:form_type)
-     params.permit(:form_law, :form_type,)
+    @form_params = OpenStruct.new(params.permit(:law, :type))
+    #@form_params = params.permit(:law, :type)
+    #@form_params = Struct.new(params.permit(:law, :type)).to_s
   end
+
 
   def set_article
     @article = Article.find(params[:id])
@@ -104,4 +124,5 @@ class Admin::ArticlesController < ApplicationController
       []
     end
   end
+
 end

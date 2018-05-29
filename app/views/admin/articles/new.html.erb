@@ -1,12 +1,4 @@
-<h1>Create New ...</h1>
 
+<%= render 'all_form', article: @article %>
 
-
-  
-
-  <%= render 'all_form', article: @article %>
-
-
-
-
-<%= link_to 'Back', admin_articles_path %>
+<li><%= link_to 'Back', admin_articles_path(:law => @form_params.law, :type => @form_params.type) %></li>
