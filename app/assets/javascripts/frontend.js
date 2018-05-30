@@ -48,9 +48,14 @@ $(document).on('turbolinks:load', function() {
 
 	// law article selection
 
-	$('.lawSelection[data-article-content]').click(function() {
-		$(this).data('article-content').css("background-color", "yellow");
-	})
+	$('.lawSelection').click(function() {
+    	var articleTitleElement = $(this).attr('data-article');
+    	var articleElement = $('.articleSectionHide').attr('data-article');
+    	// alert(articleTitleElement);
+
+    	$('.articleSectionHide[data-article = '+articleTitleElement+']').addClass('active');
+		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
+	});
 
 
 });

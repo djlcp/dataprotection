@@ -27,6 +27,14 @@
 	border-right: 1px solid #063a5e;
 }
 
+.notActive {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
 .lawTitleBox {
 	flex-grow: 1;
 	flex-basis: 0;
