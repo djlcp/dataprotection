@@ -23,17 +23,17 @@ $(document).on('turbolinks:load', function() {
 
 	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
 
-	$( "#gdprArticle" ).click(function() {
+	$( ".gdprArticle" ).click(function() {
 		$( ".gdprArticleText" ).show();
 	  	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
 	});
 
-	$( "#gdprRecital" ).click(function() {
+	$( ".gdprRecital" ).click(function() {
 		$( ".gdprRecitalText" ).show();
 	  	$( ".gdprArticleText, .guidanceNoteText" ).hide();
 	});
 
-	$( "#guidanceNote" ).click(function() {
+	$( ".guidanceNote" ).click(function() {
 		$( ".guidanceNoteText" ).show();
 	  	$( ".gdprArticleText, .gdprRecitalText" ).hide();
 	});
@@ -43,7 +43,7 @@ $(document).on('turbolinks:load', function() {
 
 	$(".hamburger").click(function() {
 		$(".mobileNav").toggle();
-	})
+	});
 
 
 	// law article selection
@@ -51,8 +51,8 @@ $(document).on('turbolinks:load', function() {
 	$('.lawSelection').click(function() {
     	var articleTitleElement = $(this).attr('data-article');
     	var articleElement = $('.articleSectionHide').attr('data-article');
-    	// alert(articleTitleElement);
-
+    	$(this).addClass('active');
+    	$('.lawSelection[data-article != '+articleTitleElement+']').removeClass('active');
     	$('.articleSectionHide[data-article = '+articleTitleElement+']').addClass('active');
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});

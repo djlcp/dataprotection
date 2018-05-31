@@ -47,6 +47,13 @@
 	}
 }
 
+.lawsIndexBox {
+	.active {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
+}
+
 .lawsBox {
 	padding: 0;
 	width: 100%;
@@ -79,7 +86,7 @@
     	cursor: pointer;
 
 		p {
-			margin: 0;
+			line-height: 12px;
 			font-size: 12px;
 		}
 	}
