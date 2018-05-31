@@ -52,6 +52,7 @@ $(document).on('turbolinks:load', function() {
     	var articleTitleElement = $(this).attr('data-article');
     	var articleElement = $('.articleSectionHide').attr('data-article');
     	$(this).addClass('active');
+    	$('.welcomeSection').addClass('notActive');
     	$('.lawSelection[data-article != '+articleTitleElement+']').removeClass('active');
     	$('.articleSectionHide[data-article = '+articleTitleElement+']').addClass('active');
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');

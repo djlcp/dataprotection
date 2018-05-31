@@ -84,10 +84,13 @@
 		line-height: 50px;
     	padding: 10px;
     	cursor: pointer;
+	    display: flex;
+    	align-items: center;
 
 		p {
 			line-height: 12px;
 			font-size: 12px;
+
 		}
 	}
 }
@@ -178,9 +181,35 @@
         display: flow-root;
     }
 
+    .lawsIndexBox {
+    	width: auto;
+    	border: none;
+    	height: 100px;
+
+		.lawSelection {
+		    height: 78px;
+			border: 1px solid #063a5e;
+			width: 150px;
+
+		    p {
+		    	line-height: 15px;
+		    	font-size: 15px;
+		    }
+		}
+    }
+
+    .flickity-viewport, .flickity-slider {
+    	height: 100px!important;
+    }
+
     .lawsIndexSection {
        margin: 30px auto;
     }
+
+    .lawsIndexSection {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	}
 
     .lawContentSection {
 	    width: auto;
