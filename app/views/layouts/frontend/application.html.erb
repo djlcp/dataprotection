@@ -2,14 +2,47 @@
 <html>
   <head>
     <title>Dataprotection</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'frontend#frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="container mainNav">
+
+    <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+    
+    <ul class="linksContainer">
+      <li>LAWS</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+    <input class="searchField" type="text" placeholder="SEARCH">
+
+    <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+
+  </nav>
+
+    <nav class="mainNav mobileNav">
+    
+    <ul class="linksContainerMobile">
+      <li>DATA PROTECTION (JERSEY) LAW 2018</li>
+      <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
+      <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+  </nav>
+
   <body>
-    <h1>Frontend Layout</h1>
     <%= yield %>
   </body>
 </html>

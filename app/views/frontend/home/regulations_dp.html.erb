@@ -1,0 +1,93 @@
+<div class="lawPagesMain">
+
+<section class="lawBoxesSection">
+
+	<div class="container lawsBox">
+		<div class="lawTitleBox border-right">
+			<h2 class="lawTitle ">DATA PROTECTION (JERSEY) LAW 2018</h2>
+			<p>A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.</p>
+		</div>
+
+		<div class="lawTitleBox border-right">
+			<h2 class="lawTitle">DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</h2>
+			<p>A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.</p>
+		</div>
+
+		<div class="lawTitleBox">
+			<h2 class="lawTitle">DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</h2>
+			<p></p>
+		</div>
+	</div>
+
+</section>
+
+<section class="mainLaw container">
+
+	<section class="lawsIndexSection">
+
+		<div class="lawsIndexBox">
+			
+			<% @articles.each do |article|  %>
+			  	<div class="lawSelection" data-article="article-<%= article.id %>">
+					<p><%= article.number %>. <%= article.title %></p>
+				</div>
+			<% end %>
+
+		</div>
+		
+	</section>
+
+	<section class="lawContentSection">
+		<% @articles.each do |article|  %>
+		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
+			<h1><%= article.category.group.title %></h1>
+			<h1><%= article.category.title %></h1>
+			<h2><%= article.number %>. <%= article.title %></h2>
+			<div class="articleContent">
+				<%= sanitize article.content %>
+			</div>
+		</div>
+
+		<div class="lawLinkedContent articleSectionHide notActive" data-article="article-<%= article.id %>">
+
+			<table cellspacing="0">
+			  <tr>
+			    <th class="gdprArticle">GDPR Article</th>
+			    <th class="gdprRecital">GDPR Recital</th> 
+			    <th class="guidanceNote">Guidance Notes</th>
+			  </tr>
+			  <tr class="gdprArticleText">
+			    <td colspan="3">
+			    	<p>GDPR Article</p>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+					<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+			    </td>
+			  </tr>
+			  <tr class="gdprRecitalText">
+			    <td colspan="3">
+			    	<p>GDPR Recital</p>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+					<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+			    </td>
+			  </tr>
+			  <tr class="guidanceNoteText">
+			    <td colspan="3">
+			    	<p>Guidance Notes</p>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+					<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+			    </td>
+			  </tr>
+			</table>
+					
+		</div>
+		<% end %>
+
+	</section>
+
+</section>
+
+
+</div>

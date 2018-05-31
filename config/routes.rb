@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   scope module: 'frontend' do
     resources :home, only: :index
     root to: 'home#index'
+
+    get 'regulations_dp' => 'home#regulations_dp'
+    get 'authority_dp' => 'home#authority_dp'
+    get 'dp_laws' => 'home#dp_laws'
   end
 
   mount Ckeditor::Engine => '/ckeditor'
