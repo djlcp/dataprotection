@@ -20,36 +20,63 @@
     </script>
     
   </head>
-
-  <nav class="container mainNav">
-
-    <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
-    
-    <ul class="linksContainer">
-      <li>LAWS</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </ul>
-
-    <input class="searchField" type="text" placeholder="SEARCH">
-
-    <%= image_tag("frontend/bars.svg", class: "hamburger") %>
-
-  </nav>
-
-    <nav class="mainNav mobileNav">
-    
-    <ul class="linksContainerMobile">
-      <li>DATA PROTECTION (JERSEY) LAW 2018</li>
-      <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
-      <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </ul>
-
-  </nav>
-
   <body>
+    <nav class="container mainNav">
+
+      <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+      
+      <ul class="linksContainer">
+        <li>LAWS</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </ul>
+
+      <input class="searchField" type="text" placeholder="SEARCH">
+
+      <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+
+    </nav>
+
+      <nav class="mainNav mobileNav">
+      
+      <ul class="linksContainerMobile">
+        <li>DATA PROTECTION (JERSEY) LAW 2018</li>
+        <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
+        <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </ul>
+
+    </nav>
+  
     <%= yield %>
+
+    <footer class="footerContainer">
+      <div class="column">
+        <ul >
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </footer>
+
   </body>
 </html>

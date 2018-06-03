@@ -1,12 +1,12 @@
 @import "frontend/helpers.scss";
 @import "frontend/frontend_nav.scss";
+@import "frontend/frontend_footer.scss";
 
 
 /***** Law Pages ******/
 
 .lawPagesMain {
 	background-color: #ffffff;
-	height: 100%;
 
 	h1 {
 		margin: 0;
@@ -68,6 +68,7 @@
 
 .lawsIndexSection {
 	padding-left: 80px;
+	margin-bottom: 100px;
 }
 
 .lawsIndexBox {
