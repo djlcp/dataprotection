@@ -11,8 +11,6 @@ class Admin::ArticlesController < ApplicationController
     @articles = Article.all
     @categories = Category.all
     @groups = Group.all
-
-
   end
 
   # GET /articles/1
@@ -60,7 +58,7 @@ class Admin::ArticlesController < ApplicationController
 
       #redirect_to action admin_article_path(@article)
       #redirect_back fallback_location: { action: "show", id: @article.id }
-      redirect_to action: "show", id: @article.id 
+      redirect_to action: "show", id: @article.id
 
 
     else
@@ -92,7 +90,11 @@ class Admin::ArticlesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_form
-    @form_params = OpenStruct.new(params.permit(:law, :type))
+    if params.permit(:law, :type).present?
+      @form_params = OpenStruct.new(params.permit(:law, :type))
+    else
+      @form_params = OpenStruct.new(law: 'gdpr-article', type: 'article')
+    end
     #@form_params = params.permit(:law, :type)
     #@form_params = Struct.new(params.permit(:law, :type)).to_s
   end

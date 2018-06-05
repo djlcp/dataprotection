@@ -75,19 +75,19 @@
       <% case @form_params.law.downcase %>
         <%  when "jersey-data-protection" %>
           <%= form.select :category_id,
-           options_for_select(Group.find_by(title: 'jersey data protection').categories.map { |category| [category.title, category.id] }),
+           options_for_select(Group.find_by(title: 'jersey data protection law').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "jersey-authority" %>
           <%= form.select :category_id,
-           options_for_select(Group.find_by(title: 'jersey authority').categories.map { |category| [category.title, category.id] }),
+           options_for_select(Group.find_by(title: 'jersey authority law').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
         <%  when "jersey-registration" %>
           <%= form.select :category_id,
-           options_for_select(Group.find_by(title: 'jersey registration').categories.map { |category| [category.title, category.id] }),
+           options_for_select(Group.find_by(title: 'jersey registration law').categories.map { |category| [category.title, category.id] }),
           { prompt: true }
           %>
 
