@@ -132,6 +132,11 @@
 	width: 100%;
 	border-collapse: collapse;
 
+	.selectedNoteHeader {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
+
 	tr th {
 		width: 33.33%;
 		padding: 14px 0;
