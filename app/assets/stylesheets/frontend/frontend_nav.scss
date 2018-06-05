@@ -51,7 +51,7 @@ $gdpr_red: #b22328;
 }
 
 
-@media screen and (min-width: 980px) /* Desktop */ {
+@media screen and (min-width: 601px) /* Desktop */ {
   body {
 
     .mainNav {
@@ -72,12 +72,6 @@ $gdpr_red: #b22328;
     .mobileNav {
       display: none;
     }
-
-  }
-}
-
-@media screen  and (max-width: 979px) /* Tablet */ {
-  body {
 
   }
 }
