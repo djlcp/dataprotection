@@ -7,7 +7,7 @@ class Frontend::HomeController < FrontendController
 
   def regulations_dp
   	@articles = []
-  	categories=Category.where(group_id = '1')
+  	categories=Category.where('group_id = 1')
   	categories.each do |category|
   		articles=Article.where(category_id: category.id)
   		@articles += articles
