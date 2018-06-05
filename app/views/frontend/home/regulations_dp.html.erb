@@ -2,13 +2,32 @@
 
 <section class="lawBoxesSection">
 
-	<div class="container lawsBox">
-		<div class="lawTitleBox border-right">
-			<h2 class="lawTitle ">DATA PROTECTION (JERSEY) LAW 2018</h2>
-			<p>A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.</p>
-		</div>
+<div class="container lawsBox">
+	<% @groups.each do |gr| %>
+		<% if gr.id == 1 %>
+			<div class="lawTitleBox border-right">
+				<h2 class="lawTitle "><%= gr.title %></h2>
+				<p><%= gr.description %></p>
+			</div>
+		<% end %>
 
-		<div class="lawTitleBox border-right">
+		<% if gr.id == 3 %>
+			<div class="lawTitleBox border-right">
+				<h2 class="lawTitle "><%= gr.title %></h2>
+				<p><%= gr.description %></p>
+			</div>
+		<% end %>
+
+		<% if gr.id == 4 %>
+			<div class="lawTitleBox border-right">
+				<h2 class="lawTitle "><%= gr.title %></h2>
+				<p><%= gr.description %></p>
+			</div>
+		<% end %>
+<% end %>
+
+
+		<!-- <div class="lawTitleBox border-right">
 			<h2 class="lawTitle">DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</h2>
 			<p>A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.</p>
 		</div>
@@ -16,7 +35,7 @@
 		<div class="lawTitleBox">
 			<h2 class="lawTitle">DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</h2>
 			<p></p>
-		</div>
+		</div> -->
 	</div>
 
 </section>
@@ -26,15 +45,15 @@
 	<section class="lawsIndexSection">
 
 		<div class="lawsIndexBox js-flickity">
-			
+
 			<% @articles.each do |article|  %>
 			  	<div class="lawSelection" data-article="article-<%= article.id %>">
-					<p><%= article.number %>. <%= article.title %></p>
+					<p><%= article.number %><%= article.letter %>. <%= article.title %></p>
 				</div>
 			<% end %>
 
 		</div>
-		
+
 	</section>
 
 	<section class="lawContentSection">
@@ -64,7 +83,7 @@
 			<table cellspacing="0">
 			  <tr>
 			    <th class="gdprArticle">GDPR Article</th>
-			    <th class="gdprRecital">GDPR Recital</th> 
+			    <th class="gdprRecital">GDPR Recital</th>
 			    <th class="guidanceNote">Guidance Notes</th>
 			  </tr>
 			  <tr class="gdprArticleText">
@@ -92,7 +111,7 @@
 			    </td>
 			  </tr>
 			</table>
-					
+
 		</div>
 		<% end %>
 
