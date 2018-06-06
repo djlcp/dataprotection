@@ -65,4 +65,18 @@ $(document).on('turbolinks:load', function() {
 	});
 
 
+	// // law group selection
+
+	// $('.lawTitleBox').click(function() {
+ //    	var groupTitleElement = $(this).attr('data-group');
+ //    	var groupElement = $('.groupSectionHide').attr('data-group');
+ //    	$('.mainLaw').addClass('activeLaw');
+
+ //    	$('.mainLaw[data-group != '+groupTitleElement+']').removeClass('activeLaw');
+ //    	$('.lawSelection[data-group != '+groupTitleElement+']').removeClass('activeLaw');
+ //  //   	$('.articleSectionHide[data-article = '+groupTitleElement+']').addClass('active');
+	// 	// $('.articleSectionHide[data-article != '+groupTitleElement+']').removeClass('active');
+	// });
+
+
 });
