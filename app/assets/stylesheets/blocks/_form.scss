@@ -1,0 +1,11 @@
+.form {
+
+}
+
+.form__row {
+  margin-bottom: 20px;
+}
+
+.form__row::last-of-type {
+  margin-bottom: 0;
+}

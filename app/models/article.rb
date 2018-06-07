@@ -17,6 +17,7 @@ class Article < ApplicationRecord
   def self.search(search)
       where("content LIKE ? OR title LIKE ?", "%#{search}%" , "%#{search}%")
   end
-
-
+  def display_title
+    "#{title} - #{category.group.title}"
+  end
 end
