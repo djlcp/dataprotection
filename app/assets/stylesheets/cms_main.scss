@@ -25,21 +25,17 @@ $dark_grey: #505050;
 
 .stretch {
 	display: flex;
-    width: 100%;
+  width: 100%;
+  min-height: 100%;
 }
 
 .wrapper {
-	display: flex;
-	flex-flow: row wrap;
-    height: 100%;
+  height: 100%;
 }
 
-.space-between { 
-  justify-content: space-between; 
+.space-between {
+  justify-content: space-between;
 }
-
-
-
 
 /****** Header ******/
 
@@ -68,27 +64,22 @@ $dark_grey: #505050;
 .leftNav {
 	width: 260px;
 	background-color: $gdpr_red;
-	height: 100%;
+	padding: 30px;
 
 	h1 {
-		padding-left: 40px;
 		color: #ffffff;
+		margin-top: 0;
 	}
 
 	ul li {
 		list-style-type: none;
 		color: #ffffff;
 	    line-height: 40px;
-	    font-size: 18px;
 	}
 
 	ul li a {
 		text-decoration: none;
 		color: #ffffff
-	}
-
-	.subCategoryCreate li {
-		font-size: 14px;
 	}
 }
 
@@ -136,7 +127,7 @@ main {
 
 	.articleAssignmentsHeader {
 		width: 100%;
-		line-height: 32px; 
+		line-height: 32px;
 		margin-bottom: 15px;
 		font-size: 18px;
 
@@ -166,7 +157,7 @@ main {
 		tr {
 			max-height: 40px;
 		}
-	}	
+	}
 }
 
 .articlesTable, .groupsTable {
@@ -180,7 +171,7 @@ main {
 	.contentColumn {
 		width: 300px;
 	}
-	
+
 	.descriptionColumn {
 	width: 500px;
 	}
@@ -210,7 +201,7 @@ main {
 	tr td {
 		padding: 10px;
 	}
-	
+
 	.thContent {
 		width: 300px;
 	}
