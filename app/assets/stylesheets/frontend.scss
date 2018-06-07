@@ -6,6 +6,9 @@
 /***** Law Pages ******/
 
 .lawPagesMain {
+
+    max-width: 1280px;
+    margin: 0 auto;
 	background-color: #ffffff;
 
 	h1 {
@@ -46,8 +49,20 @@
 	padding: 30px;
 	cursor: pointer;
 
+	h2 a {
+		text-decoration: none;
+	}
+
 	p {
 		font-size: 12px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	a:visited {
+		color: $dark_grey;
 	}
 }
 
