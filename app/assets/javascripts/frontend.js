@@ -26,16 +26,22 @@ $(document).on('turbolinks:load', function() {
 	$( ".gdprArticle" ).click(function() {
 		$( ".gdprArticleText" ).show();
 	  	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
+	  	$( ".gdprRecital, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 	$( ".gdprRecital" ).click(function() {
 		$( ".gdprRecitalText" ).show();
 	  	$( ".gdprArticleText, .guidanceNoteText" ).hide();
+	  	$( ".gdprArticle, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 	$( ".guidanceNote" ).click(function() {
 		$( ".guidanceNoteText" ).show();
 	  	$( ".gdprArticleText, .gdprRecitalText" ).hide();
+	  	$( ".gdprRecital, .gdprArticle" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 

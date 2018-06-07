@@ -20,75 +20,101 @@
     </script>
 
   </head>
+  <body>
+    <nav class="container mainNav">
 
-  <nav class="container mainNav">
+      <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+      
+      <ul class="linksContainer">
+        <li>LAWS</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </ul>
 
-    <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
 
-    <ul class="linksContainer">
-      <li>LAWS</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </ul>
+      <input class="searchField" type="text" placeholder="SEARCH">
 
-    <input class="searchField" type="text" placeholder="SEARCH">
+      <%= image_tag("frontend/bars.svg", class: "hamburger") %>
 
-    <%= image_tag("frontend/bars.svg", class: "hamburger") %>
-
-  </nav>
+    </nav>
 
     <nav class="mainNav mobileNav">
+      
+      <ul class="linksContainerMobile">
+        <li>DATA PROTECTION (JERSEY) LAW 2018</li>
+        <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
+        <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+        <li>ABOUT</li>
+        <li>CONTACT</li>
+      </ul>
 
-    <ul class="linksContainerMobile">
-      <li>DATA PROTECTION (JERSEY) LAW 2018</li>
-      <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
-      <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </ul>
+    </nav>
 
-  </nav>
+    <%= yield %>
 
-  <body>
+    <footer class="footerContainer">
+      <div class="column">
+        <ul >
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </footer>
 
 <!--add a sign out alert  -->
 
     <% if flash[:alert] || flash[:notice] || flash[:error] || flash[:success] %>
-  <div class="container">
-    <div class="row">
-      <% if flash[:error] %>
-        <div class="col-md-10 mx-auto mt-3">
-          <div class="oaerror danger alert text-center">
-                <strong>Error  </strong><%= flash[:error] %></div>
+      <div class="container">
+        <div class="row">
+          <% if flash[:error] %>
+            <div class="col-md-10 mx-auto mt-3">
+              <div class="oaerror danger alert text-center">
+                    <strong>Error  </strong><%= flash[:error] %></div>
+            </div>
+          <% end %>
+
+          <% if flash[:alert] %>
+            <div class="col-md-10 mx-auto mt-3">
+              <div class="oaerror warning alert text-center">
+                    <strong>Warning  </strong><%= flash[:alert] %></div>
+            </div>
+          <% end %>
+
+          <% if flash[:notice] %>
+            <div class="col-md-10 mx-auto mt-3">
+              <div class="oaerror info alert text-center">
+                    <strong>Note  </strong><%= flash[:notice] %></div>
+            </div>
+          <% end %>
+
+          <% if flash[:success] %>
+            <div class="col-md-10 mx-auto mt-3">
+              <div class="oaerror success alert text-center">
+                    <strong>Success  </strong><%= flash[:success] %></div>
+            </div>
+          <% end %>
+
         </div>
-      <% end %>
-
-      <% if flash[:alert] %>
-        <div class="col-md-10 mx-auto mt-3">
-          <div class="oaerror warning alert text-center">
-                <strong>Warning  </strong><%= flash[:alert] %></div>
-        </div>
-      <% end %>
-
-      <% if flash[:notice] %>
-        <div class="col-md-10 mx-auto mt-3">
-          <div class="oaerror info alert text-center">
-                <strong>Note  </strong><%= flash[:notice] %></div>
-        </div>
-      <% end %>
-
-      <% if flash[:success] %>
-        <div class="col-md-10 mx-auto mt-3">
-          <div class="oaerror success alert text-center">
-                <strong>Success  </strong><%= flash[:success] %></div>
-        </div>
-      <% end %>
-
-    </div>
-  </div>
-
-<% end %>
-
-    <%= yield %>
+      </div>
+    <% end %>
+  
   </body>
 </html>
