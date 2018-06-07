@@ -73,7 +73,7 @@
   <div class="form__row">
     <h3>Link this to An Article</h3>
 
-    <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
+    <% Group.all.each do |group| %>
 
       <% group.categories.each do |category| %>
 
