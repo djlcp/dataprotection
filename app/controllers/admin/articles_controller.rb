@@ -2,7 +2,6 @@ class Admin::ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit]
   before_action :set_category, only: [:index]
-  before_action :set_group
   before_action :set_form, only: [:new, :create, :edit, :index]
   load_and_authorize_resource
 
@@ -57,16 +56,6 @@ class Admin::ArticlesController < ApplicationController
       @category = Category.find(params.to_unsafe_h[:scope].to_i)
     else
       @category = Category.first
-    end
-  end
-
-  def set_group
-    if params.to_unsafe_h[:scope].present?
-      @group = Group.find(params.to_unsafe_h[:scope].to_i)
-    elsif @article
-      @article.category.group
-    else
-      @group = Group.first
     end
   end
 
