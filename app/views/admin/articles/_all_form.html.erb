@@ -1,5 +1,11 @@
 <%= form_for [:admin, @article] do |form| %>
 
+<%= @form_belongs_to %> <br>
+<%= @form_type %>
+
+
+
+
 <div class="flex-container flex-start">
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -15,15 +21,20 @@
 
   <div class="mainLeft">
 
+  <% if @form_type != "guidance"  %>
     <div class="field">
       <%= form.label :number, class: 'articleHeading' %><br>
       <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
     </div>
 
+
+
     <div class="field">
       <%= form.label :letter, class: 'articleHeading' %><br>
       <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
     </div>
+
+    <% end %>
 
     <div class="field">
       <%= form.radio_button :article_type, 'article' %>
@@ -47,6 +58,7 @@
 
   </div>
 
+
   <div class="mainRight">
 
     <div class="field articleAssignmentsHeader">
@@ -57,18 +69,15 @@
       %>
     </div>
 
-
-  <div class="field articleAssignmentsHeader">
-   <p>Link it to another article</p>
-   <%= form.label :associated_article_ids %>
-    <%#= form.select :associated_article_ids,
-    options_for_select(Article.all.map { |article| [article.title, article.id] },
-  #  { prompt: true },
-    { multiple: true })
-    %>
-    <%= form.collection_check_boxes( :associated_article_ids, Article.all,:id, :title, {}, {:multiple => true})%>
-  </div>
-
+    <div class="field articleAssignmentsHeader">
+      <p>Link it to another article</p>
+      <%= form.label :associated_article_ids %>
+      <%= form.select :associated_article_ids,
+      options_for_select(Article.all.map { |article| [article.title, article.id] }),
+      { prompt: true },
+      { multiple: true, class: 'associatedArticleBox'}
+      %>
+    </div>
 
     <div class="field articleAssignmentsHeader">
       <%= form.label :published %>

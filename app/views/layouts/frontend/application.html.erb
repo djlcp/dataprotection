@@ -2,14 +2,93 @@
 <html>
   <head>
     <title>Dataprotection</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'frontend#frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script>
+      if (screen && screen.width < 500) {
+        document.write('<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"><\/script>');
+      }
+    </script>
+
   </head>
 
+  <nav class="container mainNav">
+
+    <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+
+    <ul class="linksContainer">
+      <li>LAWS</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+    <input class="searchField" type="text" placeholder="SEARCH">
+
+    <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+
+  </nav>
+
+    <nav class="mainNav mobileNav">
+
+    <ul class="linksContainerMobile">
+      <li>DATA PROTECTION (JERSEY) LAW 2018</li>
+      <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
+      <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+  </nav>
+
   <body>
-    <h1>Frontend Layout</h1>
+
+<!--add a sign out alert  -->
+
+    <% if flash[:alert] || flash[:notice] || flash[:error] || flash[:success] %>
+  <div class="container">
+    <div class="row">
+      <% if flash[:error] %>
+        <div class="col-md-10 mx-auto mt-3">
+          <div class="oaerror danger alert text-center">
+                <strong>Error  </strong><%= flash[:error] %></div>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="col-md-10 mx-auto mt-3">
+          <div class="oaerror warning alert text-center">
+                <strong>Warning  </strong><%= flash[:alert] %></div>
+        </div>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <div class="col-md-10 mx-auto mt-3">
+          <div class="oaerror info alert text-center">
+                <strong>Note  </strong><%= flash[:notice] %></div>
+        </div>
+      <% end %>
+
+      <% if flash[:success] %>
+        <div class="col-md-10 mx-auto mt-3">
+          <div class="oaerror success alert text-center">
+                <strong>Success  </strong><%= flash[:success] %></div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+<% end %>
+
     <%= yield %>
   </body>
 </html>

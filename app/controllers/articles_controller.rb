@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:search]
-      @articles = Article.search(params[:search])
+      @articles = Article.where(published: true).all.search(params[:search])
     else
-      @articles = Article.all
+      @articles = Article.where(published: true).all
     end
     @categories = Category.all
     @groups = Group.all
@@ -22,7 +22,11 @@ class ArticlesController < ApplicationController
 
   private
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.where(published: true).find(params[:id])
+        # catch error when someone changes article_ID in the url.
+        rescue ActiveRecord::RecordNotFound
+        flash[:notice] = "The selected ID is currenlty not publicly available."
+        redirect_back fallback_location: articles_url
     end
 
 end
