@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
 	      format.js   { head :forbidden, content_type: 'text/html' }
 	    end
 	  end
- 
+
+    def after_sign_in_path_for(resource)
+      admin_articles_path
+    end
+
   protected
 	# This method is called upon invitation - permits commits to database of data other than password (namely first name, surname, manager? and job title)
   def configure_permitted_parameters
