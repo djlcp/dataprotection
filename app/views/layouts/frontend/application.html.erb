@@ -39,12 +39,15 @@
 
 
       <input class="searchField" type="text" placeholder="SEARCH">
-
-      <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+      <% unless current_page?(root_path) %>
+        <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+      <% else %>
+        <%= image_tag("frontend/bars_red.svg", class: "hamburger") %>
+      <% end %>
 
     </nav>
 
-    <nav class="mainNav mobileNav">
+    <nav class="mobileNav">
       
       <ul class="linksContainerMobile">
         <li>DATA PROTECTION (JERSEY) LAW 2018</li>
