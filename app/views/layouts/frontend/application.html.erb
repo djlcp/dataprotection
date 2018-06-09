@@ -32,7 +32,7 @@
       <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
       
       <ul class="linksContainer">
-        <li>LAWS</li>
+        <li><%= link_to 'LAWS', '/dp_laws' %></li>
         <li>ABOUT</li>
         <li>CONTACT</li>
       </ul>
@@ -50,9 +50,9 @@
     <nav class="mobileNav">
       
       <ul class="linksContainerMobile">
-        <li>DATA PROTECTION (JERSEY) LAW 2018</li>
-        <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
-        <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+        <li><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></li>
+        <li><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></li>
+        <li><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></li>
         <li>ABOUT</li>
         <li>CONTACT</li>
       </ul>
