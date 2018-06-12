@@ -2,10 +2,12 @@ class Admin::ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit]
   before_action :set_category, only: [:index]
+  before_action :set_group, only: [:new]
   before_action :set_form, only: [:new, :create, :edit, :index]
   load_and_authorize_resource
 
   def index
+
     if params[:search]
       @articles = Article.search(params[:search])
     else
@@ -49,6 +51,14 @@ class Admin::ArticlesController < ApplicationController
 
   def set_form
     @form_params = OpenStruct.new(params.permit(:law, :type))
+  end
+
+  def set_group
+    if params.to_unsafe_h[:scope].present?
+      @group = Group.find(params.to_unsafe_h[:scope].to_i)
+    else
+      @group = Group.first
+    end
   end
 
   def set_category
