@@ -1,0 +1,248 @@
+@import "frontend/helpers.scss";
+@import "frontend/frontend_nav.scss";
+@import "frontend/frontend_footer.scss";
+
+
+/***** Law Pages ******/
+
+.lawPagesMain {
+
+    max-width: 1280px;
+    margin: 0 auto;
+	background-color: #ffffff;
+
+	h1 {
+		margin: 0;
+	}
+
+}
+
+.container {
+    display: inline-flex;
+}
+
+
+.lawBoxesSection {
+	padding: 80px;
+}
+
+.border-right {
+	border-right: 1px solid #063a5e;
+}
+
+.notActive {
+	display: none;
+}
+
+.activeLaw {
+    display: inline-flex;
+}
+
+.active {
+	display: block;
+}
+
+.lawTitleBox {
+	flex-grow: 1;
+	flex-basis: 0;
+	text-align: center;
+	padding: 30px;
+	cursor: pointer;
+
+	h2 a {
+		text-decoration: none;
+	}
+
+	p {
+		font-size: 12px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	a:visited {
+		color: $dark_grey;
+	}
+}
+
+.lawsIndexBox {
+	.active {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
+}
+
+.lawsBox {
+	padding: 0;
+	width: 100%;
+    border-top: 1px solid #063a5e;
+    border-bottom: 1px solid #063a5e;
+
+    .lawTitle {
+    	font-size: 1em;
+    }
+}
+
+
+.lawsIndexSection {
+	padding-left: 80px;
+	margin-bottom: 100px;
+}
+
+.lawsIndexBox {
+	width: 200px;
+	border-left: 1px solid #063a5e;
+	border-right: 1px solid #063a5e;
+	border-top: 1px solid #063a5e;
+	padding: 0;
+    margin: 0;
+
+	.lawSelection {
+		height: 50px;
+		border-bottom: 1px solid #063a5e;
+		line-height: 50px;
+    	padding: 10px;
+    	cursor: pointer;
+	    display: flex;
+    	align-items: center;
+
+		p {
+			line-height: 12px;
+			font-size: 12px;
+
+		}
+	}
+}
+
+.lawContentSection {
+	width: calc(100% - 440px);
+	padding-right: 80px;
+    margin-bottom: 100px;
+
+	div {
+		width: 100%;
+
+	}
+}
+
+.articleSection {
+	h1 {
+		font-size: 18px;
+		padding: 12px 0;
+	}
+
+	h2 {
+		font-size: 16px;
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+	.articleContent {
+		padding-top: 5px;
+	    padding-left: 35px;
+	    margin-bottom: 80px;
+	}
+}
+
+.lawLinkedContent table {
+	width: 100%;
+	border-collapse: collapse;
+
+	.selectedNoteHeader {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
+
+	tr th {
+		width: 33.33%;
+		padding: 14px 0;
+		border: 2px solid $gdpr_red;
+		color: $gdpr_red;
+		cursor: pointer;
+	}
+
+	tr td {
+		padding: 20px 15px;
+		border: 2px solid $gdpr_red;
+		font-size: 14px;
+
+	}
+}
+
+
+
+
+
+
+@media screen and (min-width: 601px) /* Desktop */ {
+  body {
+
+  	.lawContentSection {
+  		padding-left: 50px;
+  	}
+
+  }
+}
+
+@media screen and (max-width: 500px) /* Mobile */ {
+  body {
+
+
+    .lawBoxesSection {
+    	display: none;
+    }
+
+
+    .container {
+        display: flow-root;
+    }
+
+    .lawsIndexBox {
+    	width: auto;
+    	border: none;
+    	height: 100px;
+
+		.lawSelection {
+		    height: 78px;
+			border: 1px solid #063a5e;
+			width: 150px;
+
+		    p {
+		    	line-height: 15px;
+		    	font-size: 15px;
+		    }
+		}
+    }
+
+    .flickity-viewport, .flickity-slider {
+    	height: 100px!important;
+    }
+
+    .lawsIndexSection {
+       margin: 30px auto;
+    }
+
+    .lawsIndexSection {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	}
+
+    .lawContentSection {
+	    width: auto;
+	    padding: 0 15px;
+
+	    div {
+	    	width: auto;
+	    }
+    }
+
+    .articleSection .articleContent {
+    	padding: 0;
+    }
+
+  }
+}
+

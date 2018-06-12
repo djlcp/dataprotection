@@ -1,0 +1,23 @@
+$dark_grey: #505050;
+
+footer {
+	background: $dark_grey;
+	min-height: 200px;
+	color: #ffffff;
+	    bottom: 0;
+    display: flex;
+}
+
+.footerContainer {
+	display: flex;
+	padding: 20px 80px;
+}
+
+.column {
+	flex-grow: 1;
+
+	ul li {
+		list-style-type: none;
+		padding-right: 20px;
+	}
+}

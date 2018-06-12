@@ -1,0 +1,16 @@
+<div class="signinPage">
+
+	<% @users.each do |user| %>
+		<br>
+		<%= link_to user.email, admin_user_path(user)  %></td>
+		<br>
+		<p>Joined on: <%= user.created_at.to_time.strftime('%e %B %Y') %></p>
+		<br>
+	<% end %>
+
+</div>
+
+
+<% if current_user.manager? %>
+	<%= link_to "Invite New User", new_user_invitation_path  %>
+<% end %>
