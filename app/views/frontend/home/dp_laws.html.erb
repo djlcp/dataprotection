@@ -15,7 +15,7 @@
 			<p></p>
 		</div>
 
-		<div class="lawTitleBox" data-group="group-3"> 
+		<div class="lawTitleBox" data-group="group-3">
 			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
 			<p></p>
 		</div>
@@ -28,15 +28,15 @@
 		<section class="lawsIndexSection">
 
 			<div class="lawsIndexBox js-flickity">
-				
+
 				<% @articles.each do |article|  %>
 				  	<div class="lawSelection" data-article="article-<%= article.id %>">
-						<p><%= article.number %>. <%= article.title %></p>
+						<p><%= article.number %><%= article.letter %>. <%= article.title %></p>
 					</div>
 				<% end %>
 
 			</div>
-			
+
 		</section>
 
 		<section class="lawContentSection">
@@ -66,7 +66,7 @@
 				<table cellspacing="0">
 				  <tr>
 				    <th class="gdprArticle">GDPR Article</th>
-				    <th class="gdprRecital">GDPR Recital</th> 
+				    <th class="gdprRecital">GDPR Recital</th>
 				    <th class="guidanceNote">Guidance Notes</th>
 				  </tr>
 				  <tr class="gdprArticleText">
@@ -94,7 +94,7 @@
 				    </td>
 				  </tr>
 				</table>
-						
+
 			</div>
 			<% end %>
 
