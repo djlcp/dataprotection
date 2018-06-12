@@ -10,6 +10,14 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+	def index
+		if params[:search]
+			@categories = Category.search(params[:search])
+		else
+			@categories = Category.all
+		end
+	end
+
   # GET /categories/1
   # GET /categories/1.json
   def show

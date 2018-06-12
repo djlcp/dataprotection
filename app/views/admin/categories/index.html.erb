@@ -1,6 +1,15 @@
 
 <h1>Categories</h1>
 
+<div class="searchField">
+  
+    <%= form_tag(admin_categories_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Full Text Search" %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+
+</div>
+
 <%= link_to 'New Category', new_admin_category_path %>
 
 <table class="indexTable">
