@@ -25,9 +25,15 @@ $gdpr_red: #b22328;
     display: inline-flex;
     width: 100%;
 
-    li {
+    li, a {
       width: 100px;
       list-style-type: none;
+      text-decoration: none;
+    }
+
+    a:visited {
+      list-style-type: none;
+      color: #ffffff;
     }
 
   }
@@ -124,6 +130,7 @@ $gdpr_red: #b22328;
     }
 
       .mobileNav {
+          background-color: $dark_grey;
           display: none;
           top: 60px;
           position: absolute;
@@ -132,11 +139,12 @@ $gdpr_red: #b22328;
           .linksContainerMobile {
 
           padding: 15px;
-            li {
+            li, a {
                 width: auto;
                 list-style-type: none;
                 color: #ffffff;
                 padding: 10px 0;
+                text-decoration: none;
             }
           }
       }

@@ -1,2 +1,78 @@
-<h1>Frontend::Home#index</h1>
-<p>Find me in app/views/frontend/home/index.html.erb</p>
+<div class="wrapper">
+
+<div class="top-section">
+
+	<%= image_tag("frontend/jersey-index.jpg", class: "hero-image") %>
+	<div class="container lawsBox">
+		<div class="lawTitleBox border-right" data-group="group-1">
+			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></h2>
+			<p><%= link_to 'A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
+		</div>
+
+		<div class="lawTitleBox border-right" data-group="group-2">
+			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></h2>
+			<p><%= link_to 'A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.', '/authority_dp' %></p>
+			<h2 class="lawTitle"></h2>
+			<p></p>
+		</div>
+
+		<div class="lawTitleBox" data-group="group-3"> 
+			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
+			<p></p>
+		</div>
+	</div>
+
+</div>
+
+<div class="about-section textSection">
+	<h2>ABOUT US</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+	
+</div>
+
+<div class="aboutJerseyLaws textSection">
+	<%= image_tag("frontend/computer.jpg", class: "computer-image") %>
+
+	<h2>JERSEY LAWS</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+</div>
+
+<div class="aboutJerseyAuthorityLaws textSection">
+	<%= image_tag("frontend/desk.jpg", class: "desk-image") %>
+
+	<h2>JERSEY AUTHORITY LAWS</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+</div>
+
+<div class="aboutJerseyRegulationsLaws textSection">
+	<%= image_tag("frontend/pineapple.jpg", class: "pineapple-image") %>
+
+	<h2>JERSEY AUTHORITY LAWS</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+</div>
+
+<div class="contact-section">
+
+	<h2>Contact Form</h2>
+
+	<div class="contact-form">
+	  <form action="/">
+	    <label for="fullname">Name</label>
+	    <input type="text" id="name" name="fullname" placeholder="Your name..">
+
+	    <label for="email">Email</label>
+	    <input type="text" id="email" name="email" placeholder="Your email address..">
+
+	    <label for="subject">Subject</label>
+	    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+	    <input type="submit" value="Submit">
+	  </form>
+	</div>
+	
+</div>
+	
+
+
+</div>
+
