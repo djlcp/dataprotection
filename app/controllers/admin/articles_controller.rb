@@ -1,61 +1,36 @@
 class Admin::ArticlesController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_article, only: [:show]
-  before_action :set_form, only: [:new]
+  before_action :set_article, only: [:show, :edit]
+  before_action :set_category, only: [:index]
+  before_action :set_form, only: [:new, :create, :edit, :index]
   load_and_authorize_resource
 
-  # GET /articles
-  # GET /articles.json
   def index
-
     if params[:search]
       @articles = Article.search(params[:search])
     else
-      @articles = Article.all
+      @articles = @category.articles
     end
-    @categories = Category.all
-    @groups = Group.all
   end
 
-  # GET /articles/1
-  # GET /articles/1.json
-  def show
-  end
+  def show; end
 
-  # GET /articles/new
   def new
-    @article = Article.new
-    @all_articles =  LinkedArticle.joins(:article, :article)
-    @form_belongs_to = set_form[:form_law]
-    @form_type = set_form[:form_type]
-
-  #  @form_type = params[:form_law, :form_type]
-    # @form_type = params[:form_law][:form_type]
-
-
-    # @form_type = set_form(:form_type)
-    # @form_type = set_form.find(params[:form_type])
+    @article = Article.new()
   end
 
-  # GET /articles/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /articles
-  # POST /articles.json
   def create
     @article = Article.new(article_params)
     if @article.save
       create_associated_articles
-      redirect_to admin_articles_path(@article), notice: 'Article was successfully created.'
+      redirect_to action: "show", id: @article.id
     else
       render :new
     end
   end
 
-  # PATCH/PUT /articles/1
-  # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
       create_associated_articles
@@ -65,32 +40,41 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /articles/1
-  # DELETE /articles/1.json
   def destroy
     @article.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_articles_path, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_articles_path, notice: 'Article was successfully destroyed.'
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_form
-    # @form = Article.find(params[:form_type])
-    # params.permit(:form_type)
-     params.permit(:form_law, :form_type,)
+    @form_params = OpenStruct.new(params.permit(:law, :type))
+  end
+
+  def set_category
+    if params.to_unsafe_h[:scope].present?
+      @category = Category.find(params.to_unsafe_h[:scope].to_i)
+    else
+      @category = Category.first
+    end
   end
 
   def set_article
     @article = Article.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    #params.require(:article).permit(:title, :content, :number, :views, :category_id, article_a_ids: [])
-    params.require(:article).permit(:title, :letter, :content, :number, :article_type, :published, :views, :category_id)
+    # params.require(:article).permit(:title, :content, :number, :views, :category_id, article_a_ids: [])
+    params.require(:article).permit(
+      :title,
+      :letter,
+      :content,
+      :number,
+      :article_type,
+      :published,
+      :views,
+      :category_id
+    )
   end
 
   def create_associated_articles

@@ -1,12 +1,15 @@
 @import "frontend/helpers.scss";
 @import "frontend/frontend_nav.scss";
+@import "frontend/frontend_footer.scss";
 
 
 /***** Law Pages ******/
 
 .lawPagesMain {
+
+    max-width: 1280px;
+    margin: 0 auto;
 	background-color: #ffffff;
-	height: 100%;
 
 	h1 {
 		margin: 0;
@@ -31,6 +34,10 @@
 	display: none;
 }
 
+.activeLaw {
+    display: inline-flex;
+}
+
 .active {
 	display: block;
 }
@@ -42,8 +49,20 @@
 	padding: 30px;
 	cursor: pointer;
 
+	h2 a {
+		text-decoration: none;
+	}
+
 	p {
 		font-size: 12px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	a:visited {
+		color: $dark_grey;
 	}
 }
 
@@ -68,6 +87,7 @@
 
 .lawsIndexSection {
 	padding-left: 80px;
+	margin-bottom: 100px;
 }
 
 .lawsIndexBox {
@@ -130,6 +150,11 @@
 .lawLinkedContent table {
 	width: 100%;
 	border-collapse: collapse;
+
+	.selectedNoteHeader {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
 
 	tr th {
 		width: 33.33%;
