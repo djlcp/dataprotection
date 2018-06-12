@@ -1,9 +1,14 @@
 @import "frontend/helpers.scss";
 @import "index/index_nav.scss";
+@import "index/index_main.scss";
 @import "frontend/frontend_footer.scss";
 
 a {
 		text-decoration: none;
+}
+
+.top-section {
+	max-height: 800px;
 }
 
 
@@ -43,6 +48,63 @@ a {
 	a:visited {
 		color: #ffffff;
 	}
+}
+
+.contentSection {
+	
+}
+
+.textSection {
+	p {	
+		padding: 0 20px 30px;
+	}
+
+	h2 {
+		padding: 30px 20px 0;
+	}
+}
+
+.about-section {
+	background-color: $gdpr_dark;
+	color: #ffffff;
+	padding: 50px 0;
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.contact-section {
+	background-color: $gdpr_dark;
+	color: #ffffff;
+	padding: 50px 20px;
+
+		h2 {
+		margin-top: 0;
+	}
+
+	input[type=text], select, textarea {
+	    width: 100%;
+	    padding: 12px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	    margin-top: 6px;
+	    margin-bottom: 16px;
+	    resize: vertical;
+	}
+
+	input[type=submit] {
+	    background-color: $gdpr_red;
+	    color: white;
+	    padding: 12px 20px;
+	    border: none;
+	    border-radius: 4px;
+	    cursor: pointer;
+	}
+}
+
+.computer-image, .desk-image, .pineapple-image {
+	width: 100%;
 }
 
 
