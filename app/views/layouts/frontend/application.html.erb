@@ -10,7 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    <%= stylesheet_link_tag    'frontend#frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% unless current_page?(root_path) %>
+      <%= stylesheet_link_tag    'frontend#frontend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+      <%= stylesheet_link_tag    'index#index', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
+    
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script>
@@ -26,24 +32,27 @@
       <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
       
       <ul class="linksContainer">
-        <li>LAWS</li>
+        <li><%= link_to 'LAWS', '/dp_laws' %></li>
         <li>ABOUT</li>
         <li>CONTACT</li>
       </ul>
 
 
       <input class="searchField" type="text" placeholder="SEARCH">
-
-      <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+      <% unless current_page?(root_path) %>
+        <%= image_tag("frontend/bars.svg", class: "hamburger") %>
+      <% else %>
+        <%= image_tag("frontend/bars_red.svg", class: "hamburger") %>
+      <% end %>
 
     </nav>
 
-    <nav class="mainNav mobileNav">
+    <nav class="mobileNav">
       
       <ul class="linksContainerMobile">
-        <li>DATA PROTECTION (JERSEY) LAW 2018</li>
-        <li>DATA PROTECTION AUTHORITY (JERSEY) LAW 2018</li>
-        <li>DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</li>
+        <li><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></li>
+        <li><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></li>
+        <li><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></li>
         <li>ABOUT</li>
         <li>CONTACT</li>
       </ul>
