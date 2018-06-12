@@ -64,17 +64,15 @@
       <li>
         <ul class="list">
           <% Group.all.each do |group| %>
+
+
+
             <li class='js-group-title item--clickable flex flex--items-align flex--justify-between'>
               <%= group.title %> <i class="fas fa-animate fa-fw fa-caret-down"></i>
             </li>
+
             <ul class='js-group-categories list--indented'>
-              <% group.categories.each do |category| %>
-              <li class='flex flex--justify-between flex--items-align'>
-                <%= link_to admin_articles_path(scope: category.id) do %>
-                  <%= category.title %>
-                <% end %>
-              </li>
-              <% end %>
+
               <li>
               <% if group.categories.present? %>
                 <%= link_to new_admin_article_path(scope: group.id), class: 'flex flex--justify-between flex--items-align' do %>
@@ -83,6 +81,15 @@
                 <% end %>
               <% end %>
               </li>
+              
+              <% group.categories.each do |category| %>
+              <li class='flex flex--justify-between flex--items-align'>
+                <%= link_to admin_articles_path(scope: category.id) do %>
+                  <%= category.title %>
+                <% end %>
+              </li>
+              <% end %>
+
 
               </li>
             </ul>
