@@ -29,11 +29,17 @@
 
 			<div class="lawsIndexBox js-flickity">
 
-				<% @articles.each do |article|  %>
-				  	<div class="lawSelection" data-article="article-<%= article.id %>">
-						<p><%= article.number %><%= article.letter %>. <%= article.title %></p>
-					</div>
-				<% end %>
+        <% if @articles.blank? %>
+          <p>There are no Articles containing <%= params[:search] %>.</p>
+
+        <% else %>
+
+  				<% @articles.each do |article|  %>
+  				  	<div class="lawSelection" data-article="article-<%= article.id %>">
+  						<p><%= article.number %><%= article.letter %>. <%= article.title %></p>
+  					</div>
+  				<% end %>
+        <% end %>
 
 			</div>
 
