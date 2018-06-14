@@ -36,10 +36,14 @@ class Frontend::HomeController < FrontendController
   end
 
   def search_all
-        @articles = []
-      articles=Article.where(published: true).all.search(params[:search])
-      @articles += articles
-    end
+      @articles = Article.search(params[:search])
+  
+      # @articles = []
+      # categories=Category.all
+    	# categories.each do |category|
+      #   articles=Article.where(published: true).all.search(params[:search])
+      #   @articles += articles
+      # end
 
     @groups=Group.all
   end
