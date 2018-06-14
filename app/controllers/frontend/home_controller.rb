@@ -1,5 +1,22 @@
 class Frontend::HomeController < FrontendController
+  
   def index
+    @message = Message.new
+  end
+
+  def new
+    @message = Message.new
+  end
+
+  def create
+    @message = Message.new(message_params)
+
+    if @message.valid?
+      MessageMailer.contact_us(@message).deliver_now
+      redirect_to root_path, notice: "Thanks for contacting us, we'll get back to you soon"
+    else
+      render :new
+    end
   end
 
   def dp_laws
@@ -34,5 +51,12 @@ class Frontend::HomeController < FrontendController
 
     @groups=Group.all
   end
+
+  private
+
+  def message_params
+      message_params = params.require(:message).permit(:full_name, :email, :body)
+  end
+  
 
 end
