@@ -2,7 +2,7 @@
 <% if article.persisted? %>
   <h1>Editing <%= article.title %></h1>
 <% else %>
-  <h1><%=  %></h1>
+  <h1><%= group.title %></h1>
 <% end %>
 
 <% if article.errors.any? %>
@@ -70,29 +70,33 @@
     <%= link_to 'Create New Category', new_admin_category_path %>
   </div>
 
-  <div class="form__row">
-    <h3>Link this to An Article</h3>
+  <% if group.title == "Guidance Notes" || group.title == "General Data Protection Regulation" %>
 
-    <% Group.all.each do |group| %>
+      <div class="form__row">
+        <h3>Link this to An Article</h3>
 
-      <% group.categories.each do |category| %>
+        <% Group.all.each do |group| %>
 
-        <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+          <% group.categories.each do |category| %>
 
-          <div class="field">
-            <div class="pretty p-default p-smooth">
-              <%= b.check_box %>
-              <div class="state p-primary ">
-                <%= b.label %>
+            <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+
+              <div class="field">
+                <div class="pretty p-default p-smooth">
+                  <%= b.check_box %>
+                  <div class="state p-primary ">
+                    <%= b.label %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+
+          <% end %>
+
         <% end %>
+      </div>
 
-      <% end %>
-
-    <% end %>
-  </div>
+  <% end %>
 
   <div class="field form__row articleAssignmentsHeader">
     <%= form.label :published %>
