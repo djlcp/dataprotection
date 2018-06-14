@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'regulations_dp' => 'home#regulations_dp'
     get 'authority_dp' => 'home#authority_dp'
     get 'dp_laws' => 'home#dp_laws'
+    get 'search_all' => 'home#search_all'
+
   end
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   get 'aubergine', to: 'devise/sessions#new'
 end
 
-  devise_for :users, :controllers => { :invitations => 'admin/invitations' } 
+  devise_for :users, :controllers => { :invitations => 'admin/invitations' }
 
 
   root to: 'articles#index'

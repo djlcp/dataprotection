@@ -52,6 +52,13 @@ class Frontend::HomeController < FrontendController
     @groups=Group.all
   end
 
+
+  def search_all
+    @articles = Article.search(params[:search]).where(published: true)
+    @groups=Group.all
+  end
+
+  
   private
 
   def message_params
