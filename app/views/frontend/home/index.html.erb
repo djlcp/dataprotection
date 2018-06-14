@@ -70,7 +70,12 @@
 	 				</div>
 
 					<div>
-						<label for="email">Message</label>
+						<label for="subject">Subject</label>
+						<%= f.text_field :subject_line, class: "", placeholder: 'Subject Line' %>
+					</div>
+
+					<div>
+						<label for="message">Message</label>
 						<%= f.text_area :body, class: "", placeholder: 'Your Message' %>
 					</div>
 

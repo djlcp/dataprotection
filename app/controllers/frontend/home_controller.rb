@@ -62,7 +62,7 @@ class Frontend::HomeController < FrontendController
   private
 
   def message_params
-      message_params = params.require(:message).permit(:full_name, :email, :body)
+      message_params = params.require(:message).permit(:full_name, :email, :body, :subject_line)
   end
   
 
