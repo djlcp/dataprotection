@@ -35,4 +35,13 @@ class Frontend::HomeController < FrontendController
     @groups=Group.all
   end
 
+  def search_all
+        @articles = []
+      articles=Article.where(published: true).all.search(params[:search])
+      @articles += articles
+    end
+
+    @groups=Group.all
+  end
+
 end
