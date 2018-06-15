@@ -23,6 +23,9 @@ class Article < ApplicationRecord
 
   def article_selected
     Article.where(group_id: id)
-
   end
+
+
+
+
 end
