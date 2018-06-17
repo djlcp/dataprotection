@@ -53,16 +53,21 @@ $(document).on('turbolinks:load', function() {
 
 
 	// law article selection
-
-	$('.lawSelection').click(function() {
-    	var articleTitleElement = $(this).attr('data-article');
-    	var articleElement = $('.articleSectionHide').attr('data-article');
-    	$(this).addClass('active');
-    	$('.welcomeSection').addClass('notActive');
-    	$('.lawSelection[data-article != '+articleTitleElement+']').removeClass('active');
-    	$('.articleSectionHide[data-article = '+articleTitleElement+']').addClass('active');
-		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
+	$('.article_title').on('click',function(event){
+		event.preventDefault();
+		$('.welcomeSection').hide();
+		var id = $(this).data('id')
+		$(this).toggleClass('active')
+		if ($(this).hasClass('active')) {
+			$.ajax({
+				url: '/frontend/articles/' + id,
+				type: 'get',
+				dataType: 'json',
+				success: (function(article) {
+					$('.load_content').append(article.content)
+				})
+			})
+		}
+		$('.load_content').html('')
 	});
-
-
-});
+})

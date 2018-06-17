@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  namespace :frontend do
+    resources :articles
+  end
+
   scope module: 'frontend' do
     resources :home, only: :index
     root to: 'home#index'
@@ -9,20 +13,21 @@ Rails.application.routes.draw do
     get 'regulations_dp' => 'home#regulations_dp'
     get 'authority_dp' => 'home#authority_dp'
     get 'dp_laws' => 'home#dp_laws'
+
   end
 
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_scope :user do
-  get 'aubergine', to: 'devise/sessions#new'
-end
+    get 'aubergine', to: 'devise/sessions#new'
+  end
 
-  devise_for :users, :controllers => { :invitations => 'admin/invitations' } 
+  devise_for :users, :controllers => { :invitations => 'admin/invitations' }
 
 
   root to: 'articles#index'
 
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index]
 
   resources :categories, only: [:index, :show]
 

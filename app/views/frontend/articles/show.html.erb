@@ -1,0 +1,8 @@
+<div class='articleSection'>
+  <h1><%= @article.category.group.title %></h1>
+  <h1><%= @article.category.title %></h1>
+  <h2><%=@article.number %>. <%= @article.title %></h2>
+  <div class="articleContent">
+    <%= sanitize @article.content %>
+  </div>
+</div>

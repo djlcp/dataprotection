@@ -1,4 +1,6 @@
 class Frontend::HomeController < FrontendController
+
+
   def index
   end
 
@@ -34,5 +36,6 @@ class Frontend::HomeController < FrontendController
 
     @groups=Group.all
   end
+
 
 end

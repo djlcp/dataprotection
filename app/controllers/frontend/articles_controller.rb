@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class Frontend::ArticlesController < FrontendController
 
   before_action :set_article, only: [:show]
   load_and_authorize_resource
@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    render json: @article
   end
 
   private
