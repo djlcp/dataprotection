@@ -51,8 +51,30 @@
 
 			</div>
 
-				<p class='load_content articleContent' ></p>
+
     </section>
+
+		<%#this will comment out all the code below%>
+		<% if false %>
+		<% @articles.each do |article|  %>
+		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
+			<h1><%= article.category.group.title %></h1>
+			<h1><%= article.category.title %></h1>
+			<h2><%= article.number %>. <%= article.title %></h2>
+			<div class="articleContent">
+				<%= sanitize article.content %>
+			</div>
+		</div>
+		<%end%>
+
+		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
+			<h1 class='js-load_group'></h1>
+			<h1 class='js-load_category'></h1>
+			<h2 class='js-load_article_title'></h2>
+			<div class="articleContent">
+				<p class='js-load_content'></p>
+			</div>
+		</div>	
 
 			<div class="lawLinkedContent articleSectionHide notActive" >
 
