@@ -18,7 +18,8 @@ class Frontend::ArticlesController < FrontendController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    render json: @article
+    render "show.json"
+    #render json: @article
   end
 
   private

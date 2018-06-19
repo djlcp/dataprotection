@@ -64,7 +64,9 @@ $(document).on('turbolinks:load', function() {
 	      type: 'get',
 	      dataType: 'json',
 	      success: (function(article) {
-	        $('.js-load_content').html(article.number+'.'+article.title+article.content);
+				  $('.js-load_category').html(article.category_title);
+	        $('.js-load_content').html(article.content);
+					$('.js-load_group').html(article.group_title)
 	      })
 	    })
 	  }
