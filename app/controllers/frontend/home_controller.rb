@@ -1,5 +1,5 @@
 class Frontend::HomeController < FrontendController
-  
+
   def index
     @message = Message.new
   end
@@ -55,15 +55,29 @@ class Frontend::HomeController < FrontendController
 
   def search_all
     @articles = Article.search(params[:search]).where(published: true)
-    @groups=Group.all
+    # group by group_id going via category_id
+# .sort_by(group.id)
+    objects = Group.all.map do |group|
+      OpenStruct.new(id: group.id, title: group.title)
+    end
+    @objects = objects.map do |object|
+      object.categories = Category.where(group_id: object.id).map do |category|
+        OpenStruct.new(
+          # category: category,
+          category: category,
+
+          articles: @articles.where(category_id: category.id)
+        )
+      end
+      object
+    end
+    # pp @objects
   end
 
-  
+
   private
 
   def message_params
-      message_params = params.require(:message).permit(:full_name, :email, :body)
+    message_params = params.require(:message).permit(:full_name, :email, :body)
   end
-  
-
 end
