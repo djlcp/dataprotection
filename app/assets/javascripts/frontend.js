@@ -66,10 +66,15 @@ $(document).on('turbolinks:load', function() {
 	      success: (function(article) {
 				  $('.js-load_category').html(article.category_title);
 	        $('.js-load_content').html(article.content);
-					$('.js-load_group').html(article.group_title)
+					$('.js-load_group').html(article.group_title);
+					$('.js-load_article_title').html(article.number + article.letter +". "+ article.title)
 	      })
 	    })
 	  }
 	  $('.js-load_content').html('');
+	  $('.js-load_category').html('');
+		$('.js-load_group').html('');
+	  $('.js-load_article_title').html('');
+
   })
 })
