@@ -7,12 +7,16 @@ Rails.application.routes.draw do
   end
 
   scope module: 'frontend' do
-    resources :home, only: :index
+    resources :home, only: [:index, :new, :create]
     root to: 'home#index'
 
+    get 'contact-us', to: 'home#new', as: 'new_message'
+    post 'contact-us', to: 'home#create', as: 'create_message'
     get 'regulations_dp' => 'home#regulations_dp'
     get 'authority_dp' => 'home#authority_dp'
     get 'dp_laws' => 'home#dp_laws'
+    get 'search_all' => 'home#search_all'
+
 
   end
 

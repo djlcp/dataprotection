@@ -16,7 +16,7 @@
       <%= stylesheet_link_tag    'index#index', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% end %>
 
-    
+
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script>
@@ -30,7 +30,7 @@
     <nav class="container mainNav">
 
       <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
-      
+
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
         <li>ABOUT</li>
@@ -38,7 +38,12 @@
       </ul>
 
 
-      <input class="searchField" type="text" placeholder="SEARCH">
+      <!-- <input class="searchField" type="text" placeholder="SEARCH"> -->
+      <%= form_tag(search_all_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search all articles" , class: "searchField"  %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+
       <% unless current_page?(root_path) %>
         <%= image_tag("frontend/bars.svg", class: "hamburger") %>
       <% else %>
@@ -48,7 +53,7 @@
     </nav>
 
     <nav class="mobileNav">
-      
+
       <ul class="linksContainerMobile">
         <li><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></li>
         <li><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></li>
@@ -124,6 +129,6 @@
         </div>
       </div>
     <% end %>
-  
+
   </body>
 </html>
