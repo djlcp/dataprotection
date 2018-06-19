@@ -53,21 +53,21 @@ $(document).on('turbolinks:load', function() {
 
 
 	// law article selection
-	$('.article_title').on('click',function(event){
-		event.preventDefault();
-		$('.welcomeSection').hide();
-		var id = $(this).data('id')
-		$(this).toggleClass('active')
-		if ($(this).hasClass('active')) {
-			$.ajax({
-				url: '/frontend/articles/' + id,
-				type: 'get',
-				dataType: 'json',
-				success: (function(article) {
-					$('.load_content').append(article.content)
-				})
-			})
-		}
-		$('.load_content').html('')
-	});
+	$('.js-article_title').on('click',function(event){
+	  event.preventDefault();
+	  $('.welcomeSection').hide();
+	  var id = $(this).data('id')
+	  $(this).toggleClass('act')
+	  if ($(this).hasClass('act')) {
+	    $.ajax({
+	      url: '/frontend/articles/' + id,
+	      type: 'get',
+	      dataType: 'json',
+	      success: (function(article) {
+	        $('.js-load_content').html(article.number+'.'+article.title+article.content);
+	      })
+	    })
+	  }
+	  $('.js-load_content').html('');
+  })
 })

@@ -23,6 +23,8 @@
 
 </section>
 
+<%# this block is commented%>
+<%if false %>
 	<section class="mainLaw container">
 
 		<section class="lawsIndexSection">
@@ -38,6 +40,25 @@
 			</div>
 
 		</section>
+	<%end%>
+
+		<section class="mainLaw container">
+
+			<section class="lawsIndexSection">
+
+				<div class="lawsIndexBox js-flickity">
+
+					<% @articles.each do |article|  %>
+					  	<div class="lawSelection">
+							  <p class='js-article_title' data-id="<%= article.id %>"><%= link_to " #{article.number}#{article.letter}. #{article.title}", frontend_article_path(article) %></p>
+						  </div>
+
+
+					<% end %>
+
+				</div>
+
+			</section>
 
     <section class="lawContentSection">
 
@@ -56,25 +77,28 @@
 
 		<%#this will comment out all the code below%>
 		<% if false %>
-		<% @articles.each do |article|  %>
-		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
-			<h1><%= article.category.group.title %></h1>
-			<h1><%= article.category.title %></h1>
-			<h2><%= article.number %>. <%= article.title %></h2>
-			<div class="articleContent">
-				<%= sanitize article.content %>
+			<% @articles.each do |article|  %>
+			<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
+				<h1><%= article.category.group.title %></h1>
+				<h1><%= article.category.title %></h1>
+				<h2><%= article.number %>. <%= article.title %></h2>
+				<div class="articleContent">
+					<%= sanitize article.content %>
+				</div>
+			</div>
+			<%end%>
+		<%end%>
+
+    <% @articles.each do |article|  %>
+		<div class="articleSection">
+			<h1 class='js-load_group'></h1>
+			<h1 class='js-load_category'></h1>
+			<h2 class='js-load_article_title'></h2>
+			<div class="articleContent js-load_content">
 			</div>
 		</div>
 		<%end%>
 
-		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
-			<h1 class='js-load_group'></h1>
-			<h1 class='js-load_category'></h1>
-			<h2 class='js-load_article_title'></h2>
-			<div class="articleContent">
-				<p class='js-load_content'></p>
-			</div>
-		</div>	
 
 			<div class="lawLinkedContent articleSectionHide notActive" >
 
