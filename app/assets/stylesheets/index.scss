@@ -40,6 +40,7 @@ a {
 	max-width: 315px;
 	text-align: center;
 	padding: 10px 25px;
+    margin: 0 auto;
 
 	h2, p, a {
 		color: #ffffff;
@@ -57,15 +58,10 @@ a {
 	}
 }
 
-.shiftRight {
-	margin-left: auto;
-}
-
 .textSection {
 	p {	
 		padding: 0 20px 30px;
 		font-size: 14px;
-	    width: 240px;
 	}
 
 	h2 {
@@ -83,10 +79,9 @@ a {
     flex-direction: column;
 	h2 {
 		margin-top: 0;
-		margin-left: auto;
 	}
 	p {
-		margin-left: auto;
+
 	}
 }
 
@@ -126,7 +121,23 @@ a {
 
 
 
-@media screen and (min-width: 601px) /* Desktop */ {
+@media screen and (min-width: 932px) /* Desktop */ {
+
+	.hero-image {
+	    object-fit: inherit;
+	    width: 100%;
+	}
+
+	.lawsBox > h2 {
+		font-size: 25px;
+	}
+
+
+}
+
+
+
+@media screen and (min-width: 1024px) /* Desktop */ {
 	p {
 		font-size: 12px;
 	}
@@ -135,33 +146,34 @@ a {
 		font-size: 1em;
 	}
 
-
-
 	.top-section {
 		display: flex;
 
 		img {
-			width: 100%;
+			width: 60%;
 	    	height: 100%;
 	    	max-width: 932px;
 		}
 	}
 
+
 	.lawsBox {
 
 	    margin: auto 0;
-	    margin-left: -170px;
 	    position: static;
 	    background-color: #ffffff;
-	    width: 600px;
-	    padding: 120px;
+
+	    h2 {
+				color: $dark_grey;
+				max-width: 315px;
+				margin: 0 auto;
+			}
 
 		.lawTitleBox {
 			flex-direction: column;
 			max-width: 315px;
 			text-align: center;
 			padding: 10px 25px;
-
 
 			a:visited {
 				color: $dark_grey;
@@ -173,7 +185,138 @@ a {
 		background-color: $gdpr_dark;
 	    padding: 100px;
 	    color: #ffffff;
-		
+		margin-top: 0;
+	}
+
+	.textSection p {
+		width: auto;
+	}
+
+	.aboutJerseyLawsSection {
+		display: flex;
+
+		.aboutJerseyLaws {
+			width: 450px;
+		    margin: auto;
+		    padding-top: 100px;
+		    padding-left: 200px;
+	    }
+
+	    .computerImageBackground {
+		    background-color: $gdpr_dark;
+		    padding: 50px 0;
+		    width: 400px;
+		}
+
+		.computer-image {
+			width: auto;
+			max-width: 600px;
+		}
+	}
+
+	.aboutAuthorityLawsSection {
+		display: flex;
+		flex-direction: row-reverse;
+
+		.authorityLawsText {
+			width: 380px;
+    		padding-right: 60px;
+		}
+
+		.desk-image {
+			max-width: 880px;
+		}
+
+		.deskImageBackground {
+			padding: 50px 0;
+		}
+
+		.aboutJerseyAuthorityLaws {
+		    background-color: #ffffff;
+		    color: $gdpr_dark;
+		    margin-top: 0;
+		}
+	}
+
+	.aboutRegulationsLawsSection {
+		display: flex;
+
+		.pineapple-image {
+			width: auto;
+			max-width: 540px;
+		}
+
+		.pineappleImageBackground {
+		    background-color: $gdpr_dark;
+		    padding: 0 0 75px;
+		    width: 300px;
+		}
+
+		.aboutJerseyRegulationsLaws {
+			width: 450px;
+		    margin: auto;
+		    padding-bottom: 100px;
+	        margin-right: 0;
+    		padding-right: 30px;
+		}
+	}
+
+}
+
+@media screen and (min-width: 1200px) /* Desktop */ {
+
+	.aboutRegulationsLawsSection .pineapple-image {
+		max-width: 620px;
+	}
+
+}
+
+
+@media screen and (min-width: 1360px) /* Desktop */ {
+	.top-section {
+
+		img {
+	    	height: 100%;
+		}
+	}
+
+	.lawsBox {
+
+	    margin: auto 0;
+	    margin-left: -170px;
+	    position: static;
+	    background-color: #ffffff;
+	    width: 600px;
+	    padding: 40px 155px;
+
+	    h2 {
+				color: $dark_grey;
+				max-width: 315px;
+			}
+
+		.lawTitleBox {
+			flex-direction: column;
+			max-width: 315px;
+			text-align: center;
+			padding: 10px 25px;
+
+			a:visited {
+				color: $dark_grey;
+			}
+		}
+	}
+
+
+	.aboutJerseyLawsSection .aboutJerseyLaws {
+	    padding-left: 0;
+	}
+
+	.desk-image {
+		max-width: 880px;
+	}
+
+	.aboutRegulationsLawsSection .pineapple-image {
+		max-width: 840px;
 	}
 
 }
