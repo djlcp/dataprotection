@@ -4,13 +4,13 @@ footer {
 	background: $dark_grey;
 	min-height: 200px;
 	color: #ffffff;
-	    bottom: 0;
+    bottom: 0;
     display: flex;
 }
 
 .footerContainer {
 	display: flex;
-	padding: 20px 80px;
+	padding: 0;
 }
 
 .column {
@@ -19,5 +19,12 @@ footer {
 	ul li {
 		list-style-type: none;
 		padding-right: 20px;
+	}
+}
+
+@media screen and (min-width: 601px) /* Desktop */ {
+	.footerContainer {
+		display: flex;
+		padding: 20px 80px;
 	}
 }

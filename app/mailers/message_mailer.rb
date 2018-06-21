@@ -11,6 +11,6 @@ class MessageMailer < ApplicationMailer
   	@body = message.body
     @time_sent = DateTime.now.strftime("at %H:%M on %d %B %Y")
 
-    mail to: "djgdpr@gmail.com"
+    mail to: "djgdpr@gmail.com", subject: "Contact Form: #{message.subject_line}"
   end
 end

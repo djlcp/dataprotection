@@ -6,10 +6,10 @@ class Article < ApplicationRecord
   enum article_type: { article: 1, recital: 2, guidance: 3 }
 
   has_many :linked_articles, foreign_key: 'article_a_id', class_name: 'LinkedArticle'
-  has_many :associated_articles, through: :linked_articles, source: :associated_article
+  has_many :associated_articles, through: :linked_articles, source: :article
 
   has_many :link_articles, class_name: 'LinkedArticle', foreign_key: 'article_id'
-  has_many :articles, through: :linked_articles
+  has_many :articles, through: :link_articles, source: :associated_article
 
   #has_many :linked_articles
   #has_many :articles, through: :linked_articles
@@ -20,5 +20,10 @@ class Article < ApplicationRecord
   
   def display_title
     "#{title} - #{category.group.title}"
+  end
+
+  def article_selected
+    Article.where(group_id: id)
+
   end
 end
