@@ -38,12 +38,20 @@ $gdpr_red: #b22328;
 
   }
 
+  .searchForm {
+    display: flex;
+  }
+
   .searchField {
     background-color: $dark_grey;
     border-width: 2px;
     border-style: solid;
     border-color: #ffffff;
     border-image: none;
+  }
+
+  .searchButton {
+    margin: auto 40px auto 10px;
   }
 
   .searchField::placeholder {
@@ -65,7 +73,6 @@ $gdpr_red: #b22328;
       .searchField {
           width: 100px;
           padding-right: 80px;
-          margin-right: 80px;
           padding-left: 15px;
       }
 

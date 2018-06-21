@@ -4,5 +4,9 @@
 
     <%= render 'table', articles: @articles %>
 
+    <% if @articles.blank? %>
+      <h4>There are no Articles containing <%= params[:search] %>.</h4>
+    <% end %>
+
   </div>
 </div>
