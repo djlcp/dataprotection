@@ -2,7 +2,7 @@ class Admin::ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit]
   before_action :set_category, only: [:index]
-  before_action :set_group, only: [:new, :edit]
+  before_action :set_group, only: [:new, :edit, :create]
   before_action :set_form, only: [:new, :create, :edit, :index]
   load_and_authorize_resource
 
