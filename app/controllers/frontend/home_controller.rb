@@ -6,7 +6,7 @@ class Frontend::HomeController < FrontendController
         @articles = []
     categories=Category.where('group_id = 1')
     categories.each do |category|
-      articles=Article.where(category_id: category.id).where(published: true)
+      articles=Article.where(category_id: category.id).where(published: true).order(number: :asc)
       @articles += articles
     end
 
