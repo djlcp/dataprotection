@@ -27,10 +27,12 @@
 
   </head>
   <body>
-    <nav class="container mainNav">
-
-      <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
-
+    <nav class="mainNav">
+      <% unless current_page?(root_path) %>
+        <%= link_to(image_tag("frontend/JSY_transparent_white.png", class: "logo"), root_path ) %>
+      <% else %>
+        <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+      <% end %>
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
         <li>ABOUT</li>
@@ -63,34 +65,6 @@
     </nav>
 
     <%= yield %>
-
-    <footer class="footerContainer">
-      <div class="column">
-        <ul>
-          <%= link_to 'Print This Page', 'print', :onclick => 'window.print();return false;'%>
-          <li>One</li>
-          <li>Two</li>
-          <li>Three</li>
-          <li>Four</li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </footer>
 
 <!--add a sign out alert  -->
 
