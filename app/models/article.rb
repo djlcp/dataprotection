@@ -18,7 +18,7 @@ class Article < ApplicationRecord
       where("content LIKE ? OR title LIKE ?", "%#{search}%" , "%#{search}%")
   end
   def display_title
-    "#{title} - #{category.group.title}"
+    "#{category.group.title} - #{title}"
   end
 
   def article_selected

@@ -172,6 +172,26 @@
 	}
 }
 
+.selectedNoteHeader {
+  background-color: $gdpr_red;
+  color: #ffffff;
+}
+
+tr th {
+  width: 33.33%;
+  padding: 14px 0;
+  border: 2px solid $gdpr_red;
+  color: $gdpr_red;
+  cursor: pointer;
+}
+
+tr td {
+  padding: 20px 15px;
+  border: 2px solid $gdpr_red;
+  font-size: 14px;
+
+}
+
 
 
 
@@ -245,4 +265,3 @@
 
   }
 }
-

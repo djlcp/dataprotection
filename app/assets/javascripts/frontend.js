@@ -64,5 +64,31 @@ $(document).on('turbolinks:load', function() {
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});
 
+	// admin pannel linking articles table
+
+	$( ".JyAuthLaw, .JyRegLaw" ).hide();
+
+	$( ".JyDpHeading" ).click(function() {
+		$( ".JyDpLaw" ).show();
+			$( ".JyAuthLaw, .JyRegLaw" ).hide();
+			$( ".JyAuthHeading, .JyRegsHeading" ).removeClass('selectedNoteHeader');
+			$(this).addClass('selectedNoteHeader');
+	});
+
+	$( ".JyAuthHeading" ).click(function() {
+		$( ".JyAuthLaw" ).show();
+			$( ".JyDpLaw, .JyRegLaw" ).hide();
+			$( ".JyDpHeading, .JyRegsHeading" ).removeClass('selectedNoteHeader');
+			$(this).addClass('selectedNoteHeader');
+	});
+
+	$( ".JyRegsHeading" ).click(function() {
+		$( ".JyRegLaw" ).show();
+			$( ".JyDpLaw, .JyAuthLaw" ).hide();
+			$( ".JyAuthHeading, .JyDpHeading" ).removeClass('selectedNoteHeader');
+			$(this).addClass('selectedNoteHeader');
+	});
+
+
 
 });
