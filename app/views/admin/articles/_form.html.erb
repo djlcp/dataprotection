@@ -67,7 +67,10 @@
   </div>
 
   <div>
-    <%= link_to 'Create New Category', new_admin_category_path %>
+    <% unless group.title == "Guidance Notes" || group.title == "General Data Protection Regulation" %>
+      <%= link_to 'Create New Category', new_admin_category_path %>
+    <% end %>
+
   </div>
 
   <% if group.title == "Guidance Notes" || group.title == "General Data Protection Regulation" %>
