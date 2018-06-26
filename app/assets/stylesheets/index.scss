@@ -59,7 +59,7 @@ a {
 }
 
 .textSection {
-	p {	
+	p {
 		padding: 0 20px 30px;
 		font-size: 14px;
 	}
@@ -85,16 +85,28 @@ a {
 	}
 }
 
-.contact-section {
-	background-color: $gdpr_dark;
-	color: #ffffff;
-	padding: 50px 20px;
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  background-color: $gdpr_dark;
+  color: #ffffff;
+  padding: 50px 20px;
+
+
+
+
+
+.contact-section, .contact-form-right {
+	width: 45%;
 
 		h2 {
 		margin-top: 0;
 	}
 
-	input[type=text], select, textarea {
+}
+
+	input[type=text], input[type=email], select, textarea {
 	    width: 100%;
 	    padding: 12px;
 	    border: 1px solid #ccc;
@@ -113,6 +125,9 @@ a {
 	    border-radius: 4px;
 	    cursor: pointer;
 	}
+
+
+
 }
 
 .computer-image, .desk-image, .pineapple-image {
