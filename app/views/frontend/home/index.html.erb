@@ -20,7 +20,7 @@
 			<p></p>
 		</div>
 
-		<div class="lawTitleBox" data-group="group-3"> 
+		<div class="lawTitleBox" data-group="group-3">
 			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
 			<p></p>
 		</div>
@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="aboutJerseyLaws textSection">
-		
+
 
 		<h2>JERSEY LAWS</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
@@ -56,7 +56,7 @@
 
 	<div class="aboutJerseyAuthorityLaws textSection">
 		<div class="shiftRight authorityLawsText">
-		
+
 
 		<h2>JERSEY AUTHORITY LAWS</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
@@ -77,48 +77,63 @@
 	</div>
 
 </div>
-
+<div class="contact-details">
 <div class="contact-section">
 
 	<h2>CONTACT FORM</h2>
 
+
 	<div class="contact-form">
 		<%= form_for @message, url: create_message_url do |f| %>
 			<%= @message.errors.full_messages.join(', ') %>
-  	
+
+
+
 			  	<div>
-			  		<label for="fullname">Full Name</label>
+			  		<label for="fullname">Full Name</label><br>
 						<%= f.text_field :full_name, class: "", placeholder: 'Full Name' %>
 					</div>
-	
+
 					<div>
-						<label for="email">Email Address</label>
+						<label for="email">Email Address</label><br>
 						<%= f.email_field :email, class: "", placeholder: 'Email Address' %>
 	 				</div>
 
 					<div>
-						<label for="subject">Subject</label>
+						<label for="subject">Subject</label><br>
 						<%= f.text_field :subject_line, class: "", placeholder: 'Subject Line' %>
 					</div>
 
 					<div>
-						<label for="message">Message</label>
+						<label for="message">Message</label><br>
 						<%= f.text_area :body, class: "", placeholder: 'Your Message' %>
 					</div>
 
 					<div>
 						<%= f.submit 'Send Message', class: 'btn btn-warning btn-block' %>
 					</div>
-		
-		<% end %> 
-			
+
+		<% end %>
+
+    </div>
+
 	</div>
-	
+
+    <div class="contact-form-right">
+      <h2> ADDRESS </h2>
+      <p> 29 Acacia Road </p>
+      <p> St Helier </p>
+      <h2> TELEPHONE </h2>
+      <p> 01534 555555 </p>
+      
+
+
+    </div>
+
 
 
 </div>
-	
+
 
 
 </div>
-
