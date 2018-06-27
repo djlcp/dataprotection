@@ -77,11 +77,11 @@
 
       <div class="form__row">
         <h3>Link this to An Article</h3>
-        <!-- <div class="lawLinkedContent articleSectionHide notActive" data-article="article-<%= article.id %>"> -->
+        <div class="articleLinkedContent">
 
           <table cellspacing="0">
-            <tr>
-              <th class="JyDpHeading">Jersey DP Law</th>
+            <tr class="linkedt">
+              <th class="JyDpHeading selectedNoteHeader">Jersey DP Law</th>
               <th class="JyAuthHeading">Jersey Authority Law</th>
               <th class="JyRegsHeading">Jersey Regulation Law</th>
             </tr>
@@ -98,23 +98,19 @@
                   <% if group.title == "Data Protection (Jersey) Law 2018" %>
                     <tr class="JyDpLaw">
                       <td colspan="3">
-                      <div class="pretty p-default p-smooth">
-                        <%= b.check_box %>
-                        <div class="state p-primary ">
-                          <%= b.label %>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
+                          <div class="pretty p-default p-smooth">
+                            <%= b.check_box %>
+                            <%= b.label %>
+                          </div>
+                      </td>
+                    </tr>
 
                   <% elsif group.title == "Data Protection Authority (Jersey) Law 2018" %>
                   <tr class="JyAuthLaw">
                     <td colspan="3">
                       <div class="pretty p-default p-smooth">
                         <%= b.check_box %>
-                        <div class="state p-primary ">
                           <%= b.label %>
-                        </div>
                       </div>
                     </td>
                   </tr>
@@ -124,9 +120,7 @@
                     <td colspan="3">
                       <div class="pretty p-default p-smooth">
                         <%= b.check_box %>
-                        <div class="state p-primary ">
                           <%= b.label %>
-                        </div>
                       </div>
                     </td>
                   </tr>
@@ -141,7 +135,7 @@
 
           </table>
 
-       <!-- </div> -->
+       </div>
 
       </div>
 
