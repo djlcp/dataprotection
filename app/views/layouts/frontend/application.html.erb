@@ -35,9 +35,8 @@
       <% end %>
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
-        <li>ABOUT</li>
+        <li><%= link_to 'ABOUT', '#about_link' %></li>
         <li><%= link_to 'CONTACT', '#contact_link' %></li>
-
       </ul>
 
       <%= form_tag(search_all_path, :method => "get", id: "search-form", class: "searchForm")  do %>
