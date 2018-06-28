@@ -13,9 +13,9 @@ class Frontend::HomeController < FrontendController
 
     if @message.valid?
       MessageMailer.contact_us(@message).deliver_now
-      redirect_to root_path, notice: "Thanks for contacting us, we'll get back to you soon"
+      redirect_to root_path, notice: "Thank you for contacting us, we'll get back to you soon"
     else
-      render :new
+      redirect_to root_path, notice: "Message not sent. Please fill out all fields."
     end
   end
 
