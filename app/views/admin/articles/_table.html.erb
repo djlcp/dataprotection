@@ -33,7 +33,7 @@
           <td> Unpublished </td>
         <% end %>
         <td><%= article.title %></td>
-        <td><%= article.content.truncate(17) %></td>
+        <td><%= sanitize article.content.truncate(17) %></td>
         <td><%= article.category.title %></td>
         <td><%= article.category.group.title %></td>
 

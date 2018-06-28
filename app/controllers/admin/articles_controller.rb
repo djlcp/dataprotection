@@ -87,6 +87,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create_associated_articles
+    @article.linked_articles.destroy_all
     associated_article_ids.each do |num|
       @article.linked_articles.create(
         article_id: num,
