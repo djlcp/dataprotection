@@ -77,7 +77,7 @@
 							<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
 								<%= sanitize article.content %>
 							<% end%>
-              <% if article.articles.where(category_id: Category.find_by(title: 'Articles').id).presence %>
+              <% if article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).presence %>
 							exists
 							<% else %>
 							doesnt exist
