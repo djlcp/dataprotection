@@ -64,5 +64,6 @@ $(document).on('turbolinks:load', function() {
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});
 
+	
 
 });
