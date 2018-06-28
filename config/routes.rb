@@ -36,6 +36,7 @@ end
     resources :articles
     resources :categories
     resources :groups
+    resources :infographics, only: %i[index new create destroy]
     resources :users
   end
 
