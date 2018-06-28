@@ -1,9 +1,13 @@
+<% title "Home" %>
+
 <div class="wrapper">
 
 <div class="top-section">
 
 	<%= image_tag("frontend/jersey-index.jpg", class: "hero-image") %>
 	<div class="container lawsBox">
+
+		<h2>YOUR GUIDE TO GDPR IN JERSEY</h2>
 		<div class="lawTitleBox border-right" data-group="group-1">
 			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></h2>
 			<p><%= link_to 'A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
@@ -16,7 +20,7 @@
 			<p></p>
 		</div>
 
-		<div class="lawTitleBox" data-group="group-3"> 
+		<div class="lawTitleBox" data-group="group-3">
 			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
 			<p></p>
 		</div>
@@ -25,54 +29,111 @@
 </div>
 
 <div class="about-section textSection">
+	<div class="shiftRight">
 	<h2>ABOUT US</h2>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
-	
+	</div>
 </div>
 
-<div class="aboutJerseyLaws textSection">
+<div class="aboutJerseyLawsSection">
+	<div class="computerImageBackground">
 	<%= image_tag("frontend/computer.jpg", class: "computer-image") %>
+	</div>
 
-	<h2>JERSEY LAWS</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+	<div class="aboutJerseyLaws textSection">
+
+
+		<h2>JERSEY LAWS</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+	</div>
+
 </div>
 
-<div class="aboutJerseyAuthorityLaws textSection">
+<div class="aboutAuthorityLawsSection">
+	<div class="deskImageBackground">
 	<%= image_tag("frontend/desk.jpg", class: "desk-image") %>
+	</div>
 
-	<h2>JERSEY AUTHORITY LAWS</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+	<div class="aboutJerseyAuthorityLaws textSection">
+		<div class="shiftRight authorityLawsText">
+
+
+		<h2>JERSEY AUTHORITY LAWS</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+		</div>
+	</div>
+
 </div>
 
-<div class="aboutJerseyRegulationsLaws textSection">
+<div class="aboutRegulationsLawsSection">
+	<div class="pineappleImageBackground">
 	<%= image_tag("frontend/pineapple.jpg", class: "pineapple-image") %>
+	</div>
 
-	<h2>JERSEY AUTHORITY LAWS</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+	<div class="aboutJerseyRegulationsLaws textSection">
+
+		<h2>JERSEY REGULATIONS LAWS</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+	</div>
+
 </div>
-
+<div class="contact-details" id="contact_link" >
 <div class="contact-section">
 
-	<h2>Contact Form</h2>
+	<h2>CONTACT FORM</h2>
+
 
 	<div class="contact-form">
-	  <form action="/">
-	    <label for="fullname">Name</label>
-	    <input type="text" id="name" name="fullname" placeholder="Your name..">
+		<%= form_for @message, url: create_message_url do |f| %>
+			<%= @message.errors.full_messages.join(', ') %>
 
-	    <label for="email">Email</label>
-	    <input type="text" id="email" name="email" placeholder="Your email address..">
 
-	    <label for="subject">Subject</label>
-	    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-	    <input type="submit" value="Submit">
-	  </form>
+			  	<div>
+			  		<label for="fullname">Full Name</label><br>
+						<%= f.text_field :full_name, class: "", placeholder: 'Full Name' %>
+					</div>
+
+					<div>
+						<label for="email">Email Address</label><br>
+						<%= f.email_field :email, class: "", placeholder: 'Email Address' %>
+	 				</div>
+
+					<div>
+						<label for="subject">Subject</label><br>
+						<%= f.text_field :subject_line, class: "", placeholder: 'Subject Line' %>
+					</div>
+
+					<div>
+						<label for="message">Message</label><br>
+						<%= f.text_area :body, class: "", placeholder: 'Your Message' %>
+					</div>
+
+					<div>
+						<%= f.submit 'Send Message', class: 'btn btn-warning btn-block' %>
+					</div>
+
+		<% end %>
+
+    </div>
+
 	</div>
-	
+
+    <div class="contact-form-right">
+      <h2> ADDRESS </h2>
+      <p> 29 Acacia Road </p>
+      <p> St Helier </p>
+      <h2> TELEPHONE </h2>
+      <p> 01534 555555 </p>
+
+
+
+    </div>
+
+
+
 </div>
-	
+
 
 
 </div>
-

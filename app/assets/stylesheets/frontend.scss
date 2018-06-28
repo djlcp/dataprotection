@@ -147,6 +147,11 @@
 	}
 }
 
+.lawLinkedContent .lawLinkedNote {
+	text-align: center;
+	color: $gdpr_red;
+}
+
 .lawLinkedContent table {
 	width: 100%;
 	border-collapse: collapse;
@@ -264,4 +269,44 @@ tr td {
     }
 
   }
+}
+
+
+@media print {
+
+  body{
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    color: #000000 !important;
+  }
+
+  .mainNav {
+    display: none !important;
+  }
+
+  .mobileNav {
+    display: none !important;
+  }
+
+  .lawBoxesSection {
+  	display: none !important
+  }
+
+
+  .lawsIndexSection {
+  	display: none !important
+  }
+
+  .footerContainer {
+    display: none !important;
+  }
+
+  .lawContentSection {
+  	width: 100%;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
 }

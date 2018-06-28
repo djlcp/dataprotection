@@ -80,7 +80,7 @@ class Admin::InvitationsController < DeviseController
 
   def is_manager?
       # check if user is a admin
-      redirect_to root_path unless current_user.manager? 
+      redirect_to admin_users_path unless current_user.manager? 
   end
 
   def invite_resource(&block)
@@ -93,6 +93,14 @@ class Admin::InvitationsController < DeviseController
 
   def current_inviter
     authenticate_inviter!
+  end
+
+  def after_invite_path_for(inviter, invitee = nil)
+    admin_users_path
+  end
+
+  def after_accept_path_for(resource)
+    admin_articles_path
   end
 
   def has_invitations_left?
@@ -121,9 +129,5 @@ class Admin::InvitationsController < DeviseController
   def translation_scope
     'devise.invitations'
   end
-
-  # def update_sanitized_params
-  #   devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name])
-  # end
 
 end

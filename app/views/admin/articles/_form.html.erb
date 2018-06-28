@@ -60,7 +60,10 @@
     <%= form.label :category_id %>
 
     <%= form.select :category_id,
-      options_for_select(group.categories.map { |category| [category.title, category.id] }),
+      options_for_select(
+        group.categories.map { |category| [category.title, category.id] },
+        article.category_id
+      ),
       { prompt: true }
     %>
 

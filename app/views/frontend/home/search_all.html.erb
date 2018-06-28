@@ -1,44 +1,29 @@
 <div class="lawPagesMain">
 
-<section class="lawBoxesSection">
+  <h2> Search Results: </h2>
 
-	<div class="container lawsBox">
-		<div class="lawTitleBox border-right" data-group="group-1">
-			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></h2>
-			<p><%= link_to 'A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
-		</div>
-
-		<div class="lawTitleBox border-right" data-group="group-2">
-			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></h2>
-			<p><%= link_to 'A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.', '/authority_dp' %></p>
-			<h2 class="lawTitle"></h2>
-			<p></p>
-		</div>
-
-		<div class="lawTitleBox" data-group="group-3">
-			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
-			<p></p>
-		</div>
-	</div>
-
-</section>
-
-	<section class="mainLaw container">
-
-		<section class="lawsIndexSection">
+	 <section class="mainLaw container">
+		 <section class="lawsIndexSection">
 
 			<div class="lawsIndexBox js-flickity">
+        <% @objects.each do |group| %>
+            <% group.categories.each do |category| %>
+              <% category.articles.each do |article| %>
+                <% if category.articles.empty? %>
+                <% else %>
+                 <h6><%= group.title %></h6>
 
-				<% @articles.each do |article|  %>
-				  	<div class="lawSelection" data-article="article-<%= article.id %>">
+                  <div class="lawSelection" data-article="article-<%= article.id %>">
+                    <p><%= article.number %><%= article.letter %>. <%= article.title %></p>
+                  </div>
 
-						<p><strong> <%= article.number %> <%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
-					</div>
-				<% end %>
-
+                <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
 			</div>
-
 		</section>
+
 
 		<section class="lawContentSection">
 
@@ -55,16 +40,19 @@
 			<% @articles.each do |article|  %>
 			<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
 				<h1><%= article.category.group.title %></h1>
+        <% if article.category.group.title === 'Guidance Notes' %>
+        <% else %>
 				<h1><%= article.category.title %></h1>
+        <% end %>
 				<h2><%= article.number %><%= article.letter %>. <%= article.title %></h2>
 				<div class="articleContent">
 					<%= sanitize article.content %>
 				</div>
 			</div>
 
-			<div class="lawLinkedContent articleSectionHide notActive" data-article="article-<%= article.id %>">
-				<p class="lawLinkedNote">Click on the below headings to view info on GDPR and our guidance notes related to this article or schedule.</p>
-
+      <% if article.category.group.title === 'Guidance Notes' %>
+      <%else%>
+      <div class="lawLinkedContent articleSectionHide notActive" data-article="article-<%= article.id %>">
 				<table cellspacing="0">
 				  <tr>
 				    <th class="gdprArticle">GDPR Article</th>
@@ -77,15 +65,6 @@
 							<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
 								<%= sanitize article.content %>
 							<% end%>
-              <% if article.articles.where(category_id: Category.find_by(title: 'Articles').id).presence %>
-							exists
-							<% else %>
-							doesnt exist
-							<% end %>
-              <% %>
-
-
-
 
 				    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
 
@@ -121,6 +100,7 @@
 
 			</div>
 			<% end %>
+      <% end %>
 
 		</section>
 

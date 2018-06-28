@@ -15,8 +15,9 @@ class Article < ApplicationRecord
   #has_many :articles, through: :linked_articles
 
   def self.search(search)
-      where("content LIKE ? OR title LIKE ?", "%#{search}%" , "%#{search}%")
+    where("content LIKE ? OR title LIKE ?", "%#{search}%" , "%#{search}%")
   end
+  
   def display_title
     # "#{category.group.title} - #{title}"
     "#{category.title} #{number}.#{letter}  #{title}" 

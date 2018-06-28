@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dataprotection</title>
+    <title>Jersey ICO<%= " | " + yield(:title) if content_for?(:title) %></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,7 +16,7 @@
       <%= stylesheet_link_tag    'index#index', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% end %>
 
-    
+
     <%= javascript_include_tag 'frontend', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script>
@@ -27,18 +27,24 @@
 
   </head>
   <body>
-    <nav class="container mainNav">
-
-      <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
-      
+    <nav class="mainNav">
+      <% unless current_page?(root_path) %>
+        <%= link_to(image_tag("frontend/JSY_transparent_white.png", class: "logo"), root_path ) %>
+      <% else %>
+        <%= link_to(image_tag("frontend/JSY_transparent.png", class: "logo"), root_path ) %>
+      <% end %>
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
         <li>ABOUT</li>
-        <li>CONTACT</li>
+        <li><%= link_to 'CONTACT', '#contact_link' %></li>
+
       </ul>
 
+      <%= form_tag(search_all_path, :method => "get", id: "search-form", class: "searchForm")  do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search all articles" , class: "searchField"  %>
+        <%= submit_tag "Search", :name => nil, class: "searchButton" %>
+      <% end %>
 
-      <input class="searchField" type="text" placeholder="SEARCH">
       <% unless current_page?(root_path) %>
         <%= image_tag("frontend/bars.svg", class: "hamburger") %>
       <% else %>
@@ -48,7 +54,7 @@
     </nav>
 
     <nav class="mobileNav">
-      
+
       <ul class="linksContainerMobile">
         <li><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></li>
         <li><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></li>
@@ -60,33 +66,6 @@
     </nav>
 
     <%= yield %>
-
-    <footer class="footerContainer">
-      <div class="column">
-        <ul >
-          <li>One</li>
-          <li>Two</li>
-          <li>Three</li>
-          <li>Four</li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </footer>
 
 <!--add a sign out alert  -->
 
@@ -124,6 +103,6 @@
         </div>
       </div>
     <% end %>
-  
+
   </body>
 </html>
