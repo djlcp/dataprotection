@@ -32,7 +32,7 @@
 				<% @articles.each do |article|  %>
 				  	<div class="lawSelection" data-article="article-<%= article.id %>">
 
-						<p><strong> <%= article.number %> <%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
+						<p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
 					</div>
 				<% end %>
 

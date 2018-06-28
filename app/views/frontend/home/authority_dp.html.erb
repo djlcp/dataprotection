@@ -32,7 +32,7 @@
 			<% @articles.each do |article|  %>
 					<div class="lawSelection" data-article="article-<%= article.id %>">
 
-					<p><strong> <%= article.number %> <%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
+					<p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
 				</div>
 			<% end %>
 
@@ -47,14 +47,14 @@
 			<h1>Welcome</h1>
 
 			<p>Please select a law on the left hand side, our guidance notes will be provided below each law article</p>
-			
+
     </div>
 
 		<% @articles.each do |article|  %>
 		<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
 			<h1><%= article.category.group.title %></h1>
 			<h1><%= article.category.title %></h1>
-			<h2><%= article.number %>. <%= article.title %></h2>
+			<h2><%= article.number %><%= article.letter %>. <%= article.title %></h2>
 			<div class="articleContent">
 				<%= sanitize article.content %>
 			</div>
