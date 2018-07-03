@@ -5,6 +5,13 @@
         <th>No</th>
         <th>Letter</th>
       <% end %>
+      <% articles.each do |article| %>
+        <% if article.category.group.title == "General Data Protection Regulation" || article.category.group.title == "Guidance Notes" %>
+          <th>Linked Articles</th>
+          <% break %>
+        <% end %>
+      <% end %>
+
 
       <th class="thPublished">Published</th>
       <th class="thTitle">Title</th>
@@ -27,11 +34,20 @@
           <td><%= article.letter %></td>
         <% end %>
 
+        <% if article.category.group.title == "General Data Protection Regulation" || article.category.group.title == "Guidance Notes" %>
+          <td>
+            <% article.associated_articles.each do |art| %>
+            <%= art.title %><br>
+            <% end %>
+          </td>
+        <% end %>
+
         <% if article.published %>
           <td> published </td>
         <% else %>
           <td> Unpublished </td>
         <% end %>
+
         <td><%= article.title %></td>
         <td><%= sanitize article.content.truncate(17) %></td>
         <td><%= article.category.title %></td>

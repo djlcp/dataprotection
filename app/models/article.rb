@@ -17,10 +17,10 @@ class Article < ApplicationRecord
   def self.search(search)
     where("content LIKE ? OR title LIKE ?", "%#{search}%" , "%#{search}%")
   end
-  
+
   def display_title
     # "#{category.group.title} - #{title}"
-    "#{category.title} #{number}.#{letter}  #{title}" 
+    "#{category.title} #{number}.#{letter}  #{title}"
   end
 
   def article_selected
