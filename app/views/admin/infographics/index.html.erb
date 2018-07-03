@@ -11,7 +11,7 @@ Index for infographics
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= image_tag infographic.image.url %></td>
+				<td><%= image_tag infographic.image.url, class: 'infographic' %></td>
 				<td><%= link_to 'Delete', admin_infographic_path(infographic), method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></td>
 			</tr>
 		</tbody>

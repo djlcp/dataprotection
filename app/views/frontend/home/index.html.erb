@@ -79,7 +79,13 @@
 </div>
 
 <div class="infographics">
-	<img src="">
+	<% Infographic.all.each do |infographic| %>
+		<%= image_tag infographic.image.url, :data => { :lightbox => 'infographic' }, id: 'largeInfographic', class: 'infographic' %>
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+		</div>
+	<% end %>
 </div>
 
 <div class="contact-section">
