@@ -47,7 +47,7 @@
         <% if user_signed_in? %>
           <!-- http://www.rymcmahon.com/articles/2 -->
           <%= form_tag(admin_articles_path, :method => "get", id: "search-form", class: "searchForm") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search all articles", class: "searchField" %>
+            <%= text_field_tag :search, params[:search], placeholder:"Search all articles", class: "searchField " %>
             <%= submit_tag "Search", :name => nil, class: "searchButton"%>
           <% end %>
         <% else %>

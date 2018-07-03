@@ -35,7 +35,7 @@
       <% end %>
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
-        <li>ABOUT</li>
+        <li><%= link_to 'ABOUT', root_path(anchor: 'index_about')  %></li>
         <li><%= link_to 'CONTACT', '#contact_link' %></li>
 
       </ul>
@@ -51,7 +51,7 @@
         <% else %>
           <%= image_tag("frontend/bars_red.svg", class: "hamburger") %>
         <% end %>
-     
+
     </nav>
 
     <nav class="mobileNav">
@@ -60,8 +60,6 @@
         <li><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></li>
         <li><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></li>
         <li><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></li>
-        <li>ABOUT</li>
-        <li>CONTACT</li>
       </ul>
 
     </nav>
