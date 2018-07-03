@@ -1,14 +1,117 @@
+<!--- this is the CMS application ----->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dataprotection</title>
+    <title>Jersey ICO | Admin<%= " | " + yield(:title) if content_for?(:title) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= Pretty Checkbox %>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+    <%#= Font awesome %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="removeMargin">
+
+    <div class="wrapper">
+
+      <header class="topBar">
+
+        <ul class="flex-container space-between removeMargin ">
+
+          <li class="websiteName removeMargin">Website Name</li>
+
+          <li class="websiteUser removeMargin">
+            <% if user_signed_in? %>
+              Hello, <%= current_user.first_name%> <%= current_user.last_name %> - <strong><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class: 'sign_out' %></strong>
+            <% else %>
+              You are not signed in
+            <% end %>
+          </li>
+
+        </ul>
+
+  </header>
+
+  <div class="stretch">
+
+    <nav class="leftNav">
+
+
+      	<%= image_tag("frontend/JSY_transparent_white.png", class: "computer-image") %>
+
+
+        <% if user_signed_in? %>
+          <!-- http://www.rymcmahon.com/articles/2 -->
+          <%= form_tag(admin_articles_path, :method => "get", id: "search-form", class: "searchForm") do %>
+            <%= text_field_tag :search, params[:search], placeholder:"Search all articles", class: "searchField " %>
+            <%= submit_tag "Search", :name => nil, class: "searchButton"%>
+          <% end %>
+        <% else %>
+          <%= form_tag(articles_path, :method => "get", id: "search-form", class: "searchForm") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search published articles", class: "searchField" %>
+            <%= submit_tag "Search", :name => nil, class: "searchButton" %>
+          <% end %>
+        <% end %>
+
+
+
+
+    <ul class='list'>
+    <li><%= link_to 'Law Groups', admin_groups_path %></li>
+    <li><%= link_to 'Categories', admin_categories_path %></li>
+
+      <li>
+        <ul class="list">
+          <% Group.all.each do |group| %>
+
+
+
+            <li class='js-group-title item--clickable flex flex--items-align flex--justify-between'>
+              <%= group.title %> <i class="fas fa-animate fa-fw fa-caret-down"></i>
+            </li>
+
+            <ul class='js-group-categories list--indented'>
+
+              <li>
+              <% if group.categories.present? %>
+                <%= link_to new_admin_article_path(scope: group.id), class: 'flex flex--justify-between flex--items-align' do %>
+                  New Article
+                  <i class="fas fa-small fa-plus"></i>
+                <% end %>
+              <% end %>
+              </li>
+
+              <% group.categories.each do |category| %>
+              <li class='flex flex--justify-between flex--items-align'>
+                <%= link_to admin_articles_path(scope: category.id) do %>
+                  <%= category.title %>
+                <% end %>
+              </li>
+              <% end %>
+
+
+              </li>
+            </ul>
+          <% end %>
+        </ul>
+      </li>
+
+        </nav>
+
+        <main>
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <%= yield %>
+
+        </main>
+      </div>
+    </div>
+
   </body>
 </html>

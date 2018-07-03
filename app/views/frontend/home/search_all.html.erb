@@ -1,0 +1,110 @@
+<div class="lawPagesMain">
+
+  <h2> Search Results: </h2>
+
+	 <section class="mainLaw container">
+		 <section class="lawsIndexSection">
+
+			<div class="lawsIndexBox js-flickity">
+        <% @objects.each do |group| %>
+            <% group.categories.each do |category| %>
+              <% category.articles.each do |article| %>
+                <% if category.articles.empty? %>
+                <% else %>
+                 <h6><%= group.title %></h6>
+
+                  <div class="lawSelection" data-article="article-<%= article.id %>">
+                    <p><%= article.number %><%= article.letter %>. <%= article.title %></p>
+                  </div>
+
+                <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+			</div>
+		</section>
+
+
+		<section class="lawContentSection">
+
+			<div class="welcomeSection">
+
+				<h1>Welcome</h1>
+
+				<p>Please select a law on the left hand side, our guidance notes will be provided below each law article</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+			</div>
+
+			<% @articles.each do |article|  %>
+			<div class="articleSection articleSectionHide notActive" data-article="article-<%= article.id %>">
+				<h1><%= article.category.group.title %></h1>
+        <% if article.category.group.title === 'Guidance Notes' %>
+        <% else %>
+				<h1><%= article.category.title %></h1>
+        <% end %>
+				<h2><%= article.number %><%= article.letter %>. <%= article.title %></h2>
+				<div class="articleContent">
+					<%= sanitize article.content %>
+				</div>
+			</div>
+
+      <% if article.category.group.title === 'Guidance Notes' %>
+      <%else%>
+      <div class="lawLinkedContent articleSectionHide notActive" data-article="article-<%= article.id %>">
+				<table cellspacing="0">
+				  <tr>
+				    <th class="gdprArticle">GDPR Article</th>
+				    <th class="gdprRecital">GDPR Recital</th>
+				    <th class="guidanceNote">Guidance Notes</th>
+				  </tr>
+				  <tr class="gdprArticleText">
+				    <td colspan="3">
+				    	<p>GDPR Article</p>
+							<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
+								<%= sanitize article.content %>
+							<% end%>
+
+				    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+						<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+				    </td>
+				  </tr>
+				  <tr class="gdprRecitalText">
+				    <td colspan="3">
+				    	<p>GDPR Recital</p>
+
+							<% article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id).each do |article|%>
+								<%= sanitize article.content %>
+							<% end%>
+				    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+						<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+				    </td>
+				  </tr>
+				  <tr class="guidanceNoteText">
+				    <td colspan="3">
+				    	<p>Guidance Notes</p>
+
+							<% article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id).each do |article|%>
+								<%= sanitize article.content %>
+							<% end%>
+
+				    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+
+						<p>Donec quis leo ultricies, rhoncus mauris eget, fermentum odio. In commodo felis eget ex fringilla, ut lacinia metus vehicula. Sed dui nunc, iaculis ut tristique in, euismod at purus. Vestibulum rhoncus vestibulum ipsum ac porta. Pellentesque rhoncus dignissim lectus sit amet malesuada. Maecenas eu consequat justo. Nulla facilisi. Donec commodo quam ac velit tincidunt pellentesque. Integer viverra mollis consectetur.</p>
+				    </td>
+				  </tr>
+				</table>
+
+			</div>
+			<% end %>
+      <% end %>
+
+		</section>
+
+	</section>
+
+
+</div>

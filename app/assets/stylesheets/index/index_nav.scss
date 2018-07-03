@@ -1,0 +1,169 @@
+$dark_grey: #505050;
+$gdpr_red: #b22328;
+$gdpr_dark: #373F48;
+
+/***** Nav ******/
+
+.mainNav {
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffffff;
+
+  & > a {
+    width: 100%;
+    display: block;
+  }
+
+  .logo, .linksContainer, .searchField {
+      margin: 15px 0;
+      height: 45px;
+      line-height: 45px;
+      color: $gdpr_dark;
+  }
+
+  .logo {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 0;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 15px;
+      margin-top: 0;
+  }
+
+  .linksContainer {
+      display: none;
+  }
+
+  .searchForm {
+    display: flex;
+  }
+
+  .searchField {
+    background-color: #fff;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $dark_grey;
+    border-image: none;
+    padding-left: 15px;
+    margin-left: 20px;
+    width: calc(100% - 50px);
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .searchButton {
+    margin: auto 20px auto 10px;
+    background-color: #ffffff;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $gdpr_dark;
+    border-image: none;
+    color: $gdpr_dark;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  .searchField::placeholder {
+    color: $dark_grey;
+  }
+
+  .hamburger {
+    width: 20px;
+    z-index: 20;
+    right: 0;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    fill: $gdpr_red;
+  }
+
+}
+
+.mobileNav {
+  background-color: #ffffff;
+  top: 60px;
+  position: absolute;
+  z-index: 20;
+  display: none;
+
+    .linksContainerMobile {
+      padding: 15px;
+        li, a {
+            width: auto;
+            list-style-type: none;
+            color: $gdpr_dark;
+            padding: 10px 0;
+        }
+    }
+}
+
+
+@media screen and (min-width: 851px) /* Desktop */ {
+  body {
+
+    .mainNav {
+
+      display: inline-flex;
+
+      & > a {
+        width: auto;
+        display: block;
+        margin: auto;
+      }
+
+      .linksContainer {
+        display: inline-flex;
+        width: 100%;
+
+        li, a {
+          width: 100px;
+          list-style-type: none;
+        }
+
+        a:visited {
+          color: $dark_grey;
+        }
+      }
+
+        .logo {
+          padding-left: 80px;
+        }
+
+      .searchForm {
+          display: flex;
+      }
+
+      .searchField {
+          width: 100px;
+          margin: auto 0;
+          padding-right: 80px;
+          padding-left: 15px;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+    }
+
+    .mobileNav {
+      display: none;
+    }
+
+  }
+}
+
+
+
+@media screen and (min-width: 1024px) /* Desktop */ {
+.mainNav .searchButton {
+  margin-right: 40px;
+}
+
+
+}

@@ -1,0 +1,59 @@
+<div class="showArea">
+
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong class="showHeading">Group:</strong>
+  <%= @article.category.group.title %>
+</p>
+
+<p>
+  <strong class="showHeading">Category:</strong>
+  <%= @article.category.title %>
+</p>
+
+<p>
+  <strong class="showHeading">Published:</strong>
+  <% if @article.published %>
+    published
+  <% else %>
+    Unpublished
+  <% end %>
+</p>
+
+<p>
+  <strong class="showHeading">Number:</strong>
+  <%= @article.number %>
+</p>
+
+<p>
+  <strong class="showHeading">Letter:</strong>
+  <%= @article.letter %>
+</p>
+
+<p>
+  <strong class="showHeading">Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong class="showHeading">Content:</strong><br>
+  <%= sanitize @article.content %>
+</p>
+
+<p>
+  <strong class="showHeading">Number:</strong>
+  <%= @article.number %>
+</p>
+
+<p>
+  <strong class="showHeading">Views:</strong>
+  <%= @article.views %>
+</p>
+
+
+
+
+</div>

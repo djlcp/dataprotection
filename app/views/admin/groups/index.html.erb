@@ -1,0 +1,30 @@
+
+<h1>Groups</h1>
+
+<table class="indexTable">
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th  class="thTitle">Title</th>
+      <th class="thContent">Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr class="rowAlternateColor">
+        <!-- <td><%= group.id %></td> -->
+        <td><%= group.title %></td>
+        <td><%= group.description %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Show', admin_group_path(group) %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_group_path(group) %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_admin_group_path %>

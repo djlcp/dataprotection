@@ -1,0 +1,332 @@
+html, body {
+	height: 100%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/***** Helpers ******/
+
+$gdpr_red: #b22328;
+
+$dark_grey: #505050;
+
+$gdpr_dark: #373F48;
+
+.removeMargin {
+	margin: 0;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.stretch {
+	display: flex;
+  	width: 100%;
+  	min-height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/****** Header ******/
+
+.topBar {
+	height: 32px;
+	line-height: 32px;
+	background-color: $dark_grey;
+	width: 100%;
+	color: #ffffff;
+	justify-content: space-between;
+
+	ul {
+		padding: 0 40px;
+		li {
+			list-style-type: none;
+		}
+	}
+
+}
+
+.sign_out {
+	color: white;
+}
+
+
+/****** Nav ******/
+
+.leftNav {
+	width: 260px;
+	background-color: $gdpr_red;
+	padding: 30px;
+
+	h1 {
+		color: #ffffff;
+		margin-top: 0;
+	}
+
+	ul li {
+		list-style-type: none;
+		color: #ffffff;
+	    line-height: 40px;
+	}
+
+	ul li a {
+		text-decoration: none;
+		color: #ffffff
+	}
+}
+
+
+/****** Main Edit Content Area ******/
+
+main {
+	width: calc(100% - 300px);
+	background-color: #f2f2f2;
+	padding: 20px;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	.articleHeader {
+		height: 40px;
+	    width: 660px;
+	    padding-left: 20px;
+	    font-size: 18px;
+	    margin-bottom: 15px;
+	}
+
+	.articleText {
+		height: 300px;
+	    width: 660px;
+	    padding-left: 20px;
+	    font-size: 18px;
+	    margin-bottom: 15px;
+	}
+}
+
+.mainLeft {
+	width: calc(100% - 300px);
+	margin-right: 20px;
+
+	.articleHeading {
+		line-height: 32px;
+    	font-size: 22px;
+	}
+}
+
+.mainRight {
+	width: 300px;
+
+	.articleAssignmentsHeader {
+		width: 100%;
+		line-height: 32px;
+		margin-bottom: 15px;
+		font-size: 18px;
+
+		p {
+			margin: 0;
+			font-size: 14px;
+		}
+
+		select {
+			width: 200px;
+			margin: auto 0;
+			height: 25px;
+		}
+
+		.associatedArticleBox {
+			width: 200px;
+			height: 250px;
+		}
+	}
+}
+
+.articlesTable, .categoriesTable, .groupsTable {
+
+	text-align: left;
+
+	tbody {
+		tr {
+			max-height: 40px;
+		}
+	}
+}
+
+.articlesTable, .groupsTable {
+
+	.IDColumn {
+			width: 60px;
+		}
+	.titleColumn, .categoryColumn, .groupColumn {
+		width: 100px;
+	}
+	.contentColumn {
+		width: 300px;
+	}
+
+	.descriptionColumn {
+	width: 500px;
+	}
+}
+
+.categoriesTable {
+
+	.titleColumn, .groupColumn {
+		width: 200px;
+	}
+
+}
+
+.groupsTable {
+
+	.titleColumn, .groupColumn {
+		width: 200px;
+	}
+
+}
+
+
+/****** Main Index Area ******/
+
+.indexTable {
+
+	tr td {
+		padding: 10px;
+	}
+
+	.thContent {
+		width: 300px;
+	}
+
+	.thTitle,
+	.thGroup,
+	.thCategory {
+	    width: 150px;
+	}
+
+	.rowAlternateColor:nth-child(even) {
+		background: #CCC
+	}
+
+	.rowAlternateColor:nth-child(odd) {
+		background: #FFF
+	}
+
+	.showEditDestroyColumns {
+	    max-width: 60px;
+	    width: 60px;
+	}
+}
+
+
+
+/****** Show Area ******/
+
+.showArea p {
+	background: white;
+    padding: 5px 10px;
+}
+
+.showHeading {
+		line-height: 32px;
+    	font-size: 22px;
+	}
+
+
+
+/****** Sign In Area ******/
+
+.signinPage {
+   margin: 10px 0 20px;
+   max-width: 500px;
+
+    a, p {
+    	height: 20px;
+	    line-height: 20px;
+	    width: 500px;
+	    font-size: 16px;
+    }
+
+   label, input {
+   		height: 40px;
+   		line-height: 40px;
+	    width: 500px;
+	    font-size: 18px;
+	    margin-bottom: 15px;
+   }
+
+   input {
+ 		padding: 2px 10px;
+   }
+
+   input[type=checkbox] {
+   	width: 20px;
+   	height: 20px;
+   }
+
+   input[type=submit] {
+   		background-color: $dark_grey;
+   		color: #ffffff;
+   		border-radius: 4px;
+   }
+
+}
+
+.signinLinks {
+	max-width: 500px;
+
+	a {
+		color: $dark_grey;
+		padding: 5px 10px 5px 0;
+		font-size: 14px;
+	}
+}
+
+/*********** Search Form **************/
+
+.searchForm {
+	display: flex;
+}
+
+.searchField {
+	background-color: #fff;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $dark_grey;
+	border-image: none;
+	padding-left: 5px;
+	width: calc(100% - 50px);
+	height: 25px;
+	font-size: 12px;
+}
+
+.searchButton {
+	margin: auto 0px auto 3px;
+	background-color: #ffffff;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $gdpr_dark;
+	border-image: none;
+	color: $gdpr_dark;
+	padding: 6px 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.searchField::placeholder {
+	color: $dark_grey;
+}

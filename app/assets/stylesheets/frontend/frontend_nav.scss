@@ -1,0 +1,40 @@
+@import "index/index_nav.scss";
+
+.mainNav {
+  background-color: $gdpr_dark;
+  .linksContainer li {
+    color: #ffffff;
+  }
+
+  .linksContainer li a {
+    color: #ffffff;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .linksContainer a:visited {
+    color: #ffffff !important;
+  }
+
+  .searchField {
+    border-color: #ffffff;
+    background-color: $gdpr_dark;
+  }
+
+  .searchField::placeholder {
+    color: #ffffff;
+  }
+
+  .searchButton {
+    background-color: $gdpr_dark!important;
+    border-color: #ffffff!important;
+    color: #ffffff!important;
+  }
+
+  .logo {
+    height: 50px;
+    margin-bottom: 0;
+  }
+}
+
+
