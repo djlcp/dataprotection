@@ -1,0 +1,164 @@
+<!-- Check if form is in edit mode  -->
+<% if @article.persisted? %>
+  <h1>Editing <%= @article.title %></h1>
+<% else %>
+  <% name = @form_params.law.downcase.gsub('-', ' ').split.map(&:capitalize).join(' ') %>
+  <h1><%= name %></h1>
+<% end %>
+
+<%= form_for [:admin, @article] do |form| %>
+
+<%= hidden_field_tag :law, value: @form_params.law %>
+
+<%= hidden_field_tag :type, value: @form_params.type %>
+
+<div class="flex-container flex-start">
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mainLeft">
+
+  <% if @form_params.type == "article"  %>
+
+    <div class="field">
+      <%= form.label :number, class: 'articleHeading' %><br>
+      <%= form.text_field :number, id: :article_number, class: 'articleHeader' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :letter, class: 'articleHeading' %><br>
+      <%= form.text_field :letter, id: :article_letter, class: 'articleHeader' %>
+    </div>
+
+  <% end %>
+
+
+  <% case @form_params.type %>
+    <%  when "article" %>
+        <%= form.hidden_field :article_type, value: 'article' %>
+    <%  when "recital" %>
+        <%= form.hidden_field :article_type, value: 'recital' %>
+    <%  when "guidance" %>
+        <%= form.hidden_field :article_type, value: 'guidance' %>
+  <%  end %>
+
+
+
+
+    <div class="field">
+      <%= form.label :title, class: 'articleHeading' %><br>
+      <%= form.text_field :title, id: :article_title, class: 'articleHeader' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content, class: 'articleHeading' %><br>
+      <%= form.cktext_area :content, id: :article_content, class: 'articleText' %>
+    </div>
+
+  </div>
+
+
+  <div class="mainRight">
+
+    <div class="field articleAssignmentsHeader">
+      <%= form.label :category_id %><br>
+
+      <% case @form_params.law.downcase %>
+        <%  when "jersey-data-protection" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey data protection law').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "jersey-authority" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey data protection authority law').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "jersey-registration" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'jersey registration law').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "gdpr-article" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'gdpr').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "gdpr-recital" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'gdpr').categories.where(title: 'Recitals').map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+        <%  when "guidance" %>
+          <%= form.select :category_id,
+           options_for_select(Group.find_by(title: 'guidance').categories.map { |category| [category.title, category.id] }),
+          { prompt: true }
+          %>
+
+      <%  end %>
+
+
+    </div>
+
+    <div>
+
+      <%= link_to 'Create New Category', new_admin_category_path %>
+
+    </div>
+
+
+    <div class="">
+
+      <% if @form_params.law.downcase == "gdpr-article" || @form_params.law.downcase == "gdpr-recital" || @form_params.law.downcase == "guidance" %>
+
+          <h3>Link this to An Article</h3>
+
+          <% Group.where(title: ['jersey authority', 'jersey registration', 'jersey data protection']).each do |group| %>
+
+            <% group.categories.each do |category| %>
+
+              <%= form.collection_check_boxes :associated_article_ids, category.articles, :id, :display_title do |b| %>
+
+                <div class="field">
+                  <div class="pretty p-default p-smooth">
+                    <%= b.check_box %>
+                    <div class="state p-primary ">
+                      <%= b.label %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+            <% end %>
+
+          <% end %>
+
+      <% end %>
+    </div>
+
+    <div class="field articleAssignmentsHeader">
+      <%= form.label :published %>
+      <%= form.check_box :published %>
+    </div>
+
+    <div class="actions articleAssignmentsHeader">
+      <%= form.submit %>
+    </div>
+
+</div>
+
+<% end %>

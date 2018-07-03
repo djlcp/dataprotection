@@ -64,7 +64,6 @@ $(document).on('turbolinks:load', function() {
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});
 
-
 	$( ".infographic" ).click(function() {
 		$(".infographic").not(this).hide();
 		$( this ).css({"max-width": "700px",
@@ -82,7 +81,5 @@ $(document).on('turbolinks:load', function() {
 		$('.infographics').removeClass('infographicsModal');
 		$('.close').hide();
 	})
-
-
 
 });

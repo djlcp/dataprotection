@@ -290,8 +290,61 @@ main {
 	}
 }
 
+
 .infographics {
 	max-width: 300px;
 }
 
+/******* linking table **********/
 
+.articleLinkedContent table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid $gdpr_red;
+
+	.selectedNoteHeader {
+		background-color: $gdpr_red;
+		color: #ffffff;
+	}
+
+	tr th {
+		width: 33.33%;
+		padding: 14px 0;
+		border: 2px solid $gdpr_red;
+		color: $gdpr_red;
+		cursor: pointer;
+	}
+
+	tr td {
+	  padding: 0px;
+	  border: none;
+		font-size: 14px;
+
+	}
+}
+
+//
+// .articleLinkedContent table {
+// 	width: 100%;
+// 	border-collapse: collapse;
+//
+// 	.selectedNoteHeader {
+// 		background-color: $gdpr_red;
+// 		color: #ffffff;
+// 	}
+//
+// 	tr th {
+// 		width: 33.33%;
+// 		padding: 14px 0;
+// 		// border: 2px solid $gdpr_red;
+// 		color: $gdpr_red;
+// 		cursor: pointer;
+// 	}
+//
+// 	tr td {
+// 		// padding: 20px 15px;
+// 		// border: 2px solid $gdpr_red;
+// 		font-size: 14px;
+//
+// 	}
+// }
