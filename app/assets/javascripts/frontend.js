@@ -64,6 +64,22 @@ $(document).on('turbolinks:load', function() {
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});
 
-	
+	$( ".infographic" ).click(function() {
+		$(".infographic").not(this).hide();
+		$( this ).css({"max-width": "700px",
+						"width": "100%", 
+						"max-height": "100%",
+						"max-height": "500px",
+						"margin": "0px auto"});
+		$('.close').show();
+		$(this).parent('.infographics').addClass('infographicsModal');
+	});
+
+	$('.close').click(function() {
+		$(".infographic").show();
+		$('.infographic').css({ "max-width": "250px", "max-height": "160px"});
+		$('.infographics').removeClass('infographicsModal');
+		$('.close').hide();
+	})
 
 });
