@@ -60,7 +60,7 @@ a {
 
 .textSection {
 	p {
-		padding: 0 20px 30px;
+		padding: 0 20px;
 		font-size: 14px;
 	}
 
@@ -130,7 +130,7 @@ a {
 
 }
 
-.computer-image, .desk-image, .pineapple-image {
+.computer-image, .desk-image, .security-image {
 	width: 100%;
 }
 
@@ -163,7 +163,6 @@ a {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-around;
 	}
 
 
@@ -275,12 +274,12 @@ a {
 	.aboutRegulationsLawsSection {
 		display: flex;
 
-		.pineapple-image {
+		.security-image {
 			width: auto;
 			max-width: 540px;
 		}
 
-		.pineappleImageBackground {
+		.securityImageBackground {
 		    background-color: $gdpr_dark;
 		    padding: 0 0 75px;
 		    width: 300px;
@@ -299,7 +298,7 @@ a {
 
 @media screen and (min-width: 1200px) /* Desktop */ {
 
-	.aboutRegulationsLawsSection .pineapple-image {
+	.aboutRegulationsLawsSection .security-image {
 		max-width: 620px;
 	}
 
@@ -357,10 +356,15 @@ a {
 		max-width: 880px;
 	}
 
-	.aboutRegulationsLawsSection .pineapple-image {
+	.aboutRegulationsLawsSection .security-image {
 		max-width: 840px;
 	}
 
+}
+
+.infographicsTitle {
+	margin-left: 120px;
+    margin-top: 40px;
 }
 
 
@@ -429,5 +433,13 @@ a {
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
-    }
+	}
+
+}
+
+// for landscpae mobiles
+@media only screen and (min-width: 400px) and (max-width: 820px){
+	.infographicsModal {
+		padding-top: 0;
+	}
 }
