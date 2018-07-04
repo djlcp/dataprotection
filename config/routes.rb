@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     get 'dp_laws' => 'home#dp_laws'
     get 'search_all' => 'home#search_all'
 
+    get 'home/terms_cond', to: 'home#terms_cond'
+
+    get 'infographics' => 'home#index'
+
+
   end
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -36,6 +41,7 @@ end
     resources :articles
     resources :categories
     resources :groups
+    resources :infographics, only: %i[index new create destroy]
     resources :users
   end
 

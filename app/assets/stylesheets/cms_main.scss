@@ -15,6 +15,8 @@ $gdpr_red: #b22328;
 
 $dark_grey: #505050;
 
+$gdpr_dark: #373F48;
+
 .removeMargin {
 	margin: 0;
 }
@@ -56,7 +58,9 @@ $dark_grey: #505050;
 
 }
 
-
+.sign_out {
+	color: white;
+}
 
 
 /****** Nav ******/
@@ -288,6 +292,46 @@ main {
 		padding: 5px 10px 5px 0;
 		font-size: 14px;
 	}
+}
+
+/*********** Search Form **************/
+
+.searchForm {
+	display: flex;
+}
+
+.searchField {
+	background-color: #fff;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $dark_grey;
+	border-image: none;
+	padding-left: 5px;
+	width: calc(100% - 50px);
+	height: 25px;
+	font-size: 12px;
+}
+
+.searchButton {
+	margin: auto 0px auto 3px;
+	background-color: #ffffff;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $gdpr_dark;
+	border-image: none;
+	color: $gdpr_dark;
+	padding: 6px 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.searchField::placeholder {
+	color: $dark_grey;
+}
+.infographics {
+	max-width: 300px;
 }
 
 /******* linking table **********/

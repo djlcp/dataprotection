@@ -31,7 +31,8 @@
 <div class="about-section textSection">
 	<div class="shiftRight" id="about_link" >
 	<h2>ABOUT US</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum pharetra facilisis. Sed at fermentum est. Suspendisse eget dui eget nunc malesuada sagittis a in mauris. Praesent et leo tincidunt, pulvinar dolor nec, eleifend nisi. Etiam auctor leo elit, id tempor felis suscipit et. Fusce tincidunt erat ut enim varius pulvinar. Etiam feugiat, turpis ut pellentesque volutpat, risus nulla vehicula turpis, ac bibendum massa erat et quam. Sed vitae pharetra purus. Nullam mattis dapibus erat, semper suscipit metus commodo quis. Fusce fermentum ante sit amet turpis dapibus, eget luctus nunc interdum. Quisque dignissim bibendum odio, blandit feugiat nulla iaculis nec. Vivamus et ex accumsan, egestas elit id, pretium libero. Proin id est aliquet, dignissim sapien ut, tristique massa. Etiam et metus orci.</p>
+	<p>The Office of the Information Commissioner (OIC) is a statutory Authority responsible for regulating the Data Protection (Jersey) Law 2018 and the Data Protection Authority (Jersey) Law 2018, together with associated subordinate Regulations.  The OIC also regulates the Freedom of Information (Jersey) Law 2011. This resource enables easy access to both Data Protection Laws and Regulations and allows users to see the equivalent provisions in the European General Data Protection Regulation (GDPR). We have also provided links to relevant guidance which may be updated and added to in due course.</p>
+	<p>We hope you will find the resource useful.</p>
 	</div>
 </div>
 
@@ -43,8 +44,8 @@
 	<div class="aboutJerseyLaws textSection">
 
 
-		<h2>JERSEY LAWS</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+		<h2>DATA PROTECTION (Jersey) LAW 2018 (the DPJL)</h2>
+		<p>The DPJL replaced the former 2005 Law on 25th May 2018. It mirrors many of the of the provisions of GDPR and its purpose is to protect natural persons in relation to the processing and free movement of their personal information.<br>Fundamentally, the Law is about updating and extending the provisions that have been in place for many years to recognise technological advancements, and to provide individuals with greater control over what happens to their personal information. It includes additional rights for data subjects and greater accountability and transparency requirements for organisations.</p>
 	</div>
 
 </div>
@@ -58,26 +59,45 @@
 		<div class="shiftRight authorityLawsText">
 
 
-		<h2>JERSEY AUTHORITY LAWS</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+		<h2>DATA PROTECTION AUTHORITY (Jersey) LAW 2018 (the DPAJL)</h2>
+		<p>The DPAJL also came into effect on 25th May 2018 and creates a new statutory body responsible for overseeing the protection of personal information of natural persons. This body is known in Law as the Data Protection Authority and is chaired by Mr Jacob Kohnstamm. The Authority oversees the activities of the OIC, which is headed up by the Information Commissioner, Mr Jay Fedorak, and the Deputy Information Commissioner, Mr Paul Vane.</p>
+
+
+		<p>The DPAJL also sets out the powers, enforcement capabilities and statutory functions of the Data Protection Authority and OIC. Furthermore, it sets out the framework for the registration of controllers and processors and the associated fees.</p>
 		</div>
 	</div>
 
 </div>
 
 <div class="aboutRegulationsLawsSection">
-	<div class="pineappleImageBackground">
-	<%= image_tag("frontend/pineapple.jpg", class: "pineapple-image") %>
+	<div class="securityImageBackground">
+	<%= image_tag("frontend/computer_security.jpg", class: "security-image") %>
 	</div>
 
 	<div class="aboutJerseyRegulationsLaws textSection">
 
-		<h2>JERSEY REGULATIONS LAWS</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sapien in sem elementum dictum. Vestibulum quis bibendum nisl, ac varius nunc. Aliquam bibendum ac leo vitae gravida. Aenean eget dictum dui. Ut nec porttitor nibh, et tristique felis. Sed nec leo euismod erat venenatis lacinia. Morbi porta, purus eget maximus laoreet, enim ipsum auctor arcu, in commodo nisl diam nec ante.</p>
+		<h2>DATA PROTECTION (Registration and Charges)(Jersey) REGULATIONS 2018</h2>
+		<p>These Regulations are created from Articles 18 and 46 of the DPAJL and set out the registration requirements for controllers and processers, as well as the fees associated with registration. The intention is to replace these Regulations in early 2019 once the Data Protection Authority establishes a new model of registration.</p>
 	</div>
 
 </div>
+
+<div class="infographicsTitle">
+	<h2>INFOGRAPHICS</h2>
+</div>
+
+<div class="infographics">
+	<% Infographic.all.each do |infographic| %>
+		<%= image_tag infographic.image.url, :data => { :lightbox => 'infographic' }, id: 'largeInfographic', class: 'infographic' %>
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+		</div>
+	<% end %>
+</div>
+
 <div class="contact-details" id="contact_link" >
+
 <div class="contact-section">
 
 	<h2>CONTACT FORM</h2>
@@ -121,10 +141,14 @@
 
     <div class="contact-form-right">
       <h2> ADDRESS </h2>
-      <p> 29 Acacia Road </p>
+      <p> Office of the Information Commissioner </p>
+      <p> Brunel House </p>
+      <p> Old Street </p>
       <p> St Helier </p>
+      <p> Jersey </p>
+      <p> JE2 3RG </p>
       <h2> TELEPHONE </h2>
-      <p> 01534 555555 </p>
+      <p> +44 (0)1534 716530 </p>
 
 
 

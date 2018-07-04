@@ -13,9 +13,9 @@ class Frontend::HomeController < FrontendController
 
     if @message.valid?
       MessageMailer.contact_us(@message).deliver_now
-      redirect_to root_path, notice: "Thank you for contacting us, we'll get back to you soon"
+      redirect_to root_path(anchor: 'contact_link') , notice: "Thank you for contacting us, we'll get back to you soon"
     else
-      redirect_to root_path, notice: "Message not sent. Please fill out all fields."
+      redirect_to root_path(anchor: 'contact_link') , notice: "Message not sent. Please fill out all fields."
     end
   end
 
@@ -52,6 +52,9 @@ class Frontend::HomeController < FrontendController
     @groups=Group.all
   end
 
+  def Infographic
+    
+  end
 
   def search_all
     @articles = Article.search(params[:search]).where(published: true)
@@ -74,6 +77,8 @@ class Frontend::HomeController < FrontendController
     # pp @objects
   end
 
+  def terms_cond
+  end
 
   private
 

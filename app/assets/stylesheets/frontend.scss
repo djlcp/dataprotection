@@ -51,7 +51,7 @@
 
 	h2 a {
 		text-decoration: none;
-		color: $dark_grey; 
+		color: $dark_grey;
 	}
 
 	p {
@@ -59,7 +59,7 @@
 
 		a {
 			text-decoration: none;
-			color: $dark_grey; 
+			color: $dark_grey;
 		}
 	}
 
@@ -311,4 +311,18 @@ tr td {
     text-decoration: underline;
   }
 
+}
+
+/**************** TERMS&CONDITIONS *********************/
+
+.terms_cond {
+  margin: 80px 40px 60px 40px;
+  h1{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  ol li{
+    text-indent: 30px;
+    text-decoration: underline;
+  }
 }

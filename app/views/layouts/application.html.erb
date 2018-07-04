@@ -26,7 +26,7 @@
 
           <li class="websiteUser removeMargin">
             <% if user_signed_in? %>
-              Hello, <%= current_user.email %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+              Hello, <%= current_user.first_name%> <%= current_user.last_name %> - <strong><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class: 'sign_out' %></strong>
             <% else %>
               You are not signed in
             <% end %>
@@ -40,22 +40,27 @@
 
     <nav class="leftNav">
 
-      <h1>Logo</h1>
 
-      <div class="searchField">
+      	<%= image_tag("frontend/JSY_transparent_white.png", class: "computer-image") %>
+
+
         <% if user_signed_in? %>
           <!-- http://www.rymcmahon.com/articles/2 -->
-          <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
-            <%= submit_tag "Search", :name => nil %>
+
+          <%= form_tag(admin_articles_path, :method => "get", id: "search-form", class: "searchForm") do %>
+            <%= text_field_tag :search, params[:search], placeholder:"Search all articles", class: "searchField " %>
+            <%= submit_tag "Search", :name => nil, class: "searchButton"%>
+
           <% end %>
         <% else %>
-          <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search all articles" %>
-            <%= submit_tag "Search", :name => nil %>
+          <%= form_tag(articles_path, :method => "get", id: "search-form", class: "searchForm") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search published articles", class: "searchField" %>
+            <%= submit_tag "Search", :name => nil, class: "searchButton" %>
           <% end %>
         <% end %>
-     </div>
+
+
+
 
     <ul class='list'>
     <li><%= link_to 'Law Groups', admin_groups_path %></li>
@@ -109,6 +114,7 @@
               </li>
             </ul>
           <% end %>
+          <li><%= link_to 'Infographics', admin_infographics_path %></li>
         </ul>
       </li>
 
