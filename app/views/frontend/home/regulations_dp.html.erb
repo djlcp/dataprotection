@@ -87,7 +87,6 @@
 				</tr>
 				<tr class="gdprRecitalText">
 					<td colspan="3">
-						<p>GDPR Recital</p>
 
 						<% article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id).each do |article|%>
 							<%= sanitize article.content %>
@@ -101,6 +100,7 @@
 						<% article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id).each do |article|%>
 							<%= sanitize article.content %>
 						<% end%>
+						
 
         	</td>
 				</tr>

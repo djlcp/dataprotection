@@ -226,7 +226,11 @@
 
     .flickity-viewport, .flickity-slider {
     	height: 100px!important;
-    }
+	}
+	
+	.flickity-page-dots {
+		display: none;
+	}
 
     .lawsIndexSection {
        margin: 30px auto;
