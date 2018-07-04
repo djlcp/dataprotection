@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     get 'authority_dp' => 'home#authority_dp'
     get 'dp_laws' => 'home#dp_laws'
     get 'search_all' => 'home#search_all'
+
     get 'home/terms_cond', to: 'home#terms_cond'
+
+    get 'infographics' => 'home#index'
+
 
   end
 
@@ -37,6 +41,7 @@ end
     resources :articles
     resources :categories
     resources :groups
+    resources :infographics, only: %i[index new create destroy]
     resources :users
   end
 

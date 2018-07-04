@@ -19,11 +19,15 @@ class Article < ApplicationRecord
   end
   
   def display_title
-    "#{title} - #{category.group.title}"
+    # "#{category.group.title} - #{title}"
+    "#{category.title} #{number}.#{letter}  #{title}" 
   end
 
   def article_selected
     Article.where(group_id: id)
-
   end
+
+
+
+
 end
