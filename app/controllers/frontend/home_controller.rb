@@ -74,6 +74,8 @@ class Frontend::HomeController < FrontendController
     # pp @objects
   end
 
+  def terms_cond
+  end
 
   private
 

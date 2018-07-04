@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'authority_dp' => 'home#authority_dp'
     get 'dp_laws' => 'home#dp_laws'
     get 'search_all' => 'home#search_all'
+    get 'home/terms_cond', to: 'home#terms_cond'
 
   end
 

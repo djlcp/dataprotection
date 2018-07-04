@@ -252,13 +252,13 @@
 }
 
 @media print {
-  
+
   body{
     background-color: #FFFFFF !important;
     background-image: none !important;
     color: #000000 !important;
   }
-  
+
   .mainNav {
     display: none !important;
   }
@@ -288,4 +288,18 @@
     text-decoration: underline;
   }
 
+}
+
+/**************** TERMS&CONDITIONS *********************/
+
+.terms_cond {
+  margin: 80px 40px 60px 40px;
+  h1{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  ol li{
+    text-indent: 30px;
+    text-decoration: underline;
+  }
 }
