@@ -2,7 +2,7 @@
 $dark_grey: #505050;
 
 footer {
-	background: $dark_grey;
+	background: $gdpr_dark;
 	min-height: 20px;
 	color: #ffffff;
     bottom: 0;
@@ -13,6 +13,10 @@ footer {
 	p {
 		margin-left: auto;
 		font-size: 12px;
+	}
+
+	a, a:visited {
+		color: #ffffff;
 	}
 }
 

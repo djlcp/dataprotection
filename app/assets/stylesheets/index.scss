@@ -88,23 +88,24 @@ a {
 
 .contact-details {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   background-color: $gdpr_dark;
   color: #ffffff;
   padding: 50px 20px;
 
+	.contact-section, .contact-form-right {
+		width: 100%;
 
+			h2 {
+			margin-top: 0;
+		}
 
-
-
-.contact-section, .contact-form-right {
-	width: 45%;
-
-		h2 {
-		margin-top: 0;
 	}
 
-}
+	.contact-form-right {
+		margin-top: 50px;
+	}
 
 	input[type=text], input[type=email], select, textarea {
 	    width: 100%;
@@ -146,6 +147,33 @@ a {
 	display: inline-block;
 }
 
+@media screen and (min-width: 540px) {
+	.infographics {
+		max-width: 900px;
+		margin: 20px auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		display: flex;
+    	justify-content: space-evenly;
+	}
+}
+
+@media screen and (min-width: 766px) /* tablet */ {
+	.contact-details {
+		flex-direction: row;
+	  
+	  	.contact-section, .contact-form-right {
+		  width: 45%; 
+	  	}
+
+	  	.contact-form-right {
+			margin-top: 0;
+		}
+	}
+
+}
+
 @media screen and (min-width: 932px) /* Desktop */ {
 
 	.hero-image {
@@ -156,15 +184,6 @@ a {
 	.lawsBox > h2 {
 		font-size: 25px;
 	}
-
-	.infographics {
-		max-width: 900px;
-		margin: 20px auto;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-
 
 }
 
