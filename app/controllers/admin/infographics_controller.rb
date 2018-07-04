@@ -27,8 +27,8 @@ module Admin
 
 		private
 
-		def infographic_params
-			params.require(:infographic).permit(:image)
+		def infographic_params	
+				params.require(:infographic).permit(:image)
 		end
 
 		def set_infographic

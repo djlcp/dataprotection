@@ -43,7 +43,6 @@ $gdpr_dark: #373F48;
 
 .topBar {
 	height: 55px;
-	line-height: 32px;
 	background-color: $dark_grey;
 	width: 100%;
 	color: #ffffff;
@@ -364,4 +363,9 @@ main {
 
 img.bk-end-logo {
     max-width: 150px;
+		margin-top: 8px;
+}
+
+li.websiteUser.removeMargin{
+	margin-top: 16px;
 }
