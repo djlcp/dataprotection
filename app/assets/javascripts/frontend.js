@@ -24,24 +24,24 @@ $(document).on('turbolinks:load', function() {
 	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
 
 	$( ".gdprArticle" ).click(function() {
-		$( ".gdprArticleText" ).toggle();
-	  	// $( ".gdprRecitalText, .guidanceNoteText" ).hide();
-	  	// $( ".gdprRecital, .guidanceNote" ).removeClass('selectedNoteHeader');
-	  	$(this).toggleClass('selectedNoteHeader');
+		$( ".gdprArticleText" ).show();
+	  	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
+	  	$( ".gdprRecital, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 	$( ".gdprRecital" ).click(function() {
-		$( ".gdprRecitalText" ).toggle();
-	  	// $( ".gdprArticleText, .guidanceNoteText" ).hide();
-	  	// $( ".gdprArticle, .guidanceNote" ).removeClass('selectedNoteHeader');
-	  	$(this).toggleClass('selectedNoteHeader');
+		$( ".gdprRecitalText" ).show();
+	  	$( ".gdprArticleText, .guidanceNoteText" ).hide();
+	  	$( ".gdprArticle, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 	$( ".guidanceNote" ).click(function() {
-		$( ".guidanceNoteText" ).toggle();
-	  	// $( ".gdprArticleText, .gdprRecitalText" ).hide();
-	  	// $( ".gdprRecital, .gdprArticle" ).removeClass('selectedNoteHeader');
-	  	$(this).toggleClass('selectedNoteHeader');
+		$( ".guidanceNoteText" ).show();
+	  	$( ".gdprArticleText, .gdprRecitalText" ).hide();
+	  	$( ".gdprRecital, .gdprArticle" ).removeClass('selectedNoteHeader');
+	  	$(this).addClass('selectedNoteHeader');
 	});
 
 
