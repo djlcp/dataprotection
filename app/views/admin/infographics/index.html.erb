@@ -1,0 +1,24 @@
+Index for infographics
+
+<% @infographics.each do |infographic| %>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Infographic</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= image_tag infographic.image.url, class: 'infographic' %></td>
+				<td><%= link_to 'Delete', admin_infographic_path(infographic), method: :delete, data: { confirm: 'Are you sure you want to delete this?' } %></td>
+			</tr>
+		</tbody>
+	</table>
+
+<% end %>
+
+<p>
+	<%= link_to 'New infographic', new_admin_infographic_path %>
+</p>

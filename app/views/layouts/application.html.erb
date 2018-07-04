@@ -71,7 +71,22 @@
 
 
             <li class='js-group-title item--clickable flex flex--items-align flex--justify-between'>
-              <%= group.title %> <i class="fas fa-animate fa-fw fa-caret-down"></i>
+              <%#= group.title %>
+              <% case group.title %>
+                <% when "Data Protection (Jersey) Law 2018" %>
+                Data Protection
+                <% when "Data Protection Authority (Jersey) Law 2018" %>
+                Data Protection Authorities
+                <% when "Data Protection (Registration and Charges) (Jersey) Regulations 2018" %>
+                Data Protection Regulation
+                <% when "General Data Protection Regulation" %>
+                GDPR
+                <% when "Guidance Notes" %>
+                Guidance
+
+              <% end %>
+
+              <i class="fas fa-animate fa-fw fa-caret-down"></i>
             </li>
 
             <ul class='js-group-categories list--indented'>
@@ -97,6 +112,7 @@
               </li>
             </ul>
           <% end %>
+          <li><%= link_to 'Infographics', admin_infographics_path %></li>
         </ul>
       </li>
 

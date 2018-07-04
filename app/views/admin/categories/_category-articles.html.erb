@@ -1,0 +1,34 @@
+<table class="indexTable">
+  <thead>
+    <tr>
+
+      <th class="thPublished">Published</th>
+      <th class="thTitle">Title</th>
+      <th class="thContent">Content</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% Article.all.where(category_id: @category.id).each do |article|  %>
+      <tr class="rowAlternateColor">
+
+        <% if article.published %>
+          <td> published </td>
+        <% else %>
+          <td> Unpublished </td>
+        <% end %>
+        <td> <%= article.title %> </td>
+        <td> <%= article.content.truncate(17) %> </td>
+        
+        <td class="showEditDestroyColumns"><%= link_to 'Show', admin_article_path(article) %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article, scope: article.category.group) %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

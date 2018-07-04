@@ -24,24 +24,24 @@ $(document).on('turbolinks:load', function() {
 	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
 
 	$( ".gdprArticle" ).click(function() {
-		$( ".gdprArticleText" ).show();
-	  	$( ".gdprRecitalText, .guidanceNoteText" ).hide();
-	  	$( ".gdprRecital, .guidanceNote" ).removeClass('selectedNoteHeader');
-	  	$(this).addClass('selectedNoteHeader');
+		$( ".gdprArticleText" ).toggle();
+	  	// $( ".gdprRecitalText, .guidanceNoteText" ).hide();
+	  	// $( ".gdprRecital, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).toggleClass('selectedNoteHeader');
 	});
 
 	$( ".gdprRecital" ).click(function() {
-		$( ".gdprRecitalText" ).show();
-	  	$( ".gdprArticleText, .guidanceNoteText" ).hide();
-	  	$( ".gdprArticle, .guidanceNote" ).removeClass('selectedNoteHeader');
-	  	$(this).addClass('selectedNoteHeader');
+		$( ".gdprRecitalText" ).toggle();
+	  	// $( ".gdprArticleText, .guidanceNoteText" ).hide();
+	  	// $( ".gdprArticle, .guidanceNote" ).removeClass('selectedNoteHeader');
+	  	$(this).toggleClass('selectedNoteHeader');
 	});
 
 	$( ".guidanceNote" ).click(function() {
-		$( ".guidanceNoteText" ).show();
-	  	$( ".gdprArticleText, .gdprRecitalText" ).hide();
-	  	$( ".gdprRecital, .gdprArticle" ).removeClass('selectedNoteHeader');
-	  	$(this).addClass('selectedNoteHeader');
+		$( ".guidanceNoteText" ).toggle();
+	  	// $( ".gdprArticleText, .gdprRecitalText" ).hide();
+	  	// $( ".gdprRecital, .gdprArticle" ).removeClass('selectedNoteHeader');
+	  	$(this).toggleClass('selectedNoteHeader');
 	});
 
 
@@ -64,5 +64,24 @@ $(document).on('turbolinks:load', function() {
 		$('.articleSectionHide[data-article != '+articleTitleElement+']').removeClass('active');
 	});
 
+	// Infographics
+
+	$( ".infographic" ).click(function() {
+		$(".infographic").not(this).hide();
+		$( this ).css({"max-width": "900px",
+						"width": "100%", 
+						"max-height": "100%",
+						"max-height": "550px",
+						"margin": "0px auto"});
+		$('.close').show();
+		$(this).parent('.infographics').addClass('infographicsModal');
+	});
+
+	$('.close').click(function() {
+		$(".infographic").show();
+		$('.infographic').css({ "max-width": "250px", "max-height": "160px"});
+		$('.infographics').removeClass('infographicsModal');
+		$('.close').hide();
+	})
 
 });

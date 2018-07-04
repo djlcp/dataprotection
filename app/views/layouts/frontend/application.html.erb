@@ -35,9 +35,8 @@
       <% end %>
       <ul class="linksContainer">
         <li><%= link_to 'LAWS', '/dp_laws' %></li>
-        <li><%= link_to 'ABOUT', root_path(anchor: 'index_about')  %></li>
-        <li><%= link_to 'CONTACT', '#contact_link' %></li>
-
+        <li><%= link_to 'ABOUT', root_path(anchor: 'about_link') %></li>
+        <li><%= link_to 'CONTACT', root_path(anchor: 'contact_link') %></li>
       </ul>
 
 
@@ -65,6 +64,9 @@
     </nav>
 
     <%= yield %>
+    <footer>
+    <p>Jersey ICO Copyright <%= Time.current.year %></p>
+    </footer>
 
 <!--add a sign out alert  -->
 
@@ -102,6 +104,5 @@
         </div>
       </div>
     <% end %>
-
   </body>
 </html>
