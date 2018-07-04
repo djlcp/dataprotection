@@ -81,7 +81,7 @@
 
 				<tr class="gdprArticleText">
 					<td colspan="3">
-
+            <h4>GDPR Article</h4>
 						<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
 							<%= sanitize article.content %>
 						<% end%>
@@ -91,7 +91,7 @@
 
 				<tr class="gdprRecitalText">
 					<td colspan="3">
-
+            <h4>GDPR Recital</h4>
 						<% article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id).each do |article|%>
 							<%= sanitize article.content %>
 						<% end%>
@@ -101,7 +101,7 @@
 
 				<tr class="guidanceNoteText">
 					<td colspan="3">
-
+            <h4>Guidance Note</h4>
 						<% article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id).each do |article|%>
 							<%= sanitize article.content %>
 						<% end%>
