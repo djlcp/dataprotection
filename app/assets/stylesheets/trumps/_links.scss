@@ -1,0 +1,14 @@
+$dark_grey: #505050;
+$gdpr_red: #b22328;
+$gdpr_dark: #373F48;
+
+.link {
+  color: $dark_grey;
+  text-decoration: none;
+}
+.link:visited {
+  color: $dark_grey;
+}
+.link:hover {
+  color: lighten($dark_grey, 20%);
+}

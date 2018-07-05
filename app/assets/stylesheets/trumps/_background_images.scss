@@ -1,0 +1,22 @@
+.background-image--cliffs {
+  background-image: asset_url('frontend/jersey-index.jpg');
+  background-size: cover;
+}
+
+.background-image--computer {
+  background-image: asset_url('frontend/computer.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.background-image--desk {
+  background-image: asset-url('frontend/desk.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.background-image--security {
+  background-image: asset-url('frontend/computer_security.jpg');
+  background-size: cover;
+  height: 100%;
+}

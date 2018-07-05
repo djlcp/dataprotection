@@ -2,9 +2,14 @@
 @import "index/index_nav.scss";
 @import "index/index_main.scss";
 @import "frontend/frontend_footer.scss";
+@import './trumps/links';
+@import './trumps/text';
+@import './trumps/flex';
+@import './trumps/background_images';
+@import './trumps/content_wrap';
 
 a {
-		text-decoration: none;
+  text-decoration: none;
 }
 
 .top-section {
@@ -20,12 +25,13 @@ a {
 }
 
 .lawsBox {
-    position: absolute;
-    top: 200px;
+    //position: absolute;
+    //top: 200px;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: 10;
+    //height: 100%;
+    //z-index: 10;
+  padding: 40px 0 !important;
 
     h2 {
 	    padding: 0 20px;
@@ -37,7 +43,7 @@ a {
 
 .lawTitleBox {
 	flex-direction: column;
-	max-width: 315px;
+	max-width: 500px;
 	text-align: center;
 	padding: 10px 25px;
     margin: 0 auto;
@@ -50,7 +56,7 @@ a {
 		font-size: 18px;
 	}
 	p {
-		font-size: 14px;
+		//font-size: 14px;
 	}
 
 	a:visited {
@@ -60,12 +66,12 @@ a {
 
 .textSection {
 	p {
-		padding: 0 20px;
-		font-size: 14px;
+      //padding: 0 20px;
+      //font-size: 14px;
 	}
 
 	h2 {
-		padding: 30px 20px 0;
+      //padding: 0 20px 0;
 	}
 }
 
@@ -191,7 +197,7 @@ a {
 
 @media screen and (min-width: 1024px) /* Desktop */ {
 	p {
-		font-size: 12px;
+		//font-size: 12px;
 	}
 
 	h2 {
@@ -223,7 +229,7 @@ a {
 
 		.lawTitleBox {
 			flex-direction: column;
-			max-width: 315px;
+			//max-width: 5px;
 			text-align: center;
 			padding: 10px 25px;
 
@@ -235,7 +241,7 @@ a {
 
 	.about-section {
 		background-color: $gdpr_dark;
-	    padding: 100px;
+	    padding: 50px;
 	    color: #ffffff;
 		margin-top: 0;
 	}
@@ -334,37 +340,39 @@ a {
 
 @media screen and (min-width: 1360px) /* Desktop */ {
 	.top-section {
-
-		img {
-	    	height: 100%;
-		}
+      img {
+        height: 100%;
+      }
 	}
 
 	.lawsBox {
+      margin: auto 0;
+      //margin-left: -170px;
+      //position: static;
+      background-color: #ffffff;
+      //width: 600px;
+      padding: 40px 155px;
 
-	    margin: auto 0;
-	    margin-left: -170px;
-	    position: static;
-	    background-color: #ffffff;
-	    width: 600px;
-	    padding: 40px 155px;
+      h2 {
+        color: $dark_grey;
+        max-width: 315px;
+      }
 
-	    h2 {
-				color: $dark_grey;
-				max-width: 315px;
-			}
+      .lawTitleBox {
+        flex-direction: column;
+        //max-width: 315px;
+        text-align: center;
+        padding: 10px 25px;
 
-		.lawTitleBox {
-			flex-direction: column;
-			max-width: 315px;
-			text-align: center;
-			padding: 10px 25px;
-
-			a:visited {
-				color: $dark_grey;
-			}
-		}
+        a:visited {
+          color: $dark_grey;
+        }
+      }
 	}
+
+  .aboutJerseyLaws {
+    padding: 50px;
+  }
 
 
 	.aboutJerseyLawsSection .aboutJerseyLaws {

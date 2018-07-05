@@ -1,4 +1,4 @@
-<table class="indexTable">
+<table class="indexTable" style="width:100%">
   <thead>
     <tr>
       <% if @form_params.type == "article" %>
@@ -6,9 +6,8 @@
         <th>Letter</th>
       <% end %>
 
-      <th class="thPublished">Published</th>
+      <th class="thPublished" style="width:10%">Status</th>
       <th class="thTitle">Title</th>
-      <th class="thContent">Content</th>
       <th class="thCategory">Category</th>
       <th class="thGroup">Group</th>
 
@@ -28,14 +27,13 @@
         <% end %>
 
         <% if article.published %>
-          <td> published </td>
+          <td> Published </td>
         <% else %>
           <td> Unpublished </td>
         <% end %>
-        <td><%= article.title %></td>
-        <td><%= sanitize article.content.truncate(17) %></td>
-        <td><%= article.category.title %></td>
-        <td><%= article.category.group.title %></td>
+        <td><%= article.title.titleize %></td>
+        <td><%= article.category.title.titleize %></td>
+        <td><%= article.category.group.title.titleize %></td>
 
         <td class="showEditDestroyColumns"><%= link_to 'Show', admin_article_path(article) %></td>
         <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_article_path(article, scope: article.category.group) %></td>

@@ -2,162 +2,255 @@
 
 <div class="">
 
-<div class="top-section">
+  <div class="row">
+    <div class="col-md-1-2 background-image--cliffs">
+      <%#= image_tag("frontend/jersey-index.jpg", class: "hero-image") %>
+    </div>
 
-	<%= image_tag("frontend/jersey-index.jpg", class: "hero-image") %>
-	<div class="container lawsBox">
+    <div class="col-md-1-2">
+      <div class="container lawsBox">
 
-		<h2>YOUR GUIDE TO GDPR IN JERSEY</h2>
-		<div class="lawTitleBox border-right" data-group="group-1">
-			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></h2>
-			<p><%= link_to 'A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
-		</div>
+        <h2>YOUR GUIDE TO GDPR IN JERSEY</h2>
+        <div class="lawTitleBox border-right" data-group="group-1">
+          <%= link_to '/dp_laws', class: 'link' do %>
+            <h2 class="lawTitle">DATA PROTECTION (JERSEY) LAW 2018</h2>
+            <p class="text-grey">
+              A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.
+            </p>
+          <% end %>
+        </div>
 
-		<div class="lawTitleBox border-right" data-group="group-2">
-			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></h2>
-			<p><%= link_to 'A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.', '/authority_dp' %></p>
-			<h2 class="lawTitle"></h2>
-			<p></p>
-		</div>
+        <div class="lawTitleBox border-right" data-group="group-2">
+          <%= link_to '/authority_dp', class: 'link' do %>
+            <h2 class="lawTitle">
+              DATA PROTECTION AUTHORITY (JERSEY) LAW 2018
+            </h2>
+            <p class="text-grey">
+              A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.
+            </p>
+          <% end %>
+        </div>
 
-		<div class="lawTitleBox" data-group="group-3">
-			<h2 class="lawTitle"><%= link_to 'DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018', '/regulations_dp' %></h2>
-			<p></p>
-		</div>
-	</div>
+        <div class="lawTitleBox" data-group="group-3">
+          <%= link_to '/regulations_dp', class: 'link' do %>
+            <h2 class="lawTitle">DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
+<!--  <div class="top-section">-->
 
-<div class="about-section textSection">
-	<div class="shiftRight" id="about_link" >
-	<h2>ABOUT US</h2>
-	<p>The Office of the Information Commissioner (OIC) is a statutory Authority responsible for regulating the Data Protection (Jersey) Law 2018 and the Data Protection Authority (Jersey) Law 2018, together with associated subordinate Regulations.  The OIC also regulates the Freedom of Information (Jersey) Law 2011. This resource enables easy access to both Data Protection Laws and Regulations and allows users to see the equivalent provisions in the European General Data Protection Regulation (GDPR). We have also provided links to relevant guidance which may be updated and added to in due course.</p>
-	<p>We hope you will find the resource useful.</p>
-	</div>
-</div>
+    <%#= image_tag("frontend/jersey-index.jpg", class: "hero-image") %>
+<!--    <div class="container lawsBox">-->
 
-<div class="aboutJerseyLawsSection">
-	<div class="computerImageBackground">
-	<%= image_tag("frontend/computer.jpg", class: "computer-image") %>
-	</div>
+<!--      <h2>YOUR GUIDE TO GDPR IN JERSEY</h2>-->
+<!--      <div class="lawTitleBox border-right" data-group="group-1">-->
+        <%#= link_to '/dp_laws', class: 'link' do %>
+<!--          <h2 class="lawTitle">DATA PROTECTION (JERSEY) LAW 2018</h2>-->
+<!--          <p class="text-grey">-->
+<!--            A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.-->
+<!--          </p>-->
+        <%# end %>
+<!--      </div>-->
 
-	<div class="aboutJerseyLaws textSection">
+<!--      <div class="lawTitleBox border-right" data-group="group-2">-->
+        <%#= link_to '/authority_dp', class: 'link' do %>
+<!--          <h2 class="lawTitle">-->
+<!--            DATA PROTECTION AUTHORITY (JERSEY) LAW 2018-->
+<!--          </h2>-->
+<!--          <p class="text-grey">-->
+<!--            A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.-->
+<!--          </p>-->
+        <%# end %>
+<!--      </div>-->
 
+<!--      <div class="lawTitleBox" data-group="group-3">-->
+        <%#= link_to '/regulations_dp', class: 'link' do %>
+<!--          <h2 class="lawTitle">DATA PROTECTION (REGISTRATION AND CHARGES) (JERSEY) REGULATIONS 2018</h2>-->
+        <%# end %>
+<!--      </div>-->
+<!--    </div>-->
 
-		<h2>DATA PROTECTION (Jersey) LAW 2018 (the DPJL)</h2>
-		<p>The DPJL replaced the former 2005 Law on 25th May 2018. It mirrors many of the of the provisions of GDPR and its purpose is to protect natural persons in relation to the processing and free movement of their personal information.<br>Fundamentally, the Law is about updating and extending the provisions that have been in place for many years to recognise technological advancements, and to provide individuals with greater control over what happens to their personal information. It includes additional rights for data subjects and greater accountability and transparency requirements for organisations.</p>
-	</div>
+<!--  </div>-->
 
-</div>
+  <div class="about-section textSection">
+    <div class="shiftRight content-wrap" id="about_link" >
+      <h2>ABOUT US</h2>
+      <p>The Office of the Information Commissioner (OIC) is a statutory Authority responsible for regulating the Data Protection (Jersey) Law 2018 and the Data Protection Authority (Jersey) Law 2018, together with associated subordinate Regulations.  The OIC also regulates the Freedom of Information (Jersey) Law 2011. This resource enables easy access to both Data Protection Laws and Regulations and allows users to see the equivalent provisions in the European General Data Protection Regulation (GDPR). We have also provided links to relevant guidance which may be updated and added to in due course.</p>
+      <p>We hope you will find the resource useful.</p>
+    </div>
+  </div>
 
-<div class="aboutAuthorityLawsSection">
-	<div class="deskImageBackground">
-	<%= image_tag("frontend/desk.jpg", class: "desk-image") %>
-	</div>
-
-	<div class="aboutJerseyAuthorityLaws textSection">
-		<div class="shiftRight authorityLawsText">
-
-
-		<h2>DATA PROTECTION AUTHORITY (Jersey) LAW 2018 (the DPAJL)</h2>
-		<p>The DPAJL also came into effect on 25th May 2018 and creates a new statutory body responsible for overseeing the protection of personal information of natural persons. This body is known in Law as the Data Protection Authority and is chaired by Mr Jacob Kohnstamm. The Authority oversees the activities of the OIC, which is headed up by the Information Commissioner, Mr Jay Fedorak, and the Deputy Information Commissioner, Mr Paul Vane.</p>
-
-
-		<p>The DPAJL also sets out the powers, enforcement capabilities and statutory functions of the Data Protection Authority and OIC. Furthermore, it sets out the framework for the registration of controllers and processors and the associated fees.</p>
-		</div>
-	</div>
-
-</div>
-
-<div class="aboutRegulationsLawsSection">
-	<div class="securityImageBackground">
-	<%= image_tag("frontend/computer_security.jpg", class: "security-image") %>
-	</div>
-
-	<div class="aboutJerseyRegulationsLaws textSection">
-
-		<h2>DATA PROTECTION (Registration and Charges)(Jersey) REGULATIONS 2018</h2>
-		<p>These Regulations are created from Articles 18 and 46 of the DPAJL and set out the registration requirements for controllers and processers, as well as the fees associated with registration. The intention is to replace these Regulations in early 2019 once the Data Protection Authority establishes a new model of registration.</p>
-	</div>
-
-</div>
-
-<div class="infographicsTitle">
-	<h2>INFOGRAPHICS</h2>
-</div>
-
-<div class="infographics">
-	<% Infographic.all.each do |infographic| %>
-		<%= image_tag infographic.image.url, :data => { :lightbox => 'infographic' }, id: 'largeInfographic', class: 'infographic' %>
-		<div id="myModal" class="modal">
-			<span class="close">&times;</span>
-			<img class="modal-content" id="img01">
-		</div>
-	<% end %>
-</div>
-
-<div class="contact-details" id="contact_link" >
-
-<div class="contact-section">
-
-	<h2>CONTACT FORM</h2>
-
-
-	<div class="contact-form">
-		<%= form_for @message, url: create_message_url do |f| %>
-			<%= @message.errors.full_messages.join(', ') %>
-
-
-
-			  	<div>
-			  		<label for="fullname">Full Name</label><br>
-						<%= f.text_field :full_name, class: "", placeholder: 'Full Name' %>
-					</div>
-
-					<div>
-						<label for="email">Email Address</label><br>
-						<%= f.email_field :email, class: "", placeholder: 'Email Address' %>
-	 				</div>
-
-					<div>
-						<label for="subject">Subject</label><br>
-						<%= f.text_field :subject_line, class: "", placeholder: 'Subject Line' %>
-					</div>
-
-					<div>
-						<label for="message">Message</label><br>
-						<%= f.text_area :body, class: "", placeholder: 'Your Message' %>
-					</div>
-
-					<div>
-						<%= f.submit 'Send Message', class: 'btn btn-warning btn-block' %>
-					</div>
-
-		<% end %>
+  <div class="row row--align-center h-md-500">
+    <div class="col-md-1-2 background-image--computer">
 
     </div>
 
-	</div>
+    <div class="col-md-1-2">
+      <div class="aboutJerseyLaws textSection">
+        <h2>DATA PROTECTION (Jersey) LAW 2018 (the DPJL)</h2>
+        <p>
+          The DPJL replaced the former 2005 Law on 25th May 2018. It mirrors many of the of the provisions of GDPR and its purpose is to protect natural persons in relation to the processing and free movement of their personal information.
+        </p>
+        <p>
+          Fundamentally, the Law is about updating and extending the provisions that have been in place for many years to recognise technological advancements, and to provide individuals with greater control over what happens to their personal information. It includes additional rights for data subjects and greater accountability and transparency requirements for organisations.
+        </p>
+      </div>
+    </div>
+  </div>
 
-    <div class="contact-form-right">
-      <h2> ADDRESS </h2>
-      <p> Office of the Information Commissioner </p>
-      <p> Brunel House </p>
-      <p> Old Street </p>
-      <p> St Helier </p>
-      <p> Jersey </p>
-      <p> JE2 3RG </p>
-      <h2> TELEPHONE </h2>
-      <p> +44 (0)1534 716530 </p>
+<!--  <div class="aboutJerseyLawsSection">-->
+<!--    <div class="computerImageBackground">-->
+    <%#= image_tag("frontend/computer.jpg", class: "computer-image") %>
+<!--    </div>-->
+
+<!--    <div class="aboutJerseyLaws textSection">-->
+<!--      <h2>DATA PROTECTION (Jersey) LAW 2018 (the DPJL)</h2>-->
+<!--      <p>The DPJL replaced the former 2005 Law on 25th May 2018. It mirrors many of the of the provisions of GDPR and its purpose is to protect natural persons in relation to the processing and free movement of their personal information.<br>Fundamentally, the Law is about updating and extending the provisions that have been in place for many years to recognise technological advancements, and to provide individuals with greater control over what happens to their personal information. It includes additional rights for data subjects and greater accountability and transparency requirements for organisations.</p>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+  <div class="row row--align-center h-md-500">
+
+    <div class="col-md-1-2">
+      <div class="aboutJerseyLaws textSection">
+        <h2>DATA PROTECTION AUTHORITY (Jersey) LAW 2018 (the DPAJL)</h2>
+        <p>
+          The DPAJL also came into effect on 25th May 2018 and creates a new statutory body responsible for overseeing the protection of personal information of natural persons. This body is known in Law as the Data Protection Authority and is chaired by Mr Jacob Kohnstamm. The Authority oversees the activities of the OIC, which is headed up by the Information Commissioner, Mr Jay Fedorak, and the Deputy Information Commissioner, Mr Paul Vane.
+        </p>
+        <p>
+          The DPAJL also sets out the powers, enforcement capabilities and statutory functions of the Data Protection Authority and OIC. Furthermore, it sets out the framework for the registration of controllers and processors and the associated fees.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-1-2 background-image--desk">
+
+    </div>
+  </div>
+
+<!--  <div class="aboutAuthorityLawsSection">-->
+<!--    <div class="deskImageBackground">-->
+    <%#= image_tag("frontend/desk.jpg", class: "desk-image") %>
+<!--    </div>-->
+
+<!--    <div class="aboutJerseyAuthorityLaws textSection">-->
+<!--      <div class="shiftRight authorityLawsText">-->
 
 
+<!--      <h2>DATA PROTECTION AUTHORITY (Jersey) LAW 2018 (the DPAJL)</h2>-->
+<!--      <p>The DPAJL also came into effect on 25th May 2018 and creates a new statutory body responsible for overseeing the protection of personal information of natural persons. This body is known in Law as the Data Protection Authority and is chaired by Mr Jacob Kohnstamm. The Authority oversees the activities of the OIC, which is headed up by the Information Commissioner, Mr Jay Fedorak, and the Deputy Information Commissioner, Mr Paul Vane.</p>-->
+
+
+<!--      <p>The DPAJL also sets out the powers, enforcement capabilities and statutory functions of the Data Protection Authority and OIC. Furthermore, it sets out the framework for the registration of controllers and processors and the associated fees.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+  <div class="row row--align-center h-md-500">
+    <div class="col-md-1-2 background-image--security">
 
     </div>
 
+    <div class="col-md-1-2">
+      <div class="aboutJerseyLaws textSection">
+        <h2>DATA PROTECTION (Registration and Charges)(Jersey) REGULATIONS 2018</h2>
+        <p>
+          These Regulations are created from Articles 18 and 46 of the DPAJL and set out the registration requirements for controllers and processers, as well as the fees associated with registration. The intention is to replace these Regulations in early 2019 once the Data Protection Authority establishes a new model of registration.</p>
+      </div>
+    </div>
+  </div>
+
+<!--  <div class="aboutRegulationsLawsSection">-->
+<!--    <div class="securityImageBackground">-->
+    <%#= image_tag("frontend/computer_security.jpg", class: "security-image") %>
+<!--    </div>-->
+
+<!--    <div class="aboutJerseyRegulationsLaws textSection">-->
+
+<!--      <h2>DATA PROTECTION (Registration and Charges)(Jersey) REGULATIONS 2018</h2>-->
+<!--      <p>These Regulations are created from Articles 18 and 46 of the DPAJL and set out the registration requirements for controllers and processers, as well as the fees associated with registration. The intention is to replace these Regulations in early 2019 once the Data Protection Authority establishes a new model of registration.</p>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+  <div class="infographicsTitle">
+    <h2>INFOGRAPHICS</h2>
+  </div>
+
+  <div class="infographics">
+    <% Infographic.all.each do |infographic| %>
+      <%= image_tag infographic.image.url, :data => { :lightbox => 'infographic' }, id: 'largeInfographic', class: 'infographic' %>
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+      </div>
+    <% end %>
+  </div>
+
+  <div class="contact-details" id="contact_link" >
+
+  <div class="contact-section">
+
+    <h2>CONTACT FORM</h2>
 
 
-</div>
+    <div class="contact-form">
+      <%= form_for @message, url: create_message_url do |f| %>
+        <%= @message.errors.full_messages.join(', ') %>
 
 
+
+            <div>
+              <label for="fullname">Full Name</label><br>
+              <%= f.text_field :full_name, class: "", placeholder: 'Full Name' %>
+            </div>
+
+            <div>
+              <label for="email">Email Address</label><br>
+              <%= f.email_field :email, class: "", placeholder: 'Email Address' %>
+            </div>
+
+            <div>
+              <label for="subject">Subject</label><br>
+              <%= f.text_field :subject_line, class: "", placeholder: 'Subject Line' %>
+            </div>
+
+            <div>
+              <label for="message">Message</label><br>
+              <%= f.text_area :body, class: "", placeholder: 'Your Message' %>
+            </div>
+
+            <div>
+              <%= f.submit 'Send Message', class: 'btn btn-warning btn-block' %>
+            </div>
+
+      <% end %>
+
+      </div>
+
+    </div>
+
+      <div class="contact-form-right">
+        <h2> ADDRESS </h2>
+        <p> Office of the Information Commissioner </p>
+        <p> Brunel House </p>
+        <p> Old Street </p>
+        <p> St Helier </p>
+        <p> Jersey </p>
+        <p> JE2 3RG </p>
+        <h2> TELEPHONE </h2>
+        <p> +44 (0)1534 716530 </p>
+
+
+
+      </div>
+
+
+
+  </div>
 
 </div>

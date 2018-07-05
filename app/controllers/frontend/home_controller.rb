@@ -58,8 +58,9 @@ class Frontend::HomeController < FrontendController
 
   def search_all
     @articles = Article.search(params[:search]).where(published: true)
+    pp @articles
     # group by group_id going via category_id
-# .sort_by(group.id)
+    # .sort_by(group.id)
     objects = Group.all.map do |group|
       OpenStruct.new(id: group.id, title: group.title)
     end

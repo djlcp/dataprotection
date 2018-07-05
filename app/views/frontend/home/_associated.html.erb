@@ -1,0 +1,46 @@
+<tr class="gdprArticleText">
+  <td colspan="3">
+
+    <% articles = article.articles.where(category_id: Category.find_by(title: 'Articles')&.id) %>
+    <% if articles.present? %>
+      <% articles.each do |article|%>
+        <%= sanitize article.content %>
+      <% end %>
+    <% else %>
+      <p>
+        There are no associated Articles
+      </p>
+    <% end %>
+
+  </td>
+</tr>
+
+<tr class="gdprRecitalText">
+  <td colspan="3">
+
+    <% rectials = article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id) %>
+
+    <% if rectials.present? %>
+      <% rectials.each do |article|%>
+        <%= sanitize article.content %>
+      <% end%>
+    <% else %>
+      <p>There are no associated Recitals</p>
+    <% end %>
+  </td>
+</tr>
+
+<tr class="guidanceNoteText">
+  <td colspan="3">
+    <% notes = article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id) %>
+
+    <% if notes.present? %>
+      <% notes.each do |article|%>
+        <%= sanitize article.content %>
+      <% end%>
+    <% else %>
+      <p>There are no associated Notes</p>
+    <% end %>
+
+  </td>
+</tr>

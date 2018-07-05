@@ -23,7 +23,7 @@
 
 
 .lawBoxesSection {
-	padding: 80px;
+	padding: 50px;
 }
 
 .border-right {
@@ -93,27 +93,36 @@
 }
 
 .lawsIndexBox {
-	width: 200px;
-	border-left: 1px solid #063a5e;
-	border-right: 1px solid #063a5e;
-	border-top: 1px solid #063a5e;
+	width: 280px;
+	//border-left: 1px solid #063a5e;
+	//border-right: 1px solid #063a5e;
+	//border-top: 1px solid #063a5e;
+    border: 1px solid gainsboro;
+    border-bottom: none;
 	padding: 0;
     margin: 0;
 
 	.lawSelection {
-		height: 50px;
-		border-bottom: 1px solid #063a5e;
-		line-height: 50px;
-    	padding: 10px;
-    	cursor: pointer;
-	    display: flex;
-    	align-items: center;
+      //height: 50px;
+      border-bottom: 1px solid gainsboro;
+      //line-height: 50px;
+      padding: 15px;
+      cursor: pointer;
+      //display: flex;
+      //align-items: center;
 
-		p {
-			line-height: 12px;
-			font-size: 12px;
+      p {
+        //line-height: 12px;
+        font-size: 14px;
+      }
 
-		}
+      p:first-of-type {
+        margin-top: 0;
+      }
+
+      p:last-of-type {
+        margin-bottom: 0;
+      }
 	}
 }
 
@@ -130,22 +139,22 @@
 
 .articleSection {
 	h1 {
-		font-size: 18px;
-		padding: 12px 0;
+      font-size: 18px;
+      padding: 12px 0;
 	}
 
 	h2 {
-		font-size: 16px;
+      font-size: 17px;
 	}
 
 	p {
-		font-size: 14px;
+      font-size: 16px;
 	}
 
 	.articleContent {
-		padding-top: 5px;
-	    padding-left: 35px;
-	    margin-bottom: 80px;
+      padding-top: 5px;
+      padding-left: 35px;
+      margin-bottom: 80px;
 	}
 }
 
@@ -174,7 +183,7 @@
 	tr td {
 		padding: 20px 15px;
 		border: 2px solid $gdpr_red;
-		font-size: 14px;
+		font-size: 16px;
 
 	}
 }

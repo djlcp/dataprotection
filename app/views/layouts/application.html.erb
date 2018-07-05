@@ -22,11 +22,11 @@
 
         <ul class="flex-container space-between removeMargin ">
 
-          <li class="websiteName removeMargin">Website Name</li>
+          <li class="websiteName removeMargin"></li>
 
           <li class="websiteUser removeMargin">
             <% if user_signed_in? %>
-              Hello, <%= current_user.first_name%> <%= current_user.last_name %> - <strong><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class: 'sign_out' %></strong>
+              <strong><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete', class: 'sign_out' %></strong>
             <% else %>
               You are not signed in
             <% end %>
@@ -103,7 +103,7 @@
               <% group.categories.each do |category| %>
               <li class='flex flex--justify-between flex--items-align'>
                 <%= link_to admin_articles_path(scope: category.id) do %>
-                  <%= category.title %>
+                  <%= category.title.titleize %>
                 <% end %>
               </li>
               <% end %>

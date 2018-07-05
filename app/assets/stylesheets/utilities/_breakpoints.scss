@@ -1,0 +1,21 @@
+// Define our breakpoints
+$small: 500px;
+$medium: 790px;
+$medium-large: 960px;
+$large: 1200px;
+
+@mixin breakpoint($point) {
+
+  @if $point == small {
+    @media (min-width: $small) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: $medium) { @content; }
+  }
+  @else if $point == medium-large {
+    @media (min-width: $medium-large) { @content; }
+  }
+  @else if $point == large {
+    @media (min-width: $large) { @content; }
+  }
+}

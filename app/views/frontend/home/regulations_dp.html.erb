@@ -10,12 +10,12 @@
 	<div class="container lawsBox">
 		<div class="lawTitleBox border-right" data-group="group-1">
 			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION (JERSEY) LAW 2018', '/dp_laws' %></h2>
-			<p><%= link_to 'A LAW to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
+			<p><%= link_to 'A Law to make new and consolidated provision relating to the protection of natural persons with regard to the processing and free movement of personal data and for connected purposes.', '/dp_laws' %></p>
 		</div>
 
 		<div class="lawTitleBox border-right" data-group="group-2">
 			<h2 class="lawTitle "><%= link_to 'DATA PROTECTION AUTHORITY (JERSEY) LAW 2018', '/authority_dp' %></h2>
-			<p><%= link_to 'A LAW to provide for a new statutory body to oversee the protection of personal data and for connected purposes.', '/authority_dp' %></p>
+			<p><%= link_to 'A Law to provide for a new statutory body to oversee the protection of personal data and for connected purposes.', '/authority_dp' %></p>
 			<h2 class="lawTitle"></h2>
 			<p></p>
 		</div>
@@ -37,7 +37,8 @@
 			<% @articles.each do |article|  %>
 					<div class="lawSelection" data-article="article-<%= article.id %>">
 
-					<p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
+            <p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong></p>
+            <p><%= article.category.title.titleize %></p>
 				</div>
 			<% end %>
 
@@ -76,34 +77,8 @@
 					<th class="guidanceNote">Guidance Notes</th>
 				</tr>
 
-				<tr class="gdprArticleText">
-					<td colspan="3">
+        <%= render 'associated', article: article %>
 
-						<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-
-        	</td>
-				</tr>
-				<tr class="gdprRecitalText">
-					<td colspan="3">
-
-						<% article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-
-        	</td>
-				</tr>
-				<tr class="guidanceNoteText">
-					<td colspan="3">
-
-						<% article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-						
-
-        	</td>
-				</tr>
 			</table>
 
 		</div>

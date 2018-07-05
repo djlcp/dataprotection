@@ -1,18 +1,24 @@
 
 <h1>Categories</h1>
 
-<div class="searchField">
 
-    <%= form_tag(admin_categories_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Categories" %>
-      <%= submit_tag "Search", :name => nil %>
-    <% end %>
+<%= form_tag admin_categories_path, method: :get, id: "search-form", style: 'margin-bottom: 20px' do %>
+  <div class="row row-align-center">
+    <%= text_field_tag(
+      :search,
+      params[:search],
+      placeholder: "Search Categories",
+      style: 'padding: 10px 15px; font-size: 16px; width:50%')
+    %>
+    <%= submit_tag "Search", :name => nil, class: 'button' %>
+  </div>
 
-</div>
+<% end %>
 
-<%= link_to 'New Category', new_admin_category_path %>
 
-<table class="indexTable">
+<%= link_to 'Add New Category', new_admin_category_path %>
+
+<table class="indexTable" style="width:100%">
   <thead>
     <tr>
       <th class="thTitle">Title</th>
@@ -24,11 +30,11 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr class="rowAlternateColor">
-        <td><%= category.title %></td>
-        <td><%= category.group.title %></td>
-        <td class="showEditDestroyColumns"><%= link_to 'Show', admin_category_path(category) %></td>
-        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-        <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= category.title.titleize %></td>
+        <td><%= category.group.title.titleize %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Show', admin_category_path(category), class: 'link' %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Edit', edit_admin_category_path(category), class: 'link' %></td>
+        <td class="showEditDestroyColumns"><%= link_to 'Destroy', admin_category_path(category), class: 'link', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -38,7 +38,8 @@
 			<% @articles.each do |article|  %>
 					<div class="lawSelection" data-article="article-<%= article.id %>">
 
-					<p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong> <br> <%= article.category.title %>  </p>
+            <p><strong> <%= article.number %><%= article.letter %> <%= article.title %> </strong></p>
+            <p><%= article.category.title.titleize %>  </p>
 				</div>
 			<% end %>
 
@@ -79,35 +80,7 @@
 					<th class="guidanceNote">Guidance Notes</th>
 				</tr>
 
-				<tr class="gdprArticleText">
-					<td colspan="3">
-
-						<% article.articles.where(category_id: Category.find_by(title: 'Articles')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-
-		    	</td>
-				</tr>
-
-				<tr class="gdprRecitalText">
-					<td colspan="3">
-
-						<% article.articles.where(category_id: Category.find_by(title: 'Recitals')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-
-        	</td>
-				</tr>
-
-				<tr class="guidanceNoteText">
-					<td colspan="3">
-
-						<% article.articles.where(category_id: Category.find_by(title: 'Displayables')&.id).each do |article|%>
-							<%= sanitize article.content %>
-						<% end%>
-
-        	</td>
-				</tr>
+        <%= render 'associated', article: article %>
 
 			</table>
 

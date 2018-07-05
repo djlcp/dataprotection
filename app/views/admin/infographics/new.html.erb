@@ -1,5 +1,23 @@
 <%= form_for([:admin, @infographic], url: admin_infographics_path, html: { multipart: true }) do |f| %>
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-  <%= f.submit %>
+  <% if @infographic.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @infographic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form__row">
+    <%= f.label :image %>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :created_at %>
+
+  <div class="form__row">
+    <%= f.submit class: "button" %>
+  </div>
 <% end %>

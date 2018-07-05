@@ -1,0 +1,16 @@
+$dark_grey: #505050;
+$gdpr_red: #b22328;
+$gdpr_dark: #373F48;
+
+.text-grey {
+  color: $dark_grey !important;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
